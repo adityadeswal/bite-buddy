@@ -13,6 +13,7 @@ import { SEED, TODAY_ISO, TOMORROW_ISO, isoDate } from "./seed";
 import type {
   AppState,
   Cook,
+  DietType,
   Flat,
   Flatmate,
   MealTime,
@@ -23,8 +24,19 @@ import type {
   Suggestion,
   SuggestionStatus,
 } from "./types";
+import { backend, type BeFlatmate } from "@/lib/backend";
 
 const STORAGE_KEY = "bb:appstate:v1";
+
+export type BackendStatus =
+  | { kind: "idle" }
+  | { kind: "connecting" }
+  | {
+      kind: "connected";
+      counts: { cooks: number; flats: number; flatmates: number; recipes: number };
+      lastCheckedAt: string;
+    }
+  | { kind: "offline"; message: string };
 
 function loadInitial(): AppState {
   if (typeof window === "undefined") return SEED;
@@ -51,6 +63,7 @@ type MealSuggestionInput = {
 
 interface AppStore {
   state: AppState;
+  backend: BackendStatus;
   reset: () => void;
   // Persona
   signIn: (persona: Persona) => void;
@@ -101,6 +114,7 @@ function ensureDay(plan: PlanGrid, date: string): PlanGrid {
 export function AppStoreProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<AppState>(SEED);
   const [hydrated, setHydrated] = useState(false);
+  const [backendStatus, setBackendStatus] = useState<BackendStatus>({ kind: "idle" });
 
   // Hydrate from localStorage once on mount
   useEffect(() => {
@@ -117,6 +131,108 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       /* ignore quota errors */
     }
   }, [state, hydrated]);
+
+  // Hydrate from backend once after local hydration: seed (idempotent),
+  // fetch, and merge authoritative fields into the state.
+  useEffect(() => {
+    if (!hydrated) return;
+    let cancelled = false;
+    setBackendStatus({ kind: "connecting" });
+
+    (async () => {
+      try {
+        await backend.health();
+        await backend.seed().catch(() => null);
+        const [cooks, flats, flatmates, recipes] = await Promise.all([
+          backend.listCooks(),
+          backend.listFlats(),
+          backend.listFlatmates(),
+          backend.listRecipes(),
+        ]);
+        if (cancelled) return;
+
+        setState((s) => {
+          // Merge cooks: backend overrides name for known ids.
+          const cookById = new Map(s.cooks.map((c) => [c.id, c]));
+          for (const bc of cooks) {
+            const existing = cookById.get(bc.id);
+            cookById.set(bc.id, existing ? { ...existing, name: bc.name } : {
+              id: bc.id,
+              name: bc.name,
+              photo: "",
+              cuisines: [],
+              yearsExperience: 0,
+            });
+          }
+
+          // Merge flats: backend overrides address and cookId for known ids.
+          const flatById = new Map(s.flats.map((f) => [f.id, f]));
+          for (const bf of flats) {
+            const existing = flatById.get(bf.id);
+            flatById.set(bf.id, existing
+              ? { ...existing, address: bf.address, cookId: bf.cook_id }
+              : {
+                  id: bf.id,
+                  name: bf.id,
+                  address: bf.address,
+                  cookId: bf.cook_id,
+                  inviteCode: `BB-${bf.id.toUpperCase()}`,
+                  flatmateIds: [],
+                });
+          }
+
+          // Merge flatmates: backend overrides name/email/flatId/dietType.
+          const fmById = new Map(s.flatmates.map((f) => [f.id, f]));
+          for (const bfm of flatmates) {
+            const existing = fmById.get(bfm.id);
+            const diet: DietType =
+              bfm.diet_types.includes("non_veg") ? "non_veg" : "veg";
+            fmById.set(bfm.id, existing
+              ? { ...existing, name: bfm.name, flatId: bfm.flat_id, dietType: diet }
+              : {
+                  id: bfm.id,
+                  name: bfm.name,
+                  photo: "",
+                  phone: "",
+                  flatId: bfm.flat_id,
+                  dietType: diet,
+                  spiceTolerance: "medium",
+                  cuisines: [],
+                  allergies: [],
+                  dislikes: [],
+                  likes: [],
+                });
+          }
+
+          return {
+            ...s,
+            cooks: Array.from(cookById.values()),
+            flats: Array.from(flatById.values()),
+            flatmates: Array.from(fmById.values()),
+          };
+        });
+
+        setBackendStatus({
+          kind: "connected",
+          counts: {
+            cooks: cooks.length,
+            flats: flats.length,
+            flatmates: flatmates.length,
+            recipes: recipes.length,
+          },
+          lastCheckedAt: new Date().toISOString(),
+        });
+      } catch (e) {
+        if (cancelled) return;
+        const msg = e instanceof Error ? e.message : String(e);
+        setBackendStatus({ kind: "offline", message: msg });
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [hydrated]);
 
   const reset = useCallback(() => {
     window.localStorage.removeItem(STORAGE_KEY);
@@ -146,6 +262,18 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
       ...s,
       flatmates: s.flatmates.map((fm) => (fm.id === id ? { ...fm, ...patch } : fm)),
     }));
+    // Mirror to backend (best-effort): only fields the backend knows about.
+    const bePatch: Partial<BeFlatmate> = {};
+    if (patch.name !== undefined) bePatch.name = patch.name;
+    if (patch.flatId !== undefined && patch.flatId !== null) bePatch.flat_id = patch.flatId;
+    if (patch.dietType !== undefined) {
+      bePatch.diet_types = patch.dietType === "veg" ? ["veg"] : ["non_veg"];
+    }
+    if (Object.keys(bePatch).length > 0) {
+      backend.patchFlatmate(id, bePatch).catch(() => {
+        /* offline or 404 — ignore */
+      });
+    }
   }, []);
 
   const upsertCook = useCallback((cook: Cook) => {
@@ -402,6 +530,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
   const api = useMemo<AppStore>(
     () => ({
       state,
+      backend: backendStatus,
       reset,
       signIn,
       signOut,
@@ -425,6 +554,7 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
     }),
     [
       state,
+      backendStatus,
       reset,
       signIn,
       signOut,
@@ -460,6 +590,10 @@ export function useAppStore(): AppStore {
 // Convenience selector hooks --------------------------------------------------
 export function usePersona(): Persona {
   return useAppStore().state.persona;
+}
+
+export function useBackendStatus(): BackendStatus {
+  return useAppStore().backend;
 }
 
 export function useCurrentFlatmate(): Flatmate | null {
