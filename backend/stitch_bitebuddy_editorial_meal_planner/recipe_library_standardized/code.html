@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BiteBuddy - Recipe Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f7f3ee",
+                        "on-background": "#1c1c19",
+                        "on-tertiary-fixed": "#002114",
+                        "on-surface": "#1c1c19",
+                        "on-tertiary-fixed-variant": "#0e5138",
+                        "inverse-primary": "#ffb4a2",
+                        "secondary-fixed": "#e0e5cc",
+                        "on-secondary-container": "#626753",
+                        "tertiary-fixed": "#b1f0ce",
+                        "on-primary-fixed": "#3c0700",
+                        "surface-variant": "#e6e2dd",
+                        "on-primary-fixed-variant": "#8a1d00",
+                        "secondary-fixed-dim": "#c4c9b1",
+                        "primary-container": "#ca4a29",
+                        "surface-container-high": "#ebe8e3",
+                        "surface-bright": "#fdf9f4",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "outline": "#8c716a",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#444937",
+                        "tertiary": "#2a674c",
+                        "surface-tint": "#ac3415",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#ffdad2",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fdf9f4",
+                        "tertiary-container": "#448064",
+                        "secondary": "#5c614d",
+                        "on-primary-container": "#fffbff",
+                        "outline-variant": "#e0bfb7",
+                        "background": "#fdf9f4",
+                        "inverse-on-surface": "#f4f0eb",
+                        "on-surface-variant": "#59413c",
+                        "primary": "#a83213",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#ddd9d5",
+                        "on-secondary-fixed": "#191d0e",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#95d4b3",
+                        "surface-container-highest": "#e6e2dd",
+                        "secondary-container": "#e0e5cc",
+                        "surface-container": "#f1ede8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#f5fff7",
+                        "inverse-surface": "#31302d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e6e2dd; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased">
+<!-- Standardized SideNavBar from COMPONENTS_8 -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-6 space-y-8 h-screen w-72 border-r-0 bg-stone-50 dark:bg-stone-950 z-50">
+<div class="flex flex-col space-y-1">
+<h1 class="font-serif italic text-2xl text-[#D95433] dark:text-[#E06D52]">BiteBuddy</h1>
+<p class="font-medium text-[12px] uppercase tracking-widest text-stone-500">The Modern Kitchen</p>
+</div>
+<nav class="flex flex-col space-y-2 flex-grow">
+<!-- Library Active -->
+<a class="flex items-center space-x-3 px-4 py-3 bg-stone-200/60 dark:bg-stone-800/60 text-[#D95433] dark:text-[#E06D52] rounded-xl font-bold transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-medium text-[12px] uppercase tracking-widest">Library</span>
+</a>
+<a class="flex items-center space-x-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="all_inbox">all_inbox</span>
+<span class="font-medium text-[12px] uppercase tracking-widest">Suggestions</span>
+</a>
+<a class="flex items-center space-x-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-medium text-[12px] uppercase tracking-widest">Cook Mode</span>
+</a>
+<a class="flex items-center space-x-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-[12px] uppercase tracking-widest">Settings</span>
+</a>
+</nav>
+<button class="w-full py-4 bg-primary text-on-primary rounded-full font-semibold text-sm flex items-center justify-center space-x-2 shadow-lg shadow-primary/20 hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+<span>New Recipe</span>
+</button>
+<div class="pt-6 border-t border-stone-200 dark:border-stone-800 flex items-center space-x-3">
+<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-stone-200" data-alt="Close-up portrait of a young man with a friendly smile, soft natural studio lighting against a neutral grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi9oXXezTae8aLSriWQHW4XAeL2hAiVS8ksvvQAF4j5TiFjylie4EKXRmGH_2rXmduj4qu6R9oSL_KOWAasLYsRZBwQOIu3abo181bN36ZNB5-Q3FMnBo-L5vVdgS5AAAy0hrzRyzRO1ZPZU_FjZiKYx3UsekS-nT-K69lCFVZMp7n4lCCXyuHndr1K2_GlSqvBDqNjhIvaqeTR9cdbB7zV6WIk75wBHNVw42mf0BCxL0A6Uv4wsc0hCIn5-khwq1GR8sdbYIv6fwD"/>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-surface">Alex River</span>
+<span class="text-[10px] text-stone-500">Head Chef</span>
+</div>
+</div>
+</aside>
+<!-- Standardized TopAppBar from COMPONENTS_8 -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-12 py-6 ml-72 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl">
+<h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-50">Library</h2>
+<div class="flex items-center space-x-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full w-64 focus:ring-1 focus:ring-primary text-sm placeholder-stone-400 transition-all" placeholder="Search your collection..." type="text"/>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-stone-600 hover:text-[#D95433] dark:hover:text-[#E06D52] transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-surface"></span>
+</button>
+<button class="p-2 text-stone-600 hover:text-[#D95433] dark:hover:text-[#E06D52] transition-colors">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-72 p-12 pt-4 min-h-screen flex gap-12">
+<!-- Filter/Search Rail (Left Pane) -->
+<section class="w-80 flex-shrink-0 space-y-10">
+<div>
+<h3 class="font-serif text-lg mb-6 text-on-surface">Refine Collection</h3>
+<div class="space-y-8">
+<!-- Cuisine Filter -->
+<div class="space-y-4">
+<label class="font-medium text-[12px] uppercase tracking-widest text-stone-500">Cuisine</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 bg-surface-container-highest text-on-surface text-xs rounded-full font-medium hover:bg-stone-300 transition-colors">All</button>
+<button class="px-3 py-1.5 bg-primary-container text-on-primary-container text-xs rounded-full font-medium">Italian</button>
+<button class="px-3 py-1.5 bg-surface-container-low text-on-surface text-xs rounded-full font-medium hover:bg-stone-300 transition-colors">Indian</button>
+<button class="px-3 py-1.5 bg-surface-container-low text-on-surface text-xs rounded-full font-medium hover:bg-stone-300 transition-colors">Japanese</button>
+<button class="px-3 py-1.5 bg-surface-container-low text-on-surface text-xs rounded-full font-medium hover:bg-stone-300 transition-colors">Mediterranean</button>
+</div>
+</div>
+<!-- Diet Filter -->
+<div class="space-y-4">
+<label class="font-medium text-[12px] uppercase tracking-widest text-stone-500">Dietary preference</label>
+<div class="flex flex-col space-y-2">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm text-on-surface">Vegetarian Only</span>
+<div class="relative inline-flex h-5 w-10 items-center rounded-full bg-stone-300 group-hover:bg-stone-400 transition-colors">
+<span class="h-3 w-3 translate-x-1 rounded-full bg-white transition-transform"></span>
+</div>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm text-on-surface">High Protein</span>
+<div class="relative inline-flex h-5 w-10 items-center rounded-full bg-primary transition-colors">
+<span class="h-3 w-3 translate-x-6 rounded-full bg-white transition-transform"></span>
+</div>
+</label>
+</div>
+</div>
+<!-- Meal Type -->
+<div class="space-y-4">
+<label class="font-medium text-[12px] uppercase tracking-widest text-stone-500">Meal Type</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center space-x-2 p-3 bg-surface-container-low rounded-xl text-xs font-medium hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="wb_sunny">wb_sunny</span>
+<span>Breakfast</span>
+</button>
+<button class="flex items-center space-x-2 p-3 bg-primary/10 text-primary border border-primary/20 rounded-xl text-xs font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="restaurant_menu">restaurant_menu</span>
+<span>Dinner</span>
+</button>
+<button class="flex items-center space-x-2 p-3 bg-surface-container-low rounded-xl text-xs font-medium hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="fastfood">fastfood</span>
+<span>Snacks</span>
+</button>
+<button class="flex items-center space-x-2 p-3 bg-surface-container-low rounded-xl text-xs font-medium hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="icecream">icecream</span>
+<span>Desserts</span>
+</button>
+</div>
+</div>
+<!-- Custom-Only Toggle Card -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-start justify-between mb-2">
+<h4 class="font-bold text-sm">Personal Creations</h4>
+<span class="material-symbols-outlined text-stone-400" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<p class="text-[11px] text-stone-500 leading-relaxed mb-4">Show only recipes you've hand-crafted or modified from original versions.</p>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-stone-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+<span class="ml-3 text-xs font-medium text-on-surface">Enable toggle</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Recipe Grid (Right Pane) -->
+<section class="flex-grow">
+<div class="flex items-baseline justify-between mb-10">
+<h3 class="font-serif text-3xl text-on-surface">Curated Delights <span class="text-stone-400 italic text-xl font-normal ml-3">(42)</span></h3>
+<div class="flex items-center space-x-2 text-xs font-medium text-stone-500">
+<span>Sort by:</span>
+<button class="text-on-surface flex items-center space-x-1 hover:text-primary">
+<span>Most Recent</span>
+<span class="material-symbols-outlined text-sm" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-8">
+<!-- Recipe Card 1 -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(45,45,45,0.04)] hover:shadow-[0_20px_50px_rgba(45,45,45,0.08)] transition-all duration-500 cursor-pointer">
+<div class="relative h-64 overflow-hidden">
+<img alt="Poke bowl" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Vibrant fresh salmon poke bowl with avocado, radish, and edamame, shot from a high angle with bright natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5GCoKqK_VvjsiTUucy2TN8r1r5ZVXn0nHm0eq_9NujKX6IP2vyOjvrOJ_T_ScZ_ZPBAM4dyxbrTzy-vhc8s1zdpZE7UFiViR5BS-XrasT745RbYhM4VAnpm4_kUCu-fkqq7BXcc-X9nqHqCrMzgvx1K7tSN7_l137MV95Tg7WBoA8VEvOJUgMqPiIvJuVBAPvGFogGub1-hLIrsYJk1ajs09E7vd1oaPav5idehcFa8RfTKeap75VCNWbAKllKUrFAvXXhxgVYisB"/>
+<div class="absolute top-4 right-4 bg-surface-bright/90 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold text-on-surface uppercase tracking-tighter">Cooked 12 times</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="text-[9px] uppercase tracking-widest font-bold text-primary bg-primary/5 px-2 py-0.5 rounded">Healthy</span>
+<span class="text-[9px] uppercase tracking-widest font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded">15 Mins</span>
+</div>
+<h4 class="font-serif text-xl mb-4 group-hover:text-primary transition-colors">Ahi Tuna &amp; Mango Poke Bowl</h4>
+<p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">A refreshing summer staple with marinated tuna, fresh mango salsa, and a signature wasabi-ginger dressing...</p>
+</div>
+</article>
+<!-- Recipe Card 2 (Active/Selected State Example) -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden ring-1 ring-primary/20 shadow-[0_12px_40px_rgba(45,45,45,0.1)] transition-all duration-500 cursor-pointer">
+<div class="relative h-64 overflow-hidden">
+<img alt="Buddha bowl" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Artisanal mediterranean grain bowl with hummus, roasted sweet potatoes, and kale, warm earthy tones, editorial food styling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdfMQE5F8qfv58dALd1zjA9kWamGjexvl737C6eK9zmLH4GAqfQN-sJXjgJ1kXuCT4UuScYbbox0-dHZjmy1HgKgP2h-CoQbNgp6Jib4vbEW0YmIwFQXAR0EpEqeNj2nsIPVesdc5MerVI8uW30t5GNTRxzFJyORQAxX6QzyMS81f7Z5-fLaIQ7GzINf0Ui-BXlJ8v0GxUQnKUXZG79UU7CAKDPb-6A738joWu1IFV6UU4axgGv6re5Was22itKmC0RRKxKB3gw5bp"/>
+<div class="absolute top-4 right-4 bg-primary px-3 py-1.5 rounded-full flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-white text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] font-bold text-white uppercase tracking-tighter">Cooked 24 times</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="text-[9px] uppercase tracking-widest font-bold text-primary bg-primary/5 px-2 py-0.5 rounded">Vegan</span>
+<span class="text-[9px] uppercase tracking-widest font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded">30 Mins</span>
+</div>
+<h4 class="font-serif text-xl mb-4 text-primary">Signature Mediterranean Buddha Bowl</h4>
+<p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">The ultimate flatmate favorite. Packed with roasted chickpeas, tahini drizzle, and fresh garden herbs.</p>
+</div>
+</article>
+<!-- Recipe Card 3 -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(45,45,45,0.04)] hover:shadow-[0_20px_50px_rgba(45,45,45,0.08)] transition-all duration-500 cursor-pointer">
+<div class="relative h-64 overflow-hidden">
+<img alt="Salad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of a fresh balsamic glazed salad with strawberries and feta cheese, dramatic side lighting from a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQJdbweJIQ3gB-AEe3qIMnmd5HITcHaV2lawBLX2WO0n3Joy-GwgiFTQBnVSoADibT0q7J3dI0YJP_cRR1DaTUj5m_LmR6Mg7dJOOhx9DTQF1UE-UCdW3l8DqvBR3TmRwihzs3EpQuFNCaYcrfCoUEfqP5T_hAIFMMrlYzfVOijZ5_Ymky8X_u9qN-g7aRLs-9QuMbl6QVHmd5drHNGPmf4KznOMVmth7BOni3mTh_ljxrZCoqx4dt-CCrqq97Kgjj7Mf7WTiaiuPF"/>
+<div class="absolute top-4 right-4 bg-surface-bright/90 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold text-on-surface uppercase tracking-tighter">Cooked 5 times</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="text-[9px] uppercase tracking-widest font-bold text-primary bg-primary/5 px-2 py-0.5 rounded">Summer</span>
+<span class="text-[9px] uppercase tracking-widest font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded">10 Mins</span>
+</div>
+<h4 class="font-serif text-xl mb-4 group-hover:text-primary transition-colors">Strawberry &amp; Balsamic Summer Greens</h4>
+<p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">A simple yet elegant salad featuring peaks of seasonal berries and an aged balsamic reduction.</p>
+</div>
+</article>
+<!-- Recipe Card 4 -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(45,45,45,0.04)] hover:shadow-[0_20px_50px_rgba(45,45,45,0.08)] transition-all duration-500 cursor-pointer">
+<div class="relative h-64 overflow-hidden">
+<img alt="Pasta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Rustic italian pasta dish with cherry tomatoes and basil on a stoneware plate, moody lighting with deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArBxJDfN8d83n9s6e16hy9xtlMAVePxItEFhvyd2P8hBYuPJJL4ZAb2wxJkQyHcwtW_0xeCJB2-UXfjGFP1v0IdRUBADDmvCKaCHFvPhok6VvjW5oelC4QEzNvNEG4DPX5u9CjEPmGyaX36sBo7XE7c5L0Y0zpXW8DjmZNJ_djy-FIp2jKB7-xXA9KXMzCeadb7Cefj4_M3zbTyrHabo0vVMUMA00eUBr6GMpifo_6wNgzhvhLh2M5GnGhF545psridQd-M4a1pRLW"/>
+<div class="absolute top-4 right-4 bg-surface-bright/90 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold text-on-surface uppercase tracking-tighter">Cooked 31 times</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="text-[9px] uppercase tracking-widest font-bold text-primary bg-primary/5 px-2 py-0.5 rounded">Comfort</span>
+<span class="text-[9px] uppercase tracking-widest font-bold text-stone-500 bg-stone-100 px-2 py-0.5 rounded">25 Mins</span>
+</div>
+<h4 class="font-serif text-xl mb-4 group-hover:text-primary transition-colors">One-Pot Basil &amp; Tomato Penne</h4>
+<p class="text-xs text-stone-500 line-clamp-2 leading-relaxed">The ultimate weeknight savior. Rich tomato base with fresh torn basil and plenty of parmesan.</p>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Side Drawer (Recipe Detail) -->
+<div class="fixed inset-y-0 right-0 w-[450px] bg-surface-container-lowest shadow-[-20px_0_60px_rgba(0,0,0,0.1)] z-[60] flex flex-col translate-x-0 transition-transform">
+<div class="relative h-72">
+<img class="w-full h-full object-cover" data-alt="Overhead view of a colorful mediterranean bowl with vibrant vegetables and grains, soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwrixdvNPdYV6OOSFgldW8mhmpO_t0WT_sIBjc40nL0bPVzNSup68J_pXLpS48MOm3t2DK5bwgb1Is3Kz3N-lJpwwMiVfT8EsYFdkAmj69YtWkdlvpNEaOrVUjbovx33039_CzrupuEbARWNv0hzuSV2h4vuv3mxRoUme24J67nSPjVEFvuAl_L58nulUo9PGEHvRAAyxOU4Fl5ylq-BkBDGsrkqdoEmUzlRyfQnG7vJo47Mse0ojMR6vTtaqBQ7t7UOee3yeebZaw"/>
+<button class="absolute top-6 left-6 w-10 h-10 bg-surface-bright/80 backdrop-blur rounded-full flex items-center justify-center text-on-surface hover:bg-white transition-all">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="p-10 flex-grow overflow-y-auto">
+<div class="flex items-center space-x-2 mb-4">
+<span class="font-medium text-[10px] uppercase tracking-widest text-primary">Flatmate Favorite</span>
+<span class="w-1 h-1 bg-stone-300 rounded-full"></span>
+<span class="font-medium text-[10px] uppercase tracking-widest text-stone-500">Vegan</span>
+</div>
+<h2 class="font-serif text-3xl mb-8 leading-tight">Signature Mediterranean Buddha Bowl</h2>
+<div class="grid grid-cols-3 gap-4 mb-10 border-y border-stone-100 py-6">
+<div class="text-center">
+<span class="block font-medium text-[10px] uppercase tracking-widest text-stone-400 mb-1">Time</span>
+<span class="text-sm font-semibold">30 Mins</span>
+</div>
+<div class="text-center border-x border-stone-100">
+<span class="block font-medium text-[10px] uppercase tracking-widest text-stone-400 mb-1">Calories</span>
+<span class="text-sm font-semibold">450 kcal</span>
+</div>
+<div class="text-center">
+<span class="block font-medium text-[10px] uppercase tracking-widest text-stone-400 mb-1">Serves</span>
+<span class="text-sm font-semibold">2 People</span>
+</div>
+</div>
+<div class="space-y-10">
+<!-- Ingredients Section -->
+<div>
+<h3 class="font-serif text-lg mb-6 flex items-center">
+<span class="material-symbols-outlined mr-2 text-primary" data-icon="format_list_bulleted">format_list_bulleted</span>
+                        Ingredients
+                    </h3>
+<ul class="space-y-4">
+<li class="flex items-center justify-between group">
+<div class="flex items-center">
+<div class="w-1.5 h-1.5 bg-stone-200 rounded-full mr-3 group-hover:bg-primary transition-colors"></div>
+<span class="text-sm">Organic Quinoa</span>
+</div>
+<span class="text-xs text-stone-400 font-medium">150g</span>
+</li>
+<li class="flex items-center justify-between group">
+<div class="flex items-center">
+<div class="w-1.5 h-1.5 bg-stone-200 rounded-full mr-3 group-hover:bg-primary transition-colors"></div>
+<span class="text-sm">Roasted Sweet Potato</span>
+</div>
+<span class="text-xs text-stone-400 font-medium">2 Small</span>
+</li>
+<li class="flex items-center justify-between group">
+<div class="flex items-center">
+<div class="w-1.5 h-1.5 bg-stone-200 rounded-full mr-3 group-hover:bg-primary transition-colors"></div>
+<span class="text-sm">Canned Chickpeas</span>
+</div>
+<span class="text-xs text-stone-400 font-medium">400g</span>
+</li>
+<li class="flex items-center justify-between group">
+<div class="flex items-center">
+<div class="w-1.5 h-1.5 bg-stone-200 rounded-full mr-3 group-hover:bg-primary transition-colors"></div>
+<span class="text-sm">Lemony Tahini Dressing</span>
+</div>
+<span class="text-xs text-stone-400 font-medium">3 Tbsp</span>
+</li>
+</ul>
+</div>
+<!-- Chef's Notes -->
+<div class="bg-surface-container-low p-6 rounded-xl relative overflow-hidden">
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-stone-200 text-6xl opacity-40" data-icon="history_edu">history_edu</span>
+<h3 class="font-serif text-sm mb-3">Chef's Tadka</h3>
+<p class="text-xs text-stone-600 leading-relaxed italic">"For a little extra crunch, toss the chickpeas in smoked paprika and air-fry them for 8 minutes before adding to the bowl. *Bilkul perfect crunch ayega.*"</p>
+</div>
+</div>
+</div>
+<div class="p-8 bg-surface-bright border-t border-stone-100 flex gap-4">
+<button class="flex-grow py-4 bg-tertiary text-white rounded-full font-bold text-sm flex items-center justify-center space-x-2 transition-transform active:scale-95 shadow-lg shadow-tertiary/20">
+<span class="material-symbols-outlined text-lg" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span>Enter Cook Mode</span>
+</button>
+<button class="w-14 h-14 bg-surface-container-high rounded-full flex items-center justify-center text-stone-600 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+</body></html>

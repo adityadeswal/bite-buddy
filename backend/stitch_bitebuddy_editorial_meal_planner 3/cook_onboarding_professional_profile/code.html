@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cook Onboarding - Identity &amp; Craft</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#191d0e",
+                        "primary-fixed": "#ffdad2",
+                        "on-surface": "#1c1c19",
+                        "surface-dim": "#ddd9d5",
+                        "surface-container-highest": "#e6e2dd",
+                        "background": "#fdf9f4",
+                        "inverse-surface": "#31302d",
+                        "secondary-container": "#e0e5cc",
+                        "on-background": "#1c1c19",
+                        "on-tertiary-fixed-variant": "#0e5138",
+                        "surface-container-high": "#ebe8e3",
+                        "primary": "#a83213",
+                        "on-surface-variant": "#59413c",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#b1f0ce",
+                        "on-primary-fixed": "#3c0700",
+                        "tertiary-fixed-dim": "#95d4b3",
+                        "secondary-fixed-dim": "#c4c9b1",
+                        "tertiary": "#2a674c",
+                        "inverse-primary": "#ffb4a2",
+                        "surface-container": "#f1ede8",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "on-primary": "#ffffff",
+                        "surface": "#fdf9f4",
+                        "secondary-fixed": "#e0e5cc",
+                        "primary-container": "#ca4a29",
+                        "surface-variant": "#e6e2dd",
+                        "on-tertiary-fixed": "#002114",
+                        "on-tertiary-container": "#f5fff7",
+                        "on-secondary-container": "#626753",
+                        "on-secondary": "#ffffff",
+                        "outline": "#8c716a",
+                        "on-primary-container": "#fffbff",
+                        "outline-variant": "#e0bfb7",
+                        "on-primary-fixed-variant": "#8a1d00",
+                        "on-secondary-fixed-variant": "#444937",
+                        "inverse-on-surface": "#f4f0eb",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#448064",
+                        "surface-bright": "#fdf9f4",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "secondary": "#5c614d",
+                        "surface-tint": "#ac3415",
+                        "surface-container-low": "#f7f3ee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chef-photo-glow {
+            box-shadow: 0 12px 40px rgba(168, 50, 19, 0.08);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #a83213;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: #a83213;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation Bar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl shadow-[0_12px_40px_rgba(45,45,45,0.06)] flex justify-between items-center w-full px-6 py-4 max-w-full">
+<div class="flex items-center gap-2">
+<span class="font-serif text-2xl font-bold italic text-[#D95433]">BiteBuddy</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<span class="text-stone-500 font-medium hover:bg-stone-50 transition-colors duration-300 px-3 py-1 rounded-lg cursor-pointer">Explore</span>
+<span class="text-stone-500 font-medium hover:bg-stone-50 transition-colors duration-300 px-3 py-1 rounded-lg cursor-pointer">Meals</span>
+<span class="text-[#D95433] font-semibold">Onboarding</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="p-2 hover:bg-stone-50 rounded-full transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Chef profile avatar" class="w-full h-full object-cover" data-alt="Close-up of a professional chef in a white uniform with a friendly expression in a brightly lit modern kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUVKpuHKfKxm9CXwK5ATvymvyU-ORaXTx2FpO3bcQ70R_S50esJuuJn9Zr_PlDs0VozaWpOC63cpcALUoyVuJa5GD1noBqUvKGxPVwCCOnlIbSZU-3EoI1FXUDlzKJL8JKZ9wIjIvjfjN7DgORAx7r1A-_liGQACWfmoa9vl_0Hc8L4pHXpxa2_rc4gcwV1wo2pERApjnhvBe3oimycZuRnCCBBctRNbe7RpVaYMLwmLlqkrao3_ZMPbDC6ye_MlYemNi7glGVqgZj"/>
+</div>
+</div>
+</nav>
+<main class="flex-grow pt-24 pb-12 px-4 md:px-0 flex items-center justify-center">
+<div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+<!-- Left Side: Editorial Context -->
+<div class="md:col-span-5 flex flex-col gap-8 sticky top-32">
+<div class="space-y-4">
+<span class="text-primary font-label text-sm font-bold uppercase tracking-[0.2em]">Step 01 / 03</span>
+<h1 class="font-headline text-5xl md:text-6xl text-on-surface leading-[1.1]">Identity &amp; <br/><span class="italic text-primary">Craft.</span></h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-sm">
+                        Your profile helps flats find the perfect match for their table. Showcase your journey and the flavors you bring to life.
+                    </p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl relative overflow-hidden group">
+<div class="relative z-10 flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+<blockquote class="font-headline text-xl italic text-on-surface leading-snug">
+                            "A recipe has no soul. You, as the cook, must bring soul to the recipe."
+                        </blockquote>
+<span class="text-sm font-label uppercase tracking-widest text-secondary">— Thomas Keller</span>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-10 group-hover:rotate-12 transition-transform duration-700">
+<span class="material-symbols-outlined text-9xl">outdoor_grill</span>
+</div>
+</div>
+</div>
+<!-- Right Side: The Manuscript Form -->
+<div class="md:col-span-7 bg-surface-container-lowest rounded-2xl p-8 md:p-12 shadow-[0_12px_40px_rgba(45,45,45,0.06)]">
+<form class="space-y-12">
+<!-- Profile Photo Upload -->
+<div class="flex flex-col md:flex-row items-center gap-8">
+<div class="relative">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-surface-container overflow-hidden chef-photo-glow border-4 border-white">
+<img alt="Professional Cook Profile" class="w-full h-full object-cover" data-alt="A clean, minimalist portrait of a chef in a modern kitchen setting with soft overhead lighting and warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqyKO2_hvnE7ELctqGYHqegF5QNVrpYqs5HSBtyd3-nv5067CiFK7Hbu1hyqqoJDIz_oTmUzV-8vG_l7AqthhzRSTNcO8e209BRYdRjybA2_E1Job3j4xv71xN8kVuAERzADSs6uU_IvtvIn-tZFjfqveqvjJEVsh9urUY3PWgPS1mrJJ4_odTQy4wsYU_ntXSohec1KpDR4WqreLzgu_MTC34rgutvIpqoNovlc5ktD0f6s0eFOyCqzfOfxQNJf4ZQsWRg07CXHMd"/>
+</div>
+<button class="absolute bottom-1 right-1 bg-primary text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" type="button">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<div class="space-y-2 text-center md:text-left">
+<h3 class="font-headline text-xl">The Face of the Kitchen</h3>
+<p class="text-on-surface-variant text-sm">Upload a professional photo. Kitchen environment photos work best.</p>
+</div>
+</div>
+<!-- Name Input -->
+<div class="space-y-2 group">
+<label class="block font-label text-sm font-medium uppercase tracking-widest text-secondary group-focus-within:text-primary transition-colors">Full Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 text-on-surface focus:ring-2 focus:ring-primary focus:bg-surface-container-highest transition-all text-lg placeholder:text-on-surface-variant/40" placeholder="e.g. Master Chef Rajesh" type="text"/>
+</div>
+<!-- Specialisations Chips -->
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<label class="block font-label text-sm font-medium uppercase tracking-widest text-secondary">Your Specialisations</label>
+<span class="text-xs text-on-surface-variant/60 italic">Select multiple</span>
+</div>
+<div class="flex flex-wrap gap-3">
+<!-- Multi-select chips -->
+<button class="px-6 py-2.5 rounded-full bg-primary text-white font-medium text-sm transition-all shadow-sm" type="button">Mughlai</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-medium text-sm transition-all" type="button">South Indian</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-medium text-sm transition-all" type="button">Tandoor</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-medium text-sm transition-all" type="button">Desi Chinese</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-medium text-sm transition-all" type="button">Bengali</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-medium text-sm transition-all" type="button">Gujarati</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-medium text-sm transition-all" type="button">Continental</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-medium text-sm transition-all border border-dashed border-outline-variant/30" type="button">+ Add More</button>
+</div>
+</div>
+<!-- Years of Experience -->
+<div class="space-y-8">
+<div class="flex justify-between items-center">
+<label class="block font-label text-sm font-medium uppercase tracking-widest text-secondary">Years of Experience</label>
+<div class="bg-primary-fixed px-4 py-1 rounded-full text-on-primary-fixed font-bold text-lg">
+<span id="expValue">8</span> Years
+                            </div>
+</div>
+<div class="relative py-4">
+<input class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" max="30" min="0" type="range" value="8"/>
+<div class="flex justify-between mt-4 text-xs font-label uppercase tracking-tighter text-on-surface-variant/50">
+<span>Rookie (0)</span>
+<span>Seasoned (15)</span>
+<span>Maestro (30+)</span>
+</div>
+</div>
+</div>
+<!-- Footer / Submission -->
+<div class="pt-8 flex flex-col md:flex-row gap-4 items-center justify-between border-t border-surface-container">
+<p class="text-xs italic text-on-surface-variant max-w-xs text-center md:text-left">
+                            By proceeding, you agree to showcase your *tadka* to the world.
+                        </p>
+<button class="w-full md:w-auto px-12 py-4 bg-primary hover:bg-primary-container text-white font-bold rounded-full transition-all flex items-center justify-center gap-3 group" type="submit">
+                            Continue to Gallery
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Mobile Only - Shared Component Style) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-xl border-t border-stone-100 flex justify-around items-center py-4 px-2 z-50">
+<div class="flex flex-col items-center text-stone-500">
+<span class="material-symbols-outlined">flatware</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Kitchen</span>
+</div>
+<div class="flex flex-col items-center text-[#D95433]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</div>
+<div class="flex flex-col items-center text-stone-500">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Groceries</span>
+</div>
+</div>
+</body></html>

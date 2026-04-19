@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BiteBuddy - My Preferences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#8c716a",
+                        "background": "#fdf9f4",
+                        "secondary-container": "#e0e5cc",
+                        "on-tertiary-container": "#f5fff7",
+                        "on-surface-variant": "#59413c",
+                        "on-tertiary-fixed-variant": "#0e5138",
+                        "surface-dim": "#ddd9d5",
+                        "on-tertiary-fixed": "#002114",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f4f0eb",
+                        "tertiary": "#2a674c",
+                        "primary-container": "#ca4a29",
+                        "on-primary-container": "#fffbff",
+                        "primary-fixed": "#ffdad2",
+                        "on-surface": "#1c1c19",
+                        "surface-container-highest": "#e6e2dd",
+                        "tertiary-container": "#448064",
+                        "surface-container-low": "#f7f3ee",
+                        "secondary-fixed-dim": "#c4c9b1",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#b1f0ce",
+                        "surface-container": "#f1ede8",
+                        "surface-tint": "#ac3415",
+                        "secondary-fixed": "#e0e5cc",
+                        "on-secondary-fixed-variant": "#444937",
+                        "surface": "#fdf9f4",
+                        "surface-bright": "#fdf9f4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#8a1d00",
+                        "secondary": "#5c614d",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e6e2dd",
+                        "on-secondary-fixed": "#191d0e",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "on-background": "#1c1c19",
+                        "primary": "#a83213",
+                        "inverse-primary": "#ffb4a2",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#31302d",
+                        "on-secondary-container": "#626753",
+                        "on-primary-fixed": "#3c0700",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#95d4b3",
+                        "outline-variant": "#e0bfb7",
+                        "surface-container-high": "#ebe8e3",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Noto Serif', serif; }
+        .no-line { border: none !important; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed-dim min-h-screen">
+<!-- TopAppBar from JSON -->
+<header class="bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0_12px_40px_rgba(28,28,25,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-serif text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50">BiteBuddy</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-[#D95433] transition-colors duration-200" href="#">Kitchen Dashboard</a>
+<a class="text-[#D95433] font-bold border-b-2 border-[#D95433]" href="#">Flatmates</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-[#D95433] transition-colors duration-200" href="#">Meal Planner</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container-high rounded-full transition-all">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container-high rounded-full transition-all">settings</span>
+</div>
+<div class="h-10 w-10 rounded-full overflow-hidden border border-outline-variant/20">
+<img alt="Chef's Profile Avatar" class="h-full w-full object-cover" data-alt="Close-up portrait of a friendly chef with a clean white apron in a bright sunlit kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk11z6R16DAxmY0uEP_ZNiE9Sh5qBQHxe4gto7fbfkg0NHgLbK7cfia6KVacrMTiki-xQ5sfK6_2AqR84BDJzuPePi7qJknLQj26PA_EgvPJmk5XlssZ6wsN4IDqIeGLxaZxS3ak5qupnVBO-hlBW11BgbUEzUu_fx1xeHqlcwPulCC8QLuYYq06WbZVq-x1oZLOBQ7TsDLjTjWDjivYJ0U0cVxzWCrB58lkSw8qz514qX_2GwzqQxlG6zdoVBsoSLubh6pohRQt8x"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto px-8 py-12 md:py-20">
+<!-- Editorial Header -->
+<header class="mb-16 max-w-3xl">
+<h1 class="text-5xl md:text-6xl font-bold text-on-surface tracking-tight mb-4">My Preferences</h1>
+<p class="text-secondary text-lg font-body leading-relaxed">
+                Fine-tune how you're seen in the kitchen. Your profile helps the cook understand your palate, from the heat of your chillies to the depths of your allergies.
+            </p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- LEFT COLUMN: Preferences Form -->
+<section class="lg:col-span-7 space-y-12">
+<!-- Dietary Profile -->
+<div>
+<h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">eco</span>
+                        Dietary Profile
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="group relative flex flex-col p-4 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container-high transition-all">
+<input checked="" class="hidden peer" name="diet" type="radio"/>
+<span class="text-xs font-bold uppercase tracking-widest text-secondary mb-1">Standard</span>
+<span class="text-lg font-medium text-on-surface">Omnivore</span>
+<div class="absolute inset-0 border-2 border-primary opacity-0 peer-checked:opacity-100 rounded-xl pointer-events-none transition-opacity"></div>
+</label>
+<label class="group relative flex flex-col p-4 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container-high transition-all">
+<input class="hidden peer" name="diet" type="radio"/>
+<span class="text-xs font-bold uppercase tracking-widest text-secondary mb-1">Plant Based</span>
+<span class="text-lg font-medium text-on-surface">Vegetarian</span>
+<div class="absolute inset-0 border-2 border-primary opacity-0 peer-checked:opacity-100 rounded-xl pointer-events-none transition-opacity"></div>
+</label>
+</div>
+</div>
+<!-- Spice Tolerance -->
+<div>
+<h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">local_fire_department</span>
+                        Spice Tolerance
+                    </h2>
+<div class="bg-surface-container-low p-8 rounded-xl">
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="5" min="1" step="1" type="range" value="4"/>
+<div class="flex justify-between mt-4 px-1">
+<span class="text-xs font-bold text-secondary uppercase tracking-tighter">Bland</span>
+<span class="text-xs font-bold text-secondary uppercase tracking-tighter">Mild</span>
+<span class="text-xs font-bold text-secondary uppercase tracking-tighter">Medium</span>
+<span class="text-xs font-bold text-primary uppercase tracking-tighter">Hot</span>
+<span class="text-xs font-bold text-secondary uppercase tracking-tighter">Extra Hot</span>
+</div>
+</div>
+</div>
+<!-- Favorites & No-Gos -->
+<div>
+<h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">favorite</span>
+                        Palate Notes
+                    </h2>
+<div class="space-y-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-widest text-secondary ml-1">The "I Love" List</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary text-on-surface placeholder:text-stone-400" placeholder="e.g., Paneer, Extra Garlic, Sourdough..." type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-widest text-secondary ml-1">The "Strictly No" List</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-error text-on-surface placeholder:text-stone-400" placeholder="e.g., Mushrooms, Cilantro, Olives..." type="text"/>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="pt-6">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-container transition-all active:scale-95 shadow-lg shadow-primary/20">
+                        Update My Manuscript
+                    </button>
+</div>
+</section>
+<!-- RIGHT COLUMN: Preview Card -->
+<aside class="lg:col-span-5 sticky top-32">
+<div class="relative">
+<div class="absolute -top-6 -left-6 bg-tertiary text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest z-10 shadow-xl">
+                        Live Preview
+                    </div>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_32px_64px_rgba(28,28,25,0.12)] border border-outline-variant/10">
+<!-- Hero Image for the Preview -->
+<div class="h-64 w-full relative">
+<img alt="Delicious Food Profile" class="w-full h-full object-cover" data-alt="Overhead shot of a rustic wooden table with various colorful Mediterranean bowls, pita bread, and vibrant spices" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGoaJ2Pvr7zcr9dZLhmbwDAMEXGkBifZe0ZMQlmKMrwSKLgfvXgjPPrzAvK2RbdYgKecD-BFnUWEav3XmYTLjq962B95y2i8QKwz0B7iO_-JKKKqsZYfdhHLC8UFEjDAKh-VlVuwTtWCxwQeHIa72xQdoP0GvB-nzljabVguaMv1efomyVlGWe8NB61vJeQI85jNf2jSBACeoEGezqDng388ea9NVCv9Ty8ttjoh7n0VH_pXa5V5iBjfxsE0rzUdtNrkuo7fu_Hgdu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+</div>
+<div class="p-10 -mt-12 relative bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="text-3xl font-bold text-on-surface leading-tight">Arjun's Palate</h3>
+<p class="text-secondary italic">"The Spice Enthusiast"</p>
+</div>
+<div class="bg-secondary-container text-on-secondary-container h-12 w-12 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Base Profile</span>
+<p class="font-medium text-on-surface">Omnivore</p>
+</div>
+<div class="space-y-1 text-right">
+<span class="text-[10px] font-bold uppercase tracking-widest text-stone-400">Spice Level</span>
+<p class="font-medium text-primary">Hot (4/5)</p>
+</div>
+</div>
+<div class="mt-10 pt-8 border-t border-surface-container-highest">
+<span class="text-[10px] font-bold uppercase tracking-widest text-stone-400 block mb-4">Chef's Notes for Arjun</span>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+<span>Heavy on the garlic and paneer.</span>
+</li>
+<li class="flex items-start gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-lg">cancel</span>
+<span>No mushrooms or cilantro—*bilkul nahi*.</span>
+</li>
+<li class="flex items-start gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">info</span>
+<span>Prepare separate tadka for extra heat.</span>
+</li>
+</ul>
+</div>
+<div class="mt-10 bg-surface-container-low p-4 rounded-xl flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="h-8 w-8 rounded-full border-2 border-surface-container-lowest overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="Portrait of a male flatmate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmEev_YI49JFS_sEiNNuFjJwhJsCnc8idBZaCGi-v-YxSfjy3Z-uhBAoBG68wrEqxVh6Mq9mi85l-Vb26PlBacASXkDb93c8D26G5HL0k_Ax2pNg09XV19dJyxYgZLoLlh855pk-8BXkPxfbZzpLFJjX9I_L3snvAFfNPSj-lTYh1PV8FhUySs8aSw4gc_SlYvgMIS_7gF9jYZcfiQ45jTE-cwy7iWTb_Wn2AQcUTQrf2NL3y3hP9_5jSKHNyZVwFnJw82M3Wd5gFG"/>
+</div>
+<div class="h-8 w-8 rounded-full border-2 border-surface-container-lowest overflow-hidden bg-stone-200 flex items-center justify-center text-[10px] font-bold">
+                                        +2
+                                    </div>
+</div>
+<span class="text-xs text-secondary italic">Visible to 3 flatmates in the Kitchen Office</span>
+</div>
+</div>
+</div>
+<!-- Asymmetric Decorative Element -->
+<div class="absolute -bottom-8 -right-8 w-32 h-32 bg-primary-container/10 rounded-full blur-3xl -z-10"></div>
+</div>
+</aside>
+</div>
+</main>
+<!-- SideNavBar Logic for Mobile (Bottom Bar) -->
+<footer class="md:hidden fixed bottom-0 left-0 right-0 bg-stone-50 dark:bg-stone-900 px-6 py-4 flex justify-around items-center z-50 border-t border-stone-200/10">
+<div class="flex flex-col items-center gap-1 text-stone-500">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Kitchen</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-stone-900">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Flatmates</span>
+</div>
+<div class="bg-primary text-white p-3 rounded-full -mt-10 shadow-lg">
+<span class="material-symbols-outlined">add</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-stone-500">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Planner</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-stone-500">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] uppercase font-bold tracking-tighter">Recipe</span>
+</div>
+</footer>
+</body></html>

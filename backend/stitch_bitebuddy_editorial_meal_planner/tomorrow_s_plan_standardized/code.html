@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BiteBuddy | Tomorrow's Plan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#8c716a",
+                        "on-secondary-fixed": "#191d0e",
+                        "inverse-primary": "#ffb4a2",
+                        "error": "#ba1a1a",
+                        "tertiary": "#2a674c",
+                        "on-secondary-container": "#626753",
+                        "on-primary-container": "#fffbff",
+                        "surface-variant": "#e6e2dd",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#31302d",
+                        "surface-bright": "#fdf9f4",
+                        "secondary-fixed-dim": "#c4c9b1",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#b1f0ce",
+                        "surface-container-low": "#f7f3ee",
+                        "surface": "#fdf9f4",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#f5fff7",
+                        "secondary-fixed": "#e0e5cc",
+                        "surface-dim": "#ddd9d5",
+                        "tertiary-fixed-dim": "#95d4b3",
+                        "surface-container-high": "#ebe8e3",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "surface-container": "#f1ede8",
+                        "on-surface-variant": "#59413c",
+                        "on-secondary-fixed-variant": "#444937",
+                        "outline-variant": "#e0bfb7",
+                        "on-primary-fixed": "#3c0700",
+                        "primary": "#a83213",
+                        "surface-container-highest": "#e6e2dd",
+                        "surface-tint": "#ac3415",
+                        "on-background": "#1c1c19",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#448064",
+                        "primary-fixed": "#ffdad2",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#8a1d00",
+                        "inverse-on-surface": "#f4f0eb",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1c19",
+                        "on-tertiary-fixed": "#002114",
+                        "on-tertiary-fixed-variant": "#0e5138",
+                        "secondary-container": "#e0e5cc",
+                        "secondary": "#5c614d",
+                        "primary-container": "#ca4a29",
+                        "background": "#fdf9f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Noto Serif', serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Persistent Side Navigation (Standardized via COMPONENTS_4) -->
+<aside class="fixed left-0 top-0 h-full w-72 flex flex-col p-6 gap-8 bg-stone-50 dark:bg-stone-950 bg-stone-100/50 dark:bg-stone-900/50 backdrop-blur-xl z-50">
+<div class="flex flex-col gap-1">
+<h1 class="font-serif text-2xl font-bold italic tracking-tight text-orange-800 dark:text-orange-400">BiteBuddy</h1>
+<p class="text-stone-500 text-xs font-medium tracking-widest uppercase">The Kitchen Manuscript</p>
+</div>
+<nav class="flex flex-col gap-2">
+<!-- Kitchen -->
+<a class="flex items-center gap-4 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-all duration-300 rounded-full group" href="#">
+<span class="material-symbols-outlined transition-transform group-active:scale-95">home</span>
+<span class="font-medium">Kitchen</span>
+</a>
+<!-- Recipes -->
+<a class="flex items-center gap-4 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-all duration-300 rounded-full group" href="#">
+<span class="material-symbols-outlined transition-transform group-active:scale-95">restaurant_menu</span>
+<span class="font-medium">Recipes</span>
+</a>
+<!-- Planner (Active) -->
+<a class="flex items-center gap-4 px-4 py-3 bg-white dark:bg-stone-800 text-orange-700 dark:text-orange-400 font-semibold rounded-full shadow-sm transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined transition-transform group-active:scale-95" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-medium">Planner</span>
+</a>
+<!-- Flatmates -->
+<a class="flex items-center gap-4 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-all duration-300 rounded-full group" href="#">
+<span class="material-symbols-outlined transition-transform group-active:scale-95">groups</span>
+<span class="font-medium">Flatmates</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-4 px-4 py-3 text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-all duration-300 rounded-full group" href="#">
+<span class="material-symbols-outlined transition-transform group-active:scale-95">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-stone-200/30">
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 scale-[0.98] active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+                Plan a Meal
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-72 min-h-screen bg-surface">
+<!-- Header (Standardized via TopAppBar in COMPONENTS_4) -->
+<header class="flex justify-between items-center px-12 py-4 w-full sticky top-0 z-40 backdrop-blur-md bg-transparent">
+<div>
+<h2 class="text-4xl font-bold text-on-surface serif tracking-tight">Tomorrow's Plan</h2>
+<p class="text-on-surface-variant font-body mt-1">Wednesday, October 24th • <span class="italic">Cook Mode</span></p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:opacity-80 transition-opacity relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</div>
+<button class="px-8 py-3 bg-stone-200 text-stone-400 cursor-not-allowed rounded-full font-bold transition-opacity" disabled="">
+                    Publish to Flatmates
+                </button>
+</div>
+</header>
+<div class="px-12 pb-24 grid grid-cols-12 gap-12">
+<!-- Preferences Summary Panel (Left Sticky) -->
+<aside class="col-span-3">
+<div class="sticky top-32 flex flex-col gap-8">
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/15">
+<h3 class="serif text-xl font-bold mb-6 text-on-surface">Preferences Summary</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">4 Flatmates</p>
+<p class="text-xs text-on-surface-variant">Active for tomorrow</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">2 Veg • 2 Non-Veg</p>
+<p class="text-xs text-on-surface-variant">Prioritizing green labels</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-stone-600">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">block</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">No Mushrooms</p>
+<p class="text-xs text-on-surface-variant">Strict dietary restriction</p>
+</div>
+</div>
+</div>
+<div class="mt-10 p-4 bg-tertiary/5 rounded-lg border-l-4 border-tertiary">
+<p class="text-xs italic text-tertiary-container font-medium">Chef's Note:</p>
+<p class="text-sm text-on-surface-variant mt-1 italic">"Ensuring low spice for Arjun today. *Mirchi kam rakhna hai.*"</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Meal Plan Cards (Main Grid) -->
+<div class="col-span-9 flex flex-col gap-10">
+<!-- Breakfast Card -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(45,45,45,0.06)] border border-outline-variant/10 flex h-80 transition-all duration-300 hover:translate-y-[-4px]">
+<div class="w-2/5 relative overflow-hidden">
+<img alt="Methi Thepla" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up of traditional Indian Methi Thepla with a dollop of butter and spicy pickle on the side, soft warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHl6m1PC92v2G-PLzl2_daR92smGDu0r08s_6qlAZTZtYwHSyyfRbIPdTxE1xkUa0YDvygNa3KGfVqs17YLDB9laE8jyEMO6q2j8R7_3QmkUuGE_w4E-4puyWrx8o7B4Npve7BZGb5gzGPCp6HK8Jvlv6M3YAtveFZ1_VUdW9IxmN5oFv4mk-_ItU98GljO3CzSUEd0CxDGQPw1lAwWtcRygmemv8UT2acDWJ_xMi75Mq5scDRa2XaxdXK7zwnmQZ6wCj1bONEli1k"/>
+<div class="absolute top-4 left-4 px-4 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-on-surface shadow-sm">
+                            Breakfast
+                        </div>
+</div>
+<div class="w-3/5 p-10 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-3xl font-bold serif text-on-surface">Methi Thepla</h3>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-stone-100 rounded-full transition-colors text-stone-500 hover:text-primary" title="Regenerate">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+<button class="p-2 hover:bg-stone-100 rounded-full transition-colors text-stone-500 hover:text-tertiary" title="Freeze">
+<span class="material-symbols-outlined">lock_open</span>
+</button>
+<button class="p-2 hover:bg-stone-100 rounded-full transition-colors text-stone-500 hover:text-on-surface" title="Override">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-semibold rounded-full">Low-spice</span>
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-xs font-semibold rounded-full">Veg</span>
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant text-xs font-semibold rounded-full">Not made in 10 days</span>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant/10 pt-6">
+<div class="flex gap-4 text-sm text-on-surface-variant font-medium">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-lg">schedule</span> 20 mins</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-lg">restaurant</span> Easy</span>
+</div>
+<button class="text-tertiary font-bold text-sm flex items-center gap-1 hover:underline">
+                                View Recipe <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Lunch Card -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(45,45,45,0.06)] border border-outline-variant/10 flex h-80 transition-all duration-300 hover:translate-y-[-4px]">
+<div class="w-2/5 relative overflow-hidden">
+<img alt="Chana Masala" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Rich dark Chana Masala in a traditional copper bowl with fresh ginger julienne and cilantro garnish, moody kitchen lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzP6gIxozN3M9q7uRsXRXVIFAExECoJ4YwpNQ4fU1Pq-swDXXFor3jk78tq06Fqmt59fFk4HudAbb5Rhwytjx-rI0C9Aj1TwTUpxRigXmFuRgCcOfr-msL0UUPtS225HKGVE4ONFD2cYaPb4yTBadhkBeM31x_uqSx7yDntnHpbIdVl_8lvDFOITvrOiWLTpjHt-j4diDJyJ5_peMBBb3V-7nf3TacJtfKDgptuzEBF7RkLt8AoxD6L33Hux91k5FZDQibmOBnR1m7"/>
+<div class="absolute top-4 left-4 px-4 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-on-surface shadow-sm">
+                            Lunch
+                        </div>
+</div>
+<div class="w-3/5 p-10 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-3xl font-bold serif text-on-surface">Chana Masala</h3>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-stone-100 rounded-full transition-colors text-stone-500 hover:text-primary" title="Regenerate">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+<button class="p-2 hover:bg-stone-100 rounded-full transition-colors text-stone-500 hover:text-tertiary" title="Freeze">
+<span class="material-symbols-outlined">lock_open</span>
+</button>
+<button class="p-2 hover:bg-stone-100 rounded-full transition-colors text-stone-500 hover:text-on-surface" title="Override">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-xs font-semibold rounded-full">Veg</span>
+<span class="px-3 py-1 bg-stone-200 text-stone-600 text-xs font-semibold rounded-full">High Protein</span>
+<span class="px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant text-xs font-semibold rounded-full">Flatmate Favorite</span>
+</div>
+</div>
+<div class="flex justify-between items-end border-t border-outline-variant/10 pt-6">
+<div class="flex gap-4 text-sm text-on-surface-variant font-medium">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-lg">schedule</span> 45 mins</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-lg">restaurant</span> Intermediate</span>
+</div>
+<button class="text-tertiary font-bold text-sm flex items-center gap-1 hover:underline">
+                                View Recipe <span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Dinner Card -->
+<article class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(45,45,45,0.06)] border border-outline-variant/10 flex h-80 transition-all duration-300 hover:translate-y-[-4px]">
+<div class="w-2/5 relative overflow-hidden bg-stone-100 flex items-center justify-center">
+<div class="flex flex-col items-center gap-4 p-8 text-center">
+<span class="material-symbols-outlined text-6xl text-stone-300">restaurant</span>
+<p class="serif text-stone-400">Nothing cooking yet.<br/><span class="italic text-sm">Kitchen bilkul khali hai.</span></p>
+</div>
+<div class="absolute top-4 left-4 px-4 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-on-surface shadow-sm">
+                            Dinner
+                        </div>
+</div>
+<div class="w-3/5 p-10 flex flex-col justify-center items-center gap-6">
+<p class="text-on-surface-variant text-center max-w-xs">Suggest a dinner based on the flatmates' mood or leftover ingredients.</p>
+<button class="flex items-center gap-2 px-10 py-4 bg-tertiary text-on-tertiary rounded-full font-bold shadow-lg shadow-tertiary/20 transition-all hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined">magic_button</span>
+                            Auto-Generate Dinner
+                        </button>
+</div>
+</article>
+</div>
+</div>
+<!-- Floating Action Component for "Cook Mode" Context -->
+<div class="fixed bottom-12 right-12 flex gap-4">
+<button class="w-16 h-16 bg-white dark:bg-stone-800 rounded-full shadow-2xl flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors border border-outline-variant/10">
+<span class="material-symbols-outlined text-3xl">shopping_cart</span>
+</button>
+</div>
+</main>
+</body></html>

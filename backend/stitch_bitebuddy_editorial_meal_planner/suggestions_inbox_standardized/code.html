@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BiteBuddy | Suggestions Inbox</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f7f3ee",
+                    "on-background": "#1c1c19",
+                    "on-tertiary-fixed": "#002114",
+                    "on-surface": "#1c1c19",
+                    "on-tertiary-fixed-variant": "#0e5138",
+                    "inverse-primary": "#ffb4a2",
+                    "secondary-fixed": "#e0e5cc",
+                    "on-secondary-container": "#626753",
+                    "tertiary-fixed": "#b1f0ce",
+                    "on-primary-fixed": "#3c0700",
+                    "surface-variant": "#e6e2dd",
+                    "on-primary-fixed-variant": "#8a1d00",
+                    "secondary-fixed-dim": "#c4c9b1",
+                    "primary-container": "#ca4a29",
+                    "surface-container-high": "#ebe8e3",
+                    "surface-bright": "#fdf9f4",
+                    "primary-fixed-dim": "#ffb4a2",
+                    "outline": "#8c716a",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#444937",
+                    "tertiary": "#2a674c",
+                    "surface-tint": "#ac3415",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#ffdad2",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#fdf9f4",
+                    "tertiary-container": "#448064",
+                    "secondary": "#5c614d",
+                    "on-primary-container": "#fffbff",
+                    "outline-variant": "#e0bfb7",
+                    "background": "#fdf9f4",
+                    "inverse-on-surface": "#f4f0eb",
+                    "on-surface-variant": "#59413c",
+                    "primary": "#a83213",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#ddd9d5",
+                    "on-secondary-fixed": "#191d0e",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#95d4b3",
+                    "surface-container-highest": "#e6e2dd",
+                    "surface-container": "#f1ede8",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#f5fff7",
+                    "inverse-surface": "#31302d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Noto Serif', serif; }
+        .glass-header {
+            background: rgba(253, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar Shell -->
+<nav class="fixed left-0 top-0 h-full flex flex-col p-6 space-y-8 h-screen w-72 bg-stone-50 dark:bg-stone-950 z-50">
+<div class="flex flex-col space-y-1">
+<span class="font-serif italic text-2xl text-[#D95433] dark:text-[#E06D52]">BiteBuddy</span>
+<span class="font-medium text-[10px] uppercase tracking-[0.2em] text-stone-500">The Modern Kitchen</span>
+</div>
+<div class="flex flex-col space-y-2 flex-grow">
+<a class="flex items-center space-x-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-medium text-[12px] uppercase tracking-widest">Library</span>
+</a>
+<a class="flex items-center space-x-3 bg-stone-200/60 dark:bg-stone-800/60 text-[#D95433] dark:text-[#E06D52] rounded-xl font-bold px-4 py-3 active:scale-98 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="all_inbox">all_inbox</span>
+<span class="font-medium text-[12px] uppercase tracking-widest">Suggestions</span>
+</a>
+<a class="flex items-center space-x-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-medium text-[12px] uppercase tracking-widest">Cook Mode</span>
+</a>
+<a class="flex items-center space-x-3 text-stone-500 dark:text-stone-400 px-4 py-3 hover:bg-stone-100 dark:hover:bg-stone-800 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium text-[12px] uppercase tracking-widest">Settings</span>
+</a>
+</div>
+<button class="bg-[#D95433] text-white rounded-full px-6 py-4 flex items-center justify-center space-x-2 shadow-lg shadow-[#D95433]/20 hover:bg-[#c04a2d] transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span class="font-medium text-[12px] uppercase tracking-widest">New Recipe</span>
+</button>
+<div class="pt-6 border-t border-stone-200 dark:border-stone-800 flex items-center space-x-3">
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover" data-alt="close-up portrait of a professional chef in a white uniform with a friendly expression in a bright kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjZL_Czr6T69R1NX6V-iSON1_MhTA9m37GiQMd4KTamM4ylGUBIrprO45ILHVPtscPBXd1iMjS_ZAUvJIfR5hKRa6rThJWlpY46eIfJmtSKOfK6ZYDHT4YHIImV_EJAHp_s5j5tVI0LYKXDJdFgTo7iBCm2rW_LuA7uO_gq0JgOzrC8iTO05NgpdNECPkx9wjf27tmbQFiOb02OtqnY0ATMluT9K4uE7cAvbXdyToV8dlufswfpkKuxhqaGdfJO6_IqFcoT7A4s1PG"/>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-on-background">Chef Kabir</span>
+<span class="text-[10px] text-stone-500">Premium Plan</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-72 min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-12 py-6 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl">
+<div class="flex flex-col">
+<h1 class="text-4xl font-bold text-stone-900 dark:text-stone-50 tracking-tight">Suggestions Inbox</h1>
+<p class="text-secondary font-body italic text-sm">See what your flatmates are craving. *Kuch naya try karein?*</p>
+</div>
+<div class="flex items-center space-x-6">
+<div class="relative group">
+<input class="bg-surface-container-low border-none rounded-full px-6 py-2.5 text-sm focus:ring-2 focus:ring-tertiary-container w-64 transition-all" placeholder="Search requests..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-2.5 text-stone-400" data-icon="search">search</span>
+</div>
+<div class="flex space-x-4">
+<button class="p-2 text-stone-600 hover:text-[#D95433] transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-stone-600 hover:text-[#D95433] transition-colors">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<section class="px-12 mt-8 space-y-12">
+<!-- Group: Green Park Residency -->
+<div class="space-y-6">
+<div class="flex items-baseline space-x-4">
+<h2 class="text-2xl font-bold italic serif text-tertiary">Green Park Residency</h2>
+<span class="text-xs font-medium tracking-tighter text-stone-400 uppercase">3 New Requests</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Request Card 1 -->
+<div class="group flex items-center justify-between p-6 bg-surface-container-lowest rounded-xl shadow-[0_12px_40px_rgba(45,45,45,0.04)] hover:shadow-[0_12px_40px_rgba(45,45,45,0.08)] transition-all border border-transparent hover:border-outline-variant/10">
+<div class="flex items-center space-x-6">
+<div class="relative h-20 w-20 flex-shrink-0">
+<img class="h-full w-full object-cover rounded-xl" data-alt="vibrant healthy Buddha bowl with avocado, quinoa, and colorful vegetables on a ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9FHvVxg5cN5uOd5EFXsXH0WkqYEwtq095UfA9Gf1laz0CcQzDTtD7GUMod8fXhgSWh_xSQW2mVgwwCfHa9iFRu0Wx3zygvoUglURHii-AMCNm6hTygvfEs7V6WPGrT7_-4Vde1g1NmqPmRKk794PyZFglPtyvgS3F2zIdhAnyQoC7pmKcjX6k8KE56gFRJVl_mkzSa9pLWDUStDiUbvn-f9a5802vc7wnlnwwG9ZcGAV8wVL0OblSHRYWjUwPTF65tMTV74GiktGw"/>
+<div class="absolute -bottom-2 -right-2 bg-tertiary text-white p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-xs" data-icon="bolt">bolt</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Aman Gupta</span>
+<span class="text-[10px] text-stone-400">• 2 hours ago</span>
+</div>
+<h3 class="text-xl font-bold serif mt-1">Avocado &amp; Quinoa Power Bowl</h3>
+<p class="text-sm text-stone-600 italic">"Bhai, need something light for tomorrow's lunch after gym!"</p>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<button class="group/btn px-6 py-2 rounded-full border border-outline-variant/30 text-stone-600 text-sm font-medium hover:bg-error/5 hover:text-error hover:border-error transition-all">
+                            Decline
+                        </button>
+<button class="px-8 py-2 rounded-full bg-tertiary text-white text-sm font-bold shadow-lg shadow-tertiary/20 hover:scale-[1.02] active:scale-98 transition-all">
+                            Accept &amp; Add
+                        </button>
+</div>
+</div>
+<!-- Request Card 2 -->
+<div class="group flex items-center justify-between p-6 bg-surface-container-lowest rounded-xl shadow-[0_12px_40px_rgba(45,45,45,0.04)] hover:shadow-[0_12px_40px_rgba(45,45,45,0.08)] transition-all border border-transparent hover:border-outline-variant/10">
+<div class="flex items-center space-x-6">
+<div class="relative h-20 w-20 flex-shrink-0">
+<img class="h-full w-full object-cover rounded-xl" data-alt="steaming bowl of spicy szechuan noodles with bok choy and chili oil drizzle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlNLHaeWrOoFQ8doIm8vd0jdKnje9EZz0bqXV36Xu-LYoeY0RUcXTlLC9E5Wyml3grhk-raMmSVUnxBP399xAsZgDHb7cMo8tRN8hI5Ol8oObfsQxZCewF6hovA4e2QVGEPR3Nff6ofuU_Vu3Usy-VB1ss0Vss3pDeQDWKwd3hxnRtljPBS55Mjpf-7SI5hlkN4xgvZCLr6hEHG1G7CkM_Pv14X3P-FjUy7dC19fTX2Nz2lrG7_d2Dh3rfirG5YmcMTxWhj1APa8-c"/>
+<div class="absolute -bottom-2 -right-2 bg-primary text-white p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-xs" data-icon="local_fire_department">local_fire_department</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Riya Sharma</span>
+<span class="text-[10px] text-stone-400">• 5 hours ago</span>
+</div>
+<h3 class="text-xl font-bold serif mt-1">Spicy Dan Dan Noodles</h3>
+<p class="text-sm text-stone-600 italic">"Craving some *teekha* Chinese tonight. Possible?"</p>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<button class="px-6 py-2 rounded-full border border-outline-variant/30 text-stone-600 text-sm font-medium hover:bg-error/5 hover:text-error hover:border-error transition-all">
+                            Decline
+                        </button>
+<button class="px-8 py-2 rounded-full bg-tertiary text-white text-sm font-bold shadow-lg shadow-tertiary/20 hover:scale-[1.02] active:scale-98 transition-all">
+                            Accept &amp; Add
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Group: The Bachelor Pad -->
+<div class="space-y-6 pt-8">
+<div class="flex items-baseline space-x-4">
+<h2 class="text-2xl font-bold italic serif text-tertiary">The Bachelor Pad</h2>
+<span class="text-xs font-medium tracking-tighter text-stone-400 uppercase">1 New Request</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Request Card 3 -->
+<div class="group flex items-center justify-between p-6 bg-surface-container-lowest rounded-xl shadow-[0_12px_40px_rgba(45,45,45,0.04)] border border-transparent">
+<div class="flex items-center space-x-6">
+<div class="h-20 w-20 flex-shrink-0 bg-surface-container-low rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-300 text-4xl" data-icon="restaurant_menu">restaurant_menu</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Vikram Malhotra</span>
+<span class="text-[10px] text-stone-400">• Yesterday</span>
+</div>
+<h3 class="text-xl font-bold serif mt-1">Surprise Me!</h3>
+<p class="text-sm text-stone-600 italic">"Cook's choice today. *Jo bhi mann kare!*"</p>
+</div>
+</div>
+<div class="flex items-center space-x-3">
+<button class="px-6 py-2 rounded-full border border-outline-variant/30 text-stone-600 text-sm font-medium hover:bg-error/5 hover:text-error hover:border-error transition-all">
+                            Decline
+                        </button>
+<button class="px-8 py-2 rounded-full bg-tertiary text-white text-sm font-bold shadow-lg shadow-tertiary/20 hover:scale-[1.02] active:scale-98 transition-all">
+                            Pick for Me
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contextual FAB -->
+<div class="fixed bottom-12 right-12 flex flex-col space-y-4 items-end">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-6 py-3 rounded-2xl shadow-xl border border-outline-variant/10 max-w-xs transition-all hover:translate-y-[-4px]">
+<p class="text-[11px] font-bold text-tertiary uppercase tracking-widest mb-1">Chef's Note</p>
+<p class="text-xs text-on-surface-variant italic leading-relaxed">"Adding to library also lets you slot recipes into tomorrow's plan in one click. *Efficiency, boss!*"</p>
+</div>
+<button class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center shadow-2xl shadow-primary/40 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="auto_awesome">auto_awesome</span>
+</button>
+</div>
+</main>
+<!-- Simple Modal Overlay -->
+<div class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-[60] flex items-center justify-center hidden">
+<div class="bg-surface-container-lowest rounded-xl p-8 w-full max-w-md shadow-2xl">
+<h3 class="text-2xl serif font-bold mb-4">Why decline?</h3>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 text-sm focus:ring-2 focus:ring-primary/20 mb-6 h-32" placeholder="Too expensive? Takes too long? Let them know..."></textarea>
+<div class="flex justify-end space-x-4">
+<button class="px-6 py-2 rounded-full text-sm font-bold text-stone-500">Cancel</button>
+<button class="px-8 py-2 rounded-full bg-error text-white text-sm font-bold">Send Feedback</button>
+</div>
+</div>
+</div>
+</body></html>

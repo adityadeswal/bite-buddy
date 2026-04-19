@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#191d0e",
+                    "primary-fixed": "#ffdad2",
+                    "on-surface": "#1c1c19",
+                    "surface-dim": "#ddd9d5",
+                    "surface-container-highest": "#e6e2dd",
+                    "background": "#fdf9f4",
+                    "inverse-surface": "#31302d",
+                    "secondary-container": "#e0e5cc",
+                    "on-background": "#1c1c19",
+                    "on-tertiary-fixed-variant": "#0e5138",
+                    "surface-container-high": "#ebe8e3",
+                    "primary": "#a83213",
+                    "on-surface-variant": "#59413c",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#b1f0ce",
+                    "on-primary-fixed": "#3c0700",
+                    "tertiary-fixed-dim": "#95d4b3",
+                    "secondary-fixed-dim": "#c4c9b1",
+                    "tertiary": "#2a674c",
+                    "inverse-primary": "#ffb4a2",
+                    "surface-container": "#f1ede8",
+                    "primary-fixed-dim": "#ffb4a2",
+                    "on-primary": "#ffffff",
+                    "surface": "#fdf9f4",
+                    "secondary-fixed": "#e0e5cc",
+                    "primary-container": "#ca4a29",
+                    "surface-variant": "#e6e2dd",
+                    "on-tertiary-fixed": "#002114",
+                    "on-tertiary-container": "#f5fff7",
+                    "on-secondary-container": "#626753",
+                    "on-secondary": "#ffffff",
+                    "outline": "#8c716a",
+                    "on-primary-container": "#fffbff",
+                    "outline-variant": "#e0bfb7",
+                    "on-primary-fixed-variant": "#8a1d00",
+                    "on-secondary-fixed-variant": "#444937",
+                    "inverse-on-surface": "#f4f0eb",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#448064",
+                    "surface-bright": "#fdf9f4",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "secondary": "#5c614d",
+                    "surface-tint": "#ac3415",
+                    "surface-container-low": "#f7f3ee"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif-brand { font-family: 'Noto Serif', serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_12px_40px_rgba(45,45,45,0.06)] flex justify-between items-center px-6 py-4 max-w-full">
+<div class="flex items-center gap-2">
+<span class="font-serif text-2xl font-bold italic text-[#D95433] dark:text-[#f17150]">BiteBuddy</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors duration-300 px-3 py-1 rounded-lg" href="#">Recipes</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors duration-300 px-3 py-1 rounded-lg" href="#">Meal Plan</a>
+<a class="text-[#D95433] dark:text-[#f17150] font-semibold transition-colors duration-300" href="#">Settings</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-stone-50 rounded-full transition-all">notifications</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/10">
+<img alt="Chef profile avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional chef in a white coat with a friendly expression in a modern kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQreolzs_1vmhzUj1JKM26m9JVaqXzHQtijHZsuwUjAYMHsx6DlBwYG3knGiXG-Zc6JHVMJTgQtDAN2MjYyGGkykhA67KJA-9wuzzfrz4GdPh9d6iIlSCeU7N2p-ILvKhhCOvMPLB12a00XmrKNwON8M4ZyL8MK-hMC5HoXpfXg3DJhOVeJYM41_IEYs-BRTd6Ctfsjhl-8avIVg-Fs2DwsBqcCMtUzbfdAX1tNDNb7Yf4LU2L9wXBg6VUET9-s2Tc1LL1yi2SLMaG"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-72 flex flex-col fixed left-0 top-0 bg-stone-50 dark:bg-stone-950 flex flex-col h-full py-8 gap-6 border-r border-stone-200/15 dark:border-stone-800/15 hidden lg:flex pt-24">
+<div class="px-8 mb-4">
+<h2 class="font-serif text-xl italic text-stone-900 dark:text-stone-50">The Kitchen</h2>
+<p class="font-sans text-[10px] font-medium uppercase tracking-[0.2em] text-stone-400 mt-1">Modern Manuscript</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:translate-x-1 transition-transform font-sans text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">flatware</span> Kitchen
+            </a>
+<a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:translate-x-1 transition-transform font-sans text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">menu_book</span> Library
+            </a>
+<a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:translate-x-1 transition-transform font-sans text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">outdoor_grill</span> Cook Mode
+            </a>
+<a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:translate-x-1 transition-transform font-sans text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">group</span> Flatmates
+            </a>
+<a class="flex items-center gap-4 text-stone-500 dark:text-stone-400 px-4 py-3 hover:translate-x-1 transition-transform font-sans text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">shopping_basket</span> Groceries
+            </a>
+<div class="pt-6 mt-6 border-t border-stone-200/40">
+<a class="flex items-center gap-4 bg-white dark:bg-stone-800 text-[#D95433] dark:text-[#f17150] rounded-xl shadow-sm px-4 py-3 ml-2 font-sans text-sm font-medium uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+</div>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-medium shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all">
+                New Recipe
+            </button>
+<div class="mt-8 flex flex-col gap-2 pb-4">
+<a class="flex items-center gap-3 text-stone-400 text-xs uppercase tracking-tighter px-4 py-2 hover:text-stone-900 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">help_outline</span> Help
+                </a>
+<a class="flex items-center gap-3 text-stone-400 text-xs uppercase tracking-tighter px-4 py-2 hover:text-stone-900 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> Sign Out
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-72 pt-24 pb-20 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
+<header class="mb-16">
+<span class="text-primary font-medium tracking-widest uppercase text-xs mb-3 block">Account &amp; Kitchens</span>
+<h1 class="text-5xl md:text-6xl font-headline text-on-surface tracking-tight">Cook Preferences</h1>
+<p class="text-on-surface-variant mt-4 text-lg max-w-2xl leading-relaxed">
+                Refine your culinary profile and manage the active workspaces you serve. Your craft is in the details.
+            </p>
+</header>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-16">
+<!-- Profile Settings Section -->
+<section class="xl:col-span-5">
+<div class="sticky top-32">
+<h2 class="text-2xl font-headline mb-8 border-b border-outline-variant/15 pb-4">Profile Settings</h2>
+<form class="space-y-10">
+<div class="space-y-2">
+<label class="block text-xs font-semibold uppercase tracking-widest text-secondary">Public Display Name</label>
+<input class="w-full border-none bg-surface-container-low rounded-xl px-4 py-4 focus:ring-0 focus:bg-surface-container-highest transition-colors font-body text-on-surface" type="text" value="Chef Aryan Kapoor"/>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-semibold uppercase tracking-widest text-secondary">The Cook's Bio</label>
+<textarea class="w-full border-none bg-surface-container-low rounded-xl px-4 py-4 focus:ring-0 focus:bg-surface-container-highest transition-colors font-body text-on-surface italic leading-relaxed" rows="4">Specializing in coastal Mediterranean flavors with a heavy emphasis on seasonal Indian produce. Believes every meal should tell a story. *Tadka bina zindagi adhuri hai.*</textarea>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-semibold uppercase tracking-widest text-secondary">Experience Level</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="py-3 px-2 rounded-full border border-outline-variant/30 text-xs font-medium uppercase tracking-tighter hover:bg-surface-container transition-all" type="button">Home Cook</button>
+<button class="py-3 px-2 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-tighter" type="button">Professional</button>
+<button class="py-3 px-2 rounded-full border border-outline-variant/30 text-xs font-medium uppercase tracking-tighter hover:bg-surface-container transition-all" type="button">Artisan</button>
+</div>
+</div>
+<div class="pt-6">
+<button class="w-full md:w-auto bg-surface-container-highest text-on-surface py-4 px-12 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-on-surface hover:text-white transition-all">
+                                Update Profile
+                            </button>
+</div>
+</form>
+</div>
+</section>
+<!-- Manage Kitchens Section -->
+<section class="xl:col-span-7">
+<div class="flex items-baseline justify-between mb-8 border-b border-outline-variant/15 pb-4">
+<h2 class="text-2xl font-headline">Manage Kitchens</h2>
+<button class="text-primary text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">add_circle</span> Join New
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Kitchen Card 1 -->
+<div class="group bg-surface-container-low rounded-2xl overflow-hidden transition-all hover:shadow-[0_12px_40px_rgba(45,45,45,0.06)] flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img alt="Skyline Residency Kitchen" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Ultra-modern minimalist kitchen with marble islands, stainless steel appliances, and large windows overlooking a city skyline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ7_GHGoRAHkcaOmUzJsVEyAxfso0RfX1Ba6Mb3FerekJwnfpQZvU48OhzDZUBJR0eTebQ_AWZg8gd5A0OZAOcGLx1X3GaeKwgcZSnHWEK6AS-HkC6ZiC8Go-PIhwka26MdhXwJdfzwRS-xcN8ar96Kk6U22CUO59ZplnYUhR_wj2Ve5210nKvqwf-U9ryI1k_4a0dVjsyMX8hD0_668qay-kl_360tGLUKOF-5qXuijhxGqolg_jRnGk4pGSEaPfN-IRUeVd4g8Ea"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-white/90 backdrop-blur text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">View Workspace</span>
+</div>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary text-white text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1 rounded-full">Active</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-headline mb-1">Skyline Residency</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span> Unit 402 • 4 Flatmates
+                            </p>
+<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+<button class="text-on-surface-variant/60 hover:text-error text-xs font-bold uppercase tracking-widest flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-lg">logout</span> Leave Flat
+                                </button>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-stone-200 overflow-hidden"><img alt="Avatar" class="w-full h-full object-cover" data-alt="Portrait of a smiling young man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUu5oD8_EJIxWeuACC8Z3d5O5hsILu3dKJuR-dibhG9ECb0NEFC2dYMa8fycwM1Kez_cF99yiPx_sgXh8Tlq224VdqwuTxilRyOb570DbkfUnESR6RiVCNUdc9fXW8SvjUSeoPA2arMO82LWyv9tv0C3qEnyxts3X2oY7gquHwcM82bylnD_uVDkAli5mb-6H2RoNCr8djyeTV9YZYge1FEPOi1IFiUAybIlvT5xfik20VVnTSKxayJ3p00KdZj68c_7R_HKRIW8pV"/></div>
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-stone-200 overflow-hidden"><img alt="Avatar" class="w-full h-full object-cover" data-alt="Portrait of a laughing woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD_NVl9UM8oD53ubC7EjUy4Vud7EGxz-YZsK8YNZPZhjNCmHulILGMgLqGBfIwgZLVRywMkQksbk7MqJY6ullZNbnKNmHitEKbUkGFlD2CS7OdAB5XbgE6eQZ9OaTbwBhScfQd6aCfu1s0lBzZWdXlmz4bIw3EoZFW49sS5XkDCHjhHMrP_1JISlNgg5N3KNh6GZb-nD7qv6957gac91YMCyV1-Ho3mKA9ZJyyJadI63KWILE3CYgPHocYMTnNWwiyHPhzELuKCW_v"/></div>
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-stone-200 flex items-center justify-center text-[8px] font-bold text-stone-500">+2</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Kitchen Card 2 -->
+<div class="group bg-surface-container-low rounded-2xl overflow-hidden transition-all hover:shadow-[0_12px_40px_rgba(45,45,45,0.06)] flex flex-col">
+<div class="h-48 overflow-hidden relative">
+<img alt="The Green Villa Kitchen" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Warm rustic kitchen with exposed wooden beams, hanging copper pots, and a large farmhouse table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC53cJkUjq153eZVPrmeu_aCM6LwQEDGOWkyyCJNRwS8_SVcn6gYoYTNa_7_FPkPXj_wF6HVKWXPOX-Bc-QXN1tOUq8Tf7E3pp1iie6VgqryiG7_9RFnUV3JjHKldgSg3ngTPLAb8Q-5zYHaYeFGJhpin8SnG_Tz95Rr2bqcWjHj0MU8zoB7rxwkeLPdFEb3PCztLjYkAWiKMIJvMho227hN9XpbBV7pM4DIBFBsmWnY4s_AMCmkQ_hzefNPwYMsEs73HSTYji2jTFY"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-white/90 backdrop-blur text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">View Workspace</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-xl font-headline mb-1">The Green Villa</h3>
+<p class="text-on-surface-variant text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">location_on</span> Hauz Khas • 2 Flatmates
+                            </p>
+<div class="mt-auto flex justify-between items-center pt-4 border-t border-outline-variant/10">
+<button class="text-on-surface-variant/60 hover:text-error text-xs font-bold uppercase tracking-widest flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-lg">logout</span> Leave Flat
+                                </button>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-stone-200 overflow-hidden"><img alt="Avatar" class="w-full h-full object-cover" data-alt="Portrait of a young man with a beard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1uylzJhs1wYGs_AoSUgUiuU89cR_wrlridEblJcazte5FFQ3KCJh2pmsY0oi3ulqXUxcIANdgPcGCUtkZEkBDUiJBKgPlhx1b5Hf47DIg89wYPU-JDwWFrdPkeIFnfHChUVfvRfRUxJsK1bmZaBhmom2YfSLD0ZAfZrbK-x5LTBP5G4nFFo_RqxmbTIyBkP7oGovQX1Z3RUhKR9xDhc74Z93fCsHVkRFjt4TGSVHMbJfy6CdgxzsY7t_52RFYiqT70C4iTM08-owS"/></div>
+<div class="w-6 h-6 rounded-full border-2 border-surface bg-stone-200 overflow-hidden"><img alt="Avatar" class="w-full h-full object-cover" data-alt="Portrait of a woman with curly hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5BtZ7_k9NgoESJllzi8T8uePkOQytLa-99S7S40L5qezlDDAj_FxkAuKuyu3ZgrLEla0SwGfxOGMIRcdwIUwkH3R_E_Qiv_NU2s-67JAh4_WNEXidEm2jymYzeyF_icYy6SkJN3fHm4hIbKbt-aYWHaYz-ZchNOttLACgtEKItPQ1sgXQREagqaML3X3UWj7LGdQV3Gd-rD6LyNhE9rfq8KVipDYYz5P3ounCycYbGxASRS_R_hA172lXot6J_OXkYCTOc7flSRzc"/></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty/Draft Card -->
+<div class="border-2 border-dashed border-outline-variant/30 rounded-2xl flex flex-col items-center justify-center p-8 text-center min-h-[300px] hover:border-primary/40 hover:bg-primary/[0.02] transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-outline-variant/60 mb-4">add_home</span>
+<h4 class="font-headline text-lg text-on-surface-variant">Add another kitchen</h4>
+<p class="text-xs text-on-surface-variant/60 mt-2 max-w-[200px]">Expand your reach. Join a second flat or community workspace.</p>
+</div>
+</div>
+<div class="mt-12 bg-tertiary-fixed rounded-2xl p-8 flex flex-col md:flex-row gap-8 items-center">
+<div class="w-16 h-16 bg-tertiary text-white rounded-2xl flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">info</span>
+</div>
+<div>
+<h4 class="font-headline text-xl text-on-tertiary-fixed">Cook vs Flatmate Settings</h4>
+<p class="text-on-tertiary-fixed-variant mt-1 leading-relaxed">
+                            These settings control your profile as a **Cook**. Dietary preferences for individual flats are managed separately within each Kitchen's workspace.
+                        </p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-white/95 backdrop-blur-lg border-t border-stone-200/40 z-50 flex justify-around items-center py-3 px-2">
+<a class="flex flex-col items-center gap-1 text-stone-400" href="#">
+<span class="material-symbols-outlined">flatware</span>
+<span class="text-[10px] uppercase tracking-tighter font-bold">Kitchen</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-400" href="#">
+<span class="material-symbols-outlined">outdoor_grill</span>
+<span class="text-[10px] uppercase tracking-tighter font-bold">Cook</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[10px] uppercase tracking-tighter font-bold">Settings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-stone-400" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] uppercase tracking-tighter font-bold">Flats</span>
+</a>
+</nav>
+</body></html>

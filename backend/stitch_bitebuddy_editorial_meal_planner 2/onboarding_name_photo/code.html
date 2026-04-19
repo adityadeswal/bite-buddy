@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#e0e5cc",
+                      "primary-container": "#ca4a29",
+                      "tertiary-fixed": "#b1f0ce",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#ffb4a2",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f4f0eb",
+                      "tertiary-fixed-dim": "#95d4b3",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#e0e5cc",
+                      "on-secondary-fixed": "#191d0e",
+                      "tertiary-container": "#448064",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed": "#ffdad2",
+                      "outline-variant": "#e0bfb7",
+                      "surface-tint": "#ac3415",
+                      "on-secondary-fixed-variant": "#444937",
+                      "on-secondary-container": "#626753",
+                      "on-tertiary-container": "#f5fff7",
+                      "surface-container-low": "#f7f3ee",
+                      "surface-container": "#f1ede8",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#fdf9f4",
+                      "background": "#fdf9f4",
+                      "outline": "#8c716a",
+                      "inverse-primary": "#ffb4a2",
+                      "surface-container-highest": "#e6e2dd",
+                      "on-surface": "#1c1c19",
+                      "surface-variant": "#e6e2dd",
+                      "on-primary-fixed-variant": "#8a1d00",
+                      "surface-container-high": "#ebe8e3",
+                      "on-tertiary-fixed": "#002114",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#59413c",
+                      "secondary": "#5c614d",
+                      "on-primary-fixed": "#3c0700",
+                      "inverse-surface": "#31302d",
+                      "secondary-fixed-dim": "#c4c9b1",
+                      "primary": "#a83213",
+                      "surface": "#fdf9f4",
+                      "on-primary-container": "#fffbff",
+                      "on-error": "#ffffff",
+                      "on-background": "#1c1c19",
+                      "tertiary": "#2a674c",
+                      "on-tertiary-fixed-variant": "#0e5138",
+                      "surface-dim": "#ddd9d5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Noto Serif', serif; }
+        .ghost-border { border: 1px solid rgba(224, 191, 183, 0.15); }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col md:flex-row">
+<aside class="hidden md:flex flex-col w-64 bg-surface-container-low p-10 justify-between h-screen sticky top-0">
+<div class="space-y-12">
+<div class="flex items-center space-gap-3">
+<span class="font-headline text-2xl font-bold text-primary">BiteBuddy</span>
+</div>
+<nav class="space-y-10 relative">
+<div class="absolute left-3 top-0 bottom-0 w-[1px] bg-outline-variant opacity-30"></div>
+<div class="relative z-10 flex items-center space-x-4">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center ring-4 ring-surface-container-low">
+<span class="text-[10px] text-on-primary font-bold">01</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Identity</span>
+</div>
+<div class="relative z-10 flex items-center space-x-4">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center ring-4 ring-surface-container-low">
+<span class="text-[10px] text-on-surface-variant font-bold">02</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60">Dietary</span>
+</div>
+<div class="relative z-10 flex items-center space-x-4">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center ring-4 ring-surface-container-low">
+<span class="text-[10px] text-on-surface-variant font-bold">03</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60">Kitchen Role</span>
+</div>
+<div class="relative z-10 flex items-center space-x-4">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center ring-4 ring-surface-container-low">
+<span class="text-[10px] text-on-surface-variant font-bold">04</span>
+</div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/60">House Rules</span>
+</div>
+</nav>
+</div>
+<div class="text-xs text-on-surface-variant/50 font-medium">
+            Step 1 of 4
+        </div>
+</aside>
+<main class="flex-1 flex flex-col items-center justify-center px-6 py-12 md:py-24 max-w-5xl mx-auto">
+<div class="w-full max-w-2xl space-y-16">
+<header class="text-center md:text-left space-y-4">
+<h1 class="text-4xl md:text-6xl font-bold text-on-surface tracking-tight leading-tight">
+                    Seed your profile
+                </h1>
+<p class="text-lg text-on-surface-variant italic font-serif opacity-80">
+                    "Every great meal starts with knowing who's at the table."
+                </p>
+</header>
+<section class="flex flex-col md:flex-row gap-12 items-center md:items-start">
+<div class="relative group">
+<div class="w-48 h-48 md:w-56 md:h-56 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden ghost-border relative transition-all duration-300 group-hover:shadow-xl group-hover:shadow-on-surface/5">
+<img alt="Profile Placeholder" class="w-full h-full object-cover opacity-20 grayscale transition-all duration-500 group-hover:scale-105" data-alt="Soft focused close up of a clean ceramic bowl on a rustic linen cloth with natural window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZQxlWP1izlSOEGwjdxboJwL-OJffWozK9c3jjqsuhR23K9lOEWMI9pfNH8YQ8AblMBnMLnGbjhURZ0ZjetVS8ToUuKHjFgKD5xij1kpUaLKOehax4mCS-urxXrLRMVQuGOdZKvBmeL84pQUd9ilQE8Ho2GH849lt6yhig3JETyQpBrH7jkLSX7u0U0sFBP5Pyksew4PCZ5FGy2aIdf7RxS1hIq9VFp9pdYBN2KgzKcYQcwOiilaMwYXcKBfH8Nm53iSzLYkJsJjyp"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center bg-surface-bright/40 backdrop-blur-[2px] transition-opacity group-hover:bg-surface-bright/20">
+<span class="material-symbols-outlined text-4xl text-primary mb-2" data-icon="add_a_photo">add_a_photo</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Add Portrait</span>
+</div>
+</div>
+<div class="absolute -bottom-2 -right-2 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary shadow-lg ring-4 ring-background">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</div>
+</div>
+<div class="flex-1 w-full space-y-10 py-4">
+<div class="relative group">
+<label class="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-3 transition-colors group-focus-within:text-primary">
+                            Your Name
+                        </label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-6 py-5 text-xl font-headline placeholder:text-on-surface-variant/30 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-highest transition-all duration-300" placeholder="e.g. Advait Malhotra" type="text"/>
+</div>
+<div class="relative group">
+<label class="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-3">
+                            Flatmate Nickname (Optional)
+                        </label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-6 py-5 text-xl font-headline placeholder:text-on-surface-variant/30 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-highest transition-all duration-300" placeholder="The Spice King" type="text"/>
+<p class="mt-3 text-xs text-on-surface-variant/60 font-medium italic">
+                            Adding a little *tadka* to your identity helps the kitchen vibe.
+                        </p>
+</div>
+</div>
+</section>
+<footer class="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-2 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+<span class="text-xs font-medium">Only visible to your invited flatmates</span>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary px-12 py-4 rounded-full font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-3 transition-all hover:bg-primary-container hover:px-14 active:scale-95 shadow-lg shadow-primary/10">
+                    Next Chapter
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</footer>
+</div>
+</main>
+<div class="md:hidden fixed bottom-0 left-0 right-0 h-1 bg-surface-container-highest">
+<div class="h-full bg-primary w-1/4"></div>
+</div>
+</body></html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#e0e5cc",
+                    "primary-container": "#ca4a29",
+                    "tertiary-fixed": "#b1f0ce",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#ffb4a2",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f4f0eb",
+                    "tertiary-fixed-dim": "#95d4b3",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#e0e5cc",
+                    "on-secondary-fixed": "#191d0e",
+                    "tertiary-container": "#448064",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#ffdad2",
+                    "outline-variant": "#e0bfb7",
+                    "surface-tint": "#ac3415",
+                    "on-secondary-fixed-variant": "#444937",
+                    "on-secondary-container": "#626753",
+                    "on-tertiary-container": "#f5fff7",
+                    "surface-container-low": "#f7f3ee",
+                    "surface-container": "#f1ede8",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fdf9f4",
+                    "background": "#fdf9f4",
+                    "outline": "#8c716a",
+                    "inverse-primary": "#ffb4a2",
+                    "surface-container-highest": "#e6e2dd",
+                    "on-surface": "#1c1c19",
+                    "surface-variant": "#e6e2dd",
+                    "on-primary-fixed-variant": "#8a1d00",
+                    "surface-container-high": "#ebe8e3",
+                    "on-tertiary-fixed": "#002114",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#59413c",
+                    "secondary": "#5c614d",
+                    "on-primary-fixed": "#3c0700",
+                    "inverse-surface": "#31302d",
+                    "secondary-fixed-dim": "#c4c9b1",
+                    "primary": "#a83213",
+                    "surface": "#fdf9f4",
+                    "on-primary-container": "#fffbff",
+                    "on-error": "#ffffff",
+                    "on-background": "#1c1c19",
+                    "tertiary": "#2a674c",
+                    "on-tertiary-fixed-variant": "#0e5138",
+                    "surface-dim": "#ddd9d5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ghost-border {
+            border: 1px solid rgba(224, 191, 183, 0.15);
+        }
+        .meal-card-shadow {
+            box-shadow: 0 12px 40px rgba(45, 45, 45, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-stone-100 dark:bg-stone-900 p-6 space-y-8 z-50">
+<div class="flex flex-col space-y-1">
+<h1 class="font-serif text-xl text-orange-800 dark:text-orange-400 font-bold">BiteBuddy</h1>
+<p class="font-sans uppercase tracking-widest text-[10px] font-bold text-stone-500">The Modern Kitchen</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-3 bg-white dark:bg-stone-800 text-orange-700 dark:text-orange-400 rounded-full shadow-sm transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="font-sans uppercase tracking-widest text-xs font-bold">Library</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-orange-600 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="font-sans uppercase tracking-widest text-xs font-bold">Suggestions</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-orange-600 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">restaurant</span>
+<span class="font-sans uppercase tracking-widest text-xs font-bold">Cook Mode</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-orange-600 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-sans uppercase tracking-widest text-xs font-bold">Settings</span>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="w-full py-4 bg-primary text-on-primary rounded-full font-bold text-sm tracking-widest uppercase hover:bg-primary-container transition-colors shadow-lg shadow-primary/20">
+                    New Meal
+                </button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-64 bg-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md sticky top-0 z-40 flex justify-between items-center w-full px-8 py-6">
+<div>
+<h2 class="font-serif text-3xl font-bold text-orange-700 dark:text-orange-500 tracking-tight">The Weekly Table</h2>
+<p class="font-body text-secondary text-sm italic mt-1">Nourishing the soul, one meal at a time.</p>
+</div>
+<div class="flex items-center space-x-6">
+<div class="hidden sm:flex items-center space-x-2 text-stone-500">
+<span class="material-symbols-outlined text-orange-700">calendar_today</span>
+<span class="font-sans text-xs font-bold uppercase tracking-widest">Oct 23 - Oct 28</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-200/50 transition-colors">
+<span class="material-symbols-outlined text-stone-600">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling person with warm lighting and a soft architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuui3F8MPwscVA3F8vmNnIRSFDl5RMzzep5l5cVZJy-_f8lJ1-I18s3i6yzDt3weHYAlqvlc5ckQ1bkj9z14FrFTz0k0G2EnRUaaup1XnlNJIsDYetry6WowScMizKHaM898Rst_RWK912xfBGMuGdBTUBOaN_60Z6J48p5k1X7qPKaR5AZT7Qmzup-lCs2-c38OHIUM_fYPev3lPwiUqgS7O0Nys7ohRQNv4RjK-1Tfk6_FFb9JTenf0-rTHg1Q4bM7-lvb0bOj99"/>
+</div>
+</div>
+</header>
+<!-- Grid Content -->
+<div class="px-8 mt-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Monday (Active/Today) -->
+<div class="relative group">
+<div class="absolute -top-6 left-0 flex items-center space-x-2">
+<span class="font-sans text-[10px] font-extrabold uppercase tracking-[0.2em] text-primary">Today</span>
+<div class="h-[1px] w-12 bg-primary"></div>
+</div>
+<div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden ghost-border meal-card-shadow transition-transform hover:-translate-y-1">
+<div class="h-80 relative overflow-hidden">
+<img alt="Mediterranean Bowl" class="w-full h-full object-cover" data-alt="Vibrant Mediterranean salad bowl with roasted chickpeas, fresh cucumbers, tomatoes, and creamy tahini dressing on a textured stone table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKrnDzcOz-e5Lh1CSNjkTH8dbgVxlZGgjz3e__6j8e-pK069yKfztbNt94USGXFkxAgbp17zG4j5bSBP8VznOQYmeqBKHC1f8ueTeKX2goyYgq8SrsAjEDxbvnVZY8Wbj6o-DMZhrSLtvymlFT6MaXtEBSh_Bx_hEDBE97ukMteOTlkH4LqVy3kVhMLlLjQrv_7c8qyjO4T99MQKDXreht7taqv4ITSYL5obzTz0Hp9OFAttFDRyKpsymqgW60EHiorGZUuKKnZuRR"/>
+<div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm px-3 py-1 rounded-full">
+<span class="font-sans text-[10px] font-bold text-primary uppercase">Mon</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-serif text-2xl text-on-surface font-bold">Slow-Roasted Chickpea &amp; Herb Bowl</h3>
+<div class="mt-4 flex items-center justify-between text-secondary">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">Lunch • 20m</span>
+</div>
+<span class="text-xs italic">A healthy tadka for the week</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden ghost-border meal-card-shadow transition-transform hover:-translate-y-1 mt-6 lg:mt-0">
+<div class="h-64 relative overflow-hidden">
+<img alt="Quinoa Salad" class="w-full h-full object-cover opacity-90 group-hover:opacity-100" data-alt="Elegant presentation of a quinoa and avocado salad with pomegranate seeds and citrus dressing in soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOJrdeA1lRzB6asDTctQQBPv-qQba5aCK-9udaza34PT-m2btsI37VKhd6r2zt5d-Vr_m5GCPNClFnWL_-irq-CF4QH0kSEezcLvYc7Ygf9zzzcqvvWhrrazGNOCKy-2Q1GD_kTXEjhwlUz4iYAwd7Ucj0L4K8CgVkSc_o2kF6afsqB89dMjvQqMetMAk5_t3Z6xPoWoToqnMTGv75nO7CV1c6WcM8xXamQL7XMIVTddRSjRzhoqzPExYDgHSklciRpj7XDZKouTcy"/>
+<div class="absolute top-4 right-4 bg-surface-container-high/90 backdrop-blur-sm px-3 py-1 rounded-full">
+<span class="font-sans text-[10px] font-bold text-on-surface-variant uppercase">Tue</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-serif text-2xl text-on-surface font-bold">Zesty Pomegranate Quinoa</h3>
+<div class="mt-4 flex items-center space-x-4 text-secondary">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">Dinner • 35m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden ghost-border meal-card-shadow transition-transform hover:-translate-y-1 lg:translate-y-12">
+<div class="h-72 relative overflow-hidden">
+<img alt="Creamy Paneer" class="w-full h-full object-cover" data-alt="Traditional Indian Palak Paneer in a copper bowl with steam rising, served with buttered naan on the side" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkagBGFSU3d-1PW31Jhtjj1T4A7dmOH_4G6cl3nCC5ryD_Rgwc293VD6lUvE051JW39ASe5hRKioIFgmvL75JhxqiEpk3ZYSVhgDCnZTOHhZSxRUtbeXoN_cooReCvzGkeWyMRzwnffopl3nmtDqXXKQ4bSKRcgXsEuB38MPZl5wGzNlBTCE2oXt7CJ3wYiBJMD3fN4CXMmc0BWiC12XaxwMkCpQoIrHz9VEIuv3Bk-mCJKbxjkK21LFxJYbfCg_zhIH-QSa8Prhh8"/>
+<div class="absolute top-4 right-4 bg-surface-container-high/90 backdrop-blur-sm px-3 py-1 rounded-full">
+<span class="font-sans text-[10px] font-bold text-on-surface-variant uppercase">Wed</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-serif text-2xl text-on-surface font-bold">Artisanal Palak Paneer</h3>
+<div class="mt-4 flex items-center space-x-4 text-secondary">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">Dinner • 45m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Thursday -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden ghost-border meal-card-shadow transition-transform hover:-translate-y-1 md:translate-y-4">
+<div class="h-80 relative overflow-hidden">
+<img alt="Red Curry" class="w-full h-full object-cover" data-alt="Deep red Thai vegetable curry with bamboo shoots and basil leaves, served in a black ceramic bowl on a dark wood background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFAwMGEXLpnscjSpOQJ01Hq3klwIs8cO6Rgqm-cuaH7c2toqSDwaBi4y9h-4nS2RKqXlvNwba-kpuviwN4UISTYjcuVvoHbVt78Gvlo5nJRh0_1oz_xTbzI1vreRCfPRQAK28zKEn1VVxBYLMepxCsfIK076PLskihRiIjgnbYFokfX1qqXWufWDidf4RthGKswUePXWUq3oMC0br4xv6pusz6L_geI6V5Ts0l10U4ybOat39bAxv6h9Mszt9zhzwxB_cN6W1aZ0Gb"/>
+<div class="absolute top-4 right-4 bg-surface-container-high/90 backdrop-blur-sm px-3 py-1 rounded-full">
+<span class="font-sans text-[10px] font-bold text-on-surface-variant uppercase">Thu</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-serif text-2xl text-on-surface font-bold">Midnight Red Thai Curry</h3>
+<div class="mt-4 flex items-center space-x-4 text-secondary">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">Lunch • 25m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Friday -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden ghost-border meal-card-shadow transition-transform hover:-translate-y-1">
+<div class="h-64 relative overflow-hidden">
+<img alt="Thin Crust Pizza" class="w-full h-full object-cover" data-alt="Close-up of a rustic sourdough pizza with fresh buffalo mozzarella, basil, and a drizzle of olive oil, slightly charred crust" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb4AZZyCgsfZpijQ41N1B0TvE7F-m07t6YoTb0Bws_ycHnH3zQqB3WJnbUvVV7dpgrEybFyWpjwsb8EtEV2jZ7TmGGk0x12WKns7Gvn8dM7Vpz-6xGeg-wDH5mAevATp3ihbO5W319vGCgceytLiAU9ZNTqYBuSKnOUoiYM94YcV2MBFOqid6hCaqfmhPrf0ecsp3FVy8nxEGyfo9E_7ohETPPT9gs0FJGh4ICV7K21HiMlPLIUp29FSYFN39ygo8nx-zEgUMWQxrU"/>
+<div class="absolute top-4 right-4 bg-surface-container-high/90 backdrop-blur-sm px-3 py-1 rounded-full">
+<span class="font-sans text-[10px] font-bold text-on-surface-variant uppercase">Fri</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-serif text-2xl text-on-surface font-bold">Rustic Sourdough Pizza</h3>
+<div class="mt-4 flex items-center space-x-4 text-secondary">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">Dinner • 60m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Saturday -->
+<div class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden ghost-border meal-card-shadow transition-transform hover:-translate-y-1 lg:translate-y-8">
+<div class="h-72 relative overflow-hidden">
+<img alt="Avocado Toast" class="w-full h-full object-cover" data-alt="Stylized avocado toast on whole grain bread with radish slices, microgreens, and a poached egg on an elegant white plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa7KhzpHO53kRfp_ICrcu75ZbwASMegfJutzWRK1XInRQX6Lk9xVQPZ0RrEj_R0usDkvoaqKYdETxH_knTOswc_pwonySXcx8aluVllDg4i0N5Ec8kj1LKu_mqsHdbJ1inVA2JXtEQzmzJstaH1EcyzFcUd6vSSa5O-A5dX2xfZUs2xZZLaGILOnH4Gons8-cl9KZozVOPifbwU0baloJqdGJEQb3PZZJr63ikejK9AzA1FXqvBD1s_OYiTcQ7U9rKjTMNnIe4_nj4"/>
+<div class="absolute top-4 right-4 bg-surface-container-high/90 backdrop-blur-sm px-3 py-1 rounded-full">
+<span class="font-sans text-[10px] font-bold text-on-surface-variant uppercase">Sat</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-serif text-2xl text-on-surface font-bold">The Saturday Brunch Special</h3>
+<div class="mt-4 flex items-center space-x-4 text-secondary">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">Brunch • 15m</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Contextual Element -->
+<div class="mt-32 px-8 flex flex-col items-center text-center">
+<div class="w-[1px] h-24 bg-stone-300 mb-8"></div>
+<h4 class="font-serif text-4xl text-secondary/40">Looking for more?</h4>
+<p class="font-body text-secondary mt-4 max-w-md">Our library contains 200+ curated recipes for every flatmate's mood. *Har swaad ke liye kuch khaas.*</p>
+</div>
+</main>
+</div>
+<!-- Suggest a Dish FAB -->
+<button class="fixed bottom-8 right-8 flex items-center space-x-3 bg-primary text-on-primary px-8 py-5 rounded-full shadow-2xl hover:bg-primary-container hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined font-variation-settings-fill-1">lightbulb</span>
+<span class="font-sans uppercase tracking-widest text-xs font-bold">Suggest a dish</span>
+</button>
+</body></html>

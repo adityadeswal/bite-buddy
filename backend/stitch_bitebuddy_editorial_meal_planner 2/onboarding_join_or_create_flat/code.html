@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BiteBuddy | Join or Create Your Flat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#e0e5cc",
+                      "primary-container": "#ca4a29",
+                      "tertiary-fixed": "#b1f0ce",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#ffb4a2",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f4f0eb",
+                      "tertiary-fixed-dim": "#95d4b3",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#e0e5cc",
+                      "on-secondary-fixed": "#191d0e",
+                      "tertiary-container": "#448064",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed": "#ffdad2",
+                      "outline-variant": "#e0bfb7",
+                      "surface-tint": "#ac3415",
+                      "on-secondary-fixed-variant": "#444937",
+                      "on-secondary-container": "#626753",
+                      "on-tertiary-container": "#f5fff7",
+                      "surface-container-low": "#f7f3ee",
+                      "surface-container": "#f1ede8",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#fdf9f4",
+                      "background": "#fdf9f4",
+                      "outline": "#8c716a",
+                      "inverse-primary": "#ffb4a2",
+                      "surface-container-highest": "#e6e2dd",
+                      "on-surface": "#1c1c19",
+                      "surface-variant": "#e6e2dd",
+                      "on-primary-fixed-variant": "#8a1d00",
+                      "surface-container-high": "#ebe8e3",
+                      "on-tertiary-fixed": "#002114",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#59413c",
+                      "secondary": "#5c614d",
+                      "on-primary-fixed": "#3c0700",
+                      "inverse-surface": "#31302d",
+                      "secondary-fixed-dim": "#c4c9b1",
+                      "primary": "#a83213",
+                      "surface": "#fdf9f4",
+                      "on-primary-container": "#fffbff",
+                      "on-error": "#ffffff",
+                      "on-background": "#1c1c19",
+                      "tertiary": "#2a674c",
+                      "on-tertiary-fixed-variant": "#0e5138",
+                      "surface-dim": "#ddd9d5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-hidden">
+
+    <!-- Main Onboarding Layout -->
+    <div class="flex h-screen w-full">
+        
+        <!-- Left Sidebar: Progress Rail -->
+        <aside class="w-24 md:w-32 lg:w-48 bg-surface-container-low flex flex-col items-center py-12 px-4 shrink-0">
+            <div class="mb-16">
+                <span class="font-headline text-2xl font-bold text-primary tracking-tighter">B.B.</span>
+            </div>
+            
+            <nav class="flex flex-col items-center space-y-12 relative flex-grow h-full">
+                <!-- Vertical Line -->
+                <div class="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-px bg-outline-variant/30"></div>
+                
+                <!-- Step 1: Complete -->
+                <div class="relative z-10 group cursor-default">
+                    <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'wght' 700;">check</span>
+                    </div>
+                    <span class="absolute left-12 top-1.5 whitespace-nowrap text-[10px] font-bold tracking-widest text-on-surface-variant uppercase opacity-0 lg:opacity-100">Identity</span>
+                </div>
+
+                <!-- Step 2: Active -->
+                <div class="relative z-10 group cursor-default">
+                    <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary ring-4 ring-primary-fixed">
+                        <span class="font-bold text-sm">02</span>
+                    </div>
+                    <span class="absolute left-14 top-2.5 whitespace-nowrap text-[10px] font-bold tracking-widest text-primary uppercase opacity-0 lg:opacity-100">The Nest</span>
+                </div>
+
+                <!-- Step 3: Pending -->
+                <div class="relative z-10 group cursor-default">
+                    <div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center text-on-surface-variant">
+                        <span class="font-medium text-xs">03</span>
+                    </div>
+                    <span class="absolute left-12 top-1.5 whitespace-nowrap text-[10px] font-bold tracking-widest text-on-surface-variant opacity-0 lg:opacity-100 uppercase">Tastes</span>
+                </div>
+
+                <!-- Step 4: Pending -->
+                <div class="relative z-10 group cursor-default">
+                    <div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center text-on-surface-variant">
+                        <span class="font-medium text-xs">04</span>
+                    </div>
+                    <span class="absolute left-12 top-1.5 whitespace-nowrap text-[10px] font-bold tracking-widest text-on-surface-variant opacity-0 lg:opacity-100 uppercase">Launch</span>
+                </div>
+            </nav>
+
+            <div class="mt-auto">
+                <span class="material-symbols-outlined text-on-surface-variant opacity-50">help_outline</span>
+            </div>
+        </aside>
+
+        <!-- Main Content Canvas -->
+        <main class="flex-grow overflow-y-auto bg-surface-container-low/50 relative">
+            <!-- Decorative Accent -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-bl-full -mr-48 -mt-48 blur-3xl"></div>
+
+            <div class="max-w-6xl mx-auto px-8 lg:px-16 pt-24 pb-12">
+                <!-- Header Section -->
+                <header class="mb-16">
+                    <p class="font-body text-xs font-bold tracking-[0.2em] text-primary uppercase mb-4 italic">Settling In</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-headline font-bold text-on-surface leading-tight max-w-3xl">
+                        Every kitchen needs a <span class="italic text-primary-container">soul.</span> Where's yours?
+                    </h1>
+                    <p class="mt-6 text-on-surface-variant text-lg font-light leading-relaxed max-w-xl">
+                        Join an existing flat to see what's cooking, or start a fresh kitchen with your flatmates. *Abhi shuru karein.*
+                    </p>
+                </header>
+
+                <!-- Split Cards Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                    
+                    <!-- Card 1: Join with Code -->
+                    <section class="group relative bg-surface-container-lowest rounded-xl p-8 lg:p-12 flex flex-col transition-all duration-500 hover:shadow-[0_20px_50px_rgba(168,50,19,0.06)] border border-transparent hover:border-outline-variant/10">
+                        <div class="mb-8 w-12 h-12 bg-secondary-container/30 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-2xl" data-icon="key">key</span>
+                        </div>
+                        <h2 class="text-3xl font-headline font-bold mb-4">Join with Code</h2>
+                        <p class="text-on-surface-variant font-body leading-relaxed mb-10">
+                            Already got a group? Enter the 6-digit invite code shared by your flatmates to jump right in.
+                        </p>
+                        
+                        <div class="mt-auto space-y-6">
+                            <div class="relative">
+                                <label for="flat_code" class="block text-[10px] font-bold tracking-widest text-on-surface-variant uppercase mb-2 ml-1">Invite Code</label>
+                                <input type="text" id="flat_code" placeholder="E.g. BIT-502" class="w-full bg-surface-container border-none rounded-lg px-5 py-4 focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant/40 text-lg tracking-widest font-medium uppercase transition-colors">
+                            </div>
+                            <button class="w-full py-5 bg-surface-container-high text-on-surface font-bold rounded-full transition-all duration-300 hover:bg-primary hover:text-on-primary flex items-center justify-center group/btn">
+                                <span>Verify Code</span>
+                                <span class="material-symbols-outlined ml-2 text-xl translate-x-0 group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Card 2: Start New Flat -->
+                    <section class="group relative bg-surface-container-lowest rounded-xl p-8 lg:p-12 flex flex-col transition-all duration-500 hover:shadow-[0_20px_50px_rgba(168,50,19,0.06)] border border-transparent hover:border-outline-variant/10">
+                        <div class="absolute top-0 right-0 w-48 h-48 overflow-hidden rounded-tr-xl opacity-10">
+                            <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Kitchen scene" 
+                                 class="object-cover w-full h-full grayscale"
+                                 data-alt="Minimalist modern kitchen with marble countertop, wooden utensils, and soft morning light, high-end editorial food magazine style.">
+                        </div>
+                        
+                        <div class="mb-8 w-12 h-12 bg-primary-container/10 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-2xl" data-icon="add_home">add_home</span>
+                        </div>
+                        <h2 class="text-3xl font-headline font-bold mb-4">Start a New Flat</h2>
+                        <p class="text-on-surface-variant font-body leading-relaxed mb-10">
+                            Starting fresh? Set up a new workspace for your flatmates to manage groceries, meals, and split bills seamlessly.
+                        </p>
+                        
+                        <div class="mt-auto">
+                            <button class="w-full py-5 bg-primary text-on-primary font-bold rounded-full transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center group/btn-main">
+                                <span>Create My Kitchen</span>
+                                <span class="material-symbols-outlined ml-2 text-xl opacity-0 -translate-x-4 group-hover/btn-main:opacity-100 group-hover/btn-main:translate-x-0 transition-all">local_dining</span>
+                            </button>
+                            <p class="text-center text-[10px] font-bold text-on-surface-variant/50 tracking-widest uppercase mt-6">Takes less than 30 seconds</p>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- Footer Hint -->
+                <footer class="mt-20 flex flex-col md:flex-row items-center justify-between border-t border-outline-variant/10 pt-8 gap-4">
+                    <div class="flex items-center space-x-2 text-on-surface-variant/60">
+                        <span class="material-symbols-outlined text-sm">info</span>
+                        <span class="text-xs">You can change these settings later in the kitchen dashboard.</span>
+                    </div>
+                    <button class="text-xs font-bold tracking-widest text-on-surface-variant hover:text-primary transition-colors uppercase border-b border-transparent hover:border-primary pb-1">
+                        Skip for now
+                    </button>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html></style></head><body></body></html>

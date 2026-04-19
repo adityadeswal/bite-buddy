@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#8c716a",
+                      "background": "#fdf9f4",
+                      "secondary-container": "#e0e5cc",
+                      "on-tertiary-container": "#f5fff7",
+                      "on-surface-variant": "#59413c",
+                      "on-tertiary-fixed-variant": "#0e5138",
+                      "surface-dim": "#ddd9d5",
+                      "on-tertiary-fixed": "#002114",
+                      "on-tertiary": "#ffffff",
+                      "inverse-on-surface": "#f4f0eb",
+                      "tertiary": "#2a674c",
+                      "primary-container": "#ca4a29",
+                      "on-primary-container": "#fffbff",
+                      "primary-fixed": "#ffdad2",
+                      "on-surface": "#1c1c19",
+                      "surface-container-highest": "#e6e2dd",
+                      "tertiary-container": "#448064",
+                      "surface-container-low": "#f7f3ee",
+                      "secondary-fixed-dim": "#c4c9b1",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#b1f0ce",
+                      "surface-container": "#f1ede8",
+                      "surface-tint": "#ac3415",
+                      "secondary-fixed": "#e0e5cc",
+                      "on-secondary-fixed-variant": "#444937",
+                      "surface": "#fdf9f4",
+                      "surface-bright": "#fdf9f4",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-fixed-variant": "#8a1d00",
+                      "secondary": "#5c614d",
+                      "on-secondary": "#ffffff",
+                      "surface-variant": "#e6e2dd",
+                      "on-secondary-fixed": "#191d0e",
+                      "primary-fixed-dim": "#ffb4a2",
+                      "on-background": "#1c1c19",
+                      "primary": "#a83213",
+                      "inverse-primary": "#ffb4a2",
+                      "on-error-container": "#93000a",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#31302d",
+                      "on-secondary-container": "#626753",
+                      "on-primary-fixed": "#3c0700",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#95d4b3",
+                      "outline-variant": "#e0bfb7",
+                      "surface-container-high": "#ebe8e3",
+                      "on-primary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Noto Serif', serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased flex min-h-screen">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-stone-50 dark:bg-stone-900 border-r border-stone-200/10 z-50">
+<div class="px-8 py-10">
+<h1 class="font-serif italic text-xl text-stone-900 dark:text-stone-50">BiteBuddy</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-stone-400 mt-1">The Kitchen Office</p>
+</div>
+<nav class="flex-1 space-y-2 mt-4">
+<div class="group">
+<a class="text-stone-500 dark:text-stone-400 px-6 py-3 hover:translate-x-1 transition-transform flex items-center gap-4" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span class="text-xs uppercase tracking-widest font-medium">Kitchen Dashboard</span>
+</a>
+</div>
+<div class="group">
+<a class="bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-50 rounded-r-full font-bold px-6 py-3 ml-0 mr-4 flex items-center gap-4" href="#">
+<span class="material-symbols-outlined text-lg">group</span>
+<span class="text-xs uppercase tracking-widest">Flatmates</span>
+</a>
+</div>
+<div class="group">
+<a class="text-stone-500 dark:text-stone-400 px-6 py-3 hover:translate-x-1 transition-transform flex items-center gap-4" href="#">
+<span class="material-symbols-outlined text-lg">restaurant_menu</span>
+<span class="text-xs uppercase tracking-widest font-medium">Meal Planner</span>
+</a>
+</div>
+<div class="group">
+<a class="text-stone-500 dark:text-stone-400 px-6 py-3 hover:translate-x-1 transition-transform flex items-center gap-4" href="#">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+<span class="text-xs uppercase tracking-widest font-medium">Recipe Manuscript</span>
+</a>
+</div>
+<div class="group">
+<a class="text-stone-500 dark:text-stone-400 px-6 py-3 hover:translate-x-1 transition-transform flex items-center gap-4" href="#">
+<span class="material-symbols-outlined text-lg">skillet</span>
+<span class="text-xs uppercase tracking-widest font-medium">Cook Mode</span>
+</a>
+</div>
+</nav>
+<div class="p-6">
+<button class="w-full bg-primary text-on-primary rounded-full py-4 text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 shadow-[0_12px_40px_rgba(168,50,19,0.15)] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+                Add New Tadka
+            </button>
+</div>
+<div class="mt-auto border-t border-stone-200/10 p-4 space-y-1">
+<a class="text-stone-500 dark:text-stone-400 px-4 py-2 hover:translate-x-1 transition-transform flex items-center gap-3 text-xs uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg">account_circle</span>
+                Account
+            </a>
+<a class="text-stone-500 dark:text-stone-400 px-4 py-2 hover:translate-x-1 transition-transform flex items-center gap-3 text-xs uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg">help_outline</span>
+                Help
+            </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 flex-1 min-h-screen bg-background relative overflow-hidden">
+<!-- TopAppBar (Authority: JSON) -->
+<header class="bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl sticky top-0 z-40 shadow-[0_12px_40px_rgba(28,28,25,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-serif text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50">Flatmates</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-stone-500">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">settings</span>
+</div>
+<div class="h-10 w-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="close-up of a professional chef wearing a clean white coat in a bright studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1lVcIyMoQzPCneiZHStX6iAc9fvrEgF5Futd8LmY1QHHSbHDZn1ZgMCnOXm7eYQkcvqeb4M2aMzmEuahJcTRz6H5z8I-sN8zZuMufgc4cQTRzuaiwSvn5uVEv_01y7teR7w3fDrIFfVx8LPzRkuQhX43q45k4ep-AQCzxBSZ8EXv4C5E5VX1sdTHvm2ZnpHsCipsKGuhY8QFCrICEIWJfNuNFdjiEXh6NAuRtYVCOZwdKY31UNNJY_ZHZZ6557gp-8jFFtlvuqMDM"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Body -->
+<div class="max-w-7xl mx-auto px-12 py-16">
+<!-- Page Header Section -->
+<section class="mb-20 flex justify-between items-end">
+<div class="max-w-2xl">
+<h2 class="text-5xl font-serif text-on-surface leading-tight">The Communal Table</h2>
+<p class="mt-6 text-lg text-secondary font-body max-w-lg leading-relaxed">
+                        Managing preferences for the 4th Floor Gourmet Club. Here we align tastes, respect boundaries, and ensure every <span class="italic font-serif">meal</span> is a celebration.
+                    </p>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-4 bg-surface-container-low text-on-surface-variant font-bold rounded-full text-xs uppercase tracking-widest hover:bg-surface-container-high transition-colors">
+                        Leave Household
+                    </button>
+<button class="px-8 py-4 bg-primary text-on-primary font-bold rounded-full text-xs uppercase tracking-widest flex items-center gap-2 shadow-lg active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">person_add</span>
+                        Invite Flatmate
+                    </button>
+</div>
+</section>
+<!-- Flatmate Manuscript Table/Grid -->
+<div class="space-y-4">
+<!-- Table Header (Subtle & Spaced) -->
+<div class="grid grid-cols-[100px_1fr_1fr_1fr_180px] px-8 py-4 items-center text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">
+<span>Avatar</span>
+<span>Identity</span>
+<span>Dietary Ritual</span>
+<span>Allergies</span>
+<span class="text-right">Actions</span>
+</div>
+<!-- Flatmate Row 01 -->
+<div class="group relative bg-surface-container-low rounded-xl transition-all duration-300 hover:bg-surface-container-high hover:shadow-xl hover:translate-y-[-2px]">
+<div class="grid grid-cols-[100px_1fr_1fr_1fr_180px] p-8 items-center">
+<div class="relative h-16 w-16">
+<img class="h-16 w-16 rounded-full object-cover border-2 border-white" data-alt="portrait of a smiling young man in a linen shirt with soft natural lighting in a contemporary interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANftjIW-DS4UaAHyO06E_E1THmNHNY6T5VFHlhqaQM21PhrTZYWqbhDqm5W9V1Jkik3fWr1QUx3Nky5Vk1uc7Lt-a7lS8IuMSZCzNs4sdFHkCRPLyOo_qXCx5AxFc33ydn5VMydFaAAQAeZtHY08AELXwGmwkPQ1KtRvoaL5ELc0lN2AdhzZE6-bMbar59qB9u9aObWROedH9_DNKH1Vze9P38rXiWLtmuLghFL6_Zn_PYWLXFPHFtgywh_xVmgyhbQJ07DhEV4MU_"/>
+<div class="absolute bottom-0 right-0 h-4 w-4 bg-tertiary rounded-full border-2 border-surface-container-low" title="In Cook Mode"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-serif text-2xl text-on-surface">Arjun Mehta</span>
+<span class="text-xs text-secondary font-medium tracking-wide">Primary Chef</span>
+</div>
+<div>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold">Vegetarian</span>
+</div>
+<div class="flex gap-2">
+<span class="text-sm font-medium text-stone-600">Peanuts, Shellfish</span>
+</div>
+<div class="text-right">
+<button class="text-primary text-xs uppercase tracking-widest font-bold border-b-2 border-transparent hover:border-primary transition-all">
+                                View Preferences
+                            </button>
+</div>
+</div>
+</div>
+<!-- Flatmate Row 02 -->
+<div class="group relative bg-surface-container-low rounded-xl transition-all duration-300 hover:bg-surface-container-high hover:shadow-xl hover:translate-y-[-2px]">
+<div class="grid grid-cols-[100px_1fr_1fr_1fr_180px] p-8 items-center">
+<div class="h-16 w-16">
+<img class="h-16 w-16 rounded-full object-cover border-2 border-white" data-alt="close up portrait of a woman with dark curly hair looking thoughtfully off camera in soft warm afternoon light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeAo4n3rYbYNmf3klZliT9J5whpw03hMPNJyIaWyKAwW9PmgaXgfEErXN6JOSWePmBTXofZosl3rf8d-UU8JGAyOfQgnrrw44VVyaVYNbXK6w_XHQLtel29r0zMvLmJGmBovy0r0Teqg6yJAY28ammWXDD3vL6tUNkBXKozIbHlSUOT_KCYe7jbzpsiY8oEuEQvMfFyZMHIpf2MKQf8Mu9sLUJGgyCNOpRLO8dstuzKJLmXwsDxcysDrv6npzWpqKSTobBhow6OeSI"/>
+</div>
+<div class="flex flex-col">
+<span class="font-serif text-2xl text-on-surface">Sarah Jenkins</span>
+<span class="text-xs text-secondary font-medium tracking-wide">Sous-Chef in Training</span>
+</div>
+<div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold">Pescatarian</span>
+</div>
+<div class="flex gap-2">
+<span class="text-sm font-medium text-stone-600">Gluten (Mild)</span>
+</div>
+<div class="text-right">
+<button class="text-primary text-xs uppercase tracking-widest font-bold border-b-2 border-transparent hover:border-primary transition-all">
+                                View Preferences
+                            </button>
+</div>
+</div>
+<!-- Inline Expand Placeholder -->
+<div class="px-8 pb-8 pt-0 hidden group-active:block animate-fade-in">
+<div class="border-t border-outline-variant/20 pt-8 grid grid-cols-3 gap-8">
+<div class="space-y-2">
+<h4 class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">Favorite Cuisines</h4>
+<p class="text-sm text-on-surface font-medium leading-relaxed">Coastal Indian, Mediterranean, Classic French.</p>
+</div>
+<div class="space-y-2">
+<h4 class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">Spice Level</h4>
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">local_fire_department</span>
+</div>
+</div>
+<div class="space-y-2">
+<h4 class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-bold">Kitchen Role</h4>
+<p class="text-sm text-on-surface font-medium leading-relaxed">Cleanup Champion &amp; Prep Wizard.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Flatmate Row 03 -->
+<div class="group relative bg-surface-container-low rounded-xl transition-all duration-300 hover:bg-surface-container-high hover:shadow-xl hover:translate-y-[-2px]">
+<div class="grid grid-cols-[100px_1fr_1fr_1fr_180px] p-8 items-center">
+<div class="h-16 w-16">
+<img class="h-16 w-16 rounded-full object-cover border-2 border-white" data-alt="lifestyle portrait of a man with casual beard smiling warmly at the camera against an out-of-focus urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHBI_AR1-W8McFrZG7UfIm7AuepT006vo8wl6BhpgEFDfz-DM-zyAodLtrQ1B91EgcueXRCgV6wX8OBTV-UOK7oQsyNeq1u2F6Bbj2ly_KlPwgtsuvL-8b0K2Ag_pMUhgWh4i97N38dkhdgjwIqDK-mxy_WJkz6zaLJS4WJ3GrX2_9KQ2lSj73MHlJwzbi5Kczt_kVOP8hz0I2N44Ydhzfra9VdfdfZdGMeG0u0M0aDwSX4X1wG1vVyHz3_v_vZTWF0wzgWdHeuSef"/>
+</div>
+<div class="flex flex-col">
+<span class="font-serif text-2xl text-on-surface">Daniel Choi</span>
+<span class="text-xs text-secondary font-medium tracking-wide">The Epicurean Guest</span>
+</div>
+<div>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold">No Restrictions</span>
+</div>
+<div class="flex gap-2">
+<span class="text-sm font-medium text-stone-400 italic">None reported</span>
+</div>
+<div class="text-right">
+<button class="text-primary text-xs uppercase tracking-widest font-bold border-b-2 border-transparent hover:border-primary transition-all">
+                                View Preferences
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid - House Stats & Household Identity -->
+<div class="mt-24 grid grid-cols-12 gap-8">
+<div class="col-span-8 bg-stone-900 rounded-xl p-12 relative overflow-hidden flex flex-col justify-between h-[400px]">
+<div class="relative z-10">
+<span class="text-xs uppercase tracking-widest text-primary font-bold">House Philosophy</span>
+<h3 class="text-white text-4xl font-serif mt-4 max-w-md leading-tight italic">"Where there is dal, there is hope. Where there is butter, there is love."</h3>
+</div>
+<div class="relative z-10 flex items-center gap-4">
+<div class="flex -space-x-3">
+<img class="h-10 w-10 rounded-full border-2 border-stone-900" data-alt="user portrait thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn669ROPnXAEyxZg4wSOF8unC5Ctc-ubNrYwVFV4StwBX-KWZif-q2TuwI5e0Rdi8k5eAkSDelpAYPAUmYks0gZYUy-JhtcePY89ydtFpPp-DGQ7g_zRZITZoTkyYD9MIrqjzikIoay7TvGDYci0pdkBdTRPjlkTbxAKBD4JRm44bkJ09z7vnkkjmcA0VlHKz54bISiPKvBfQzvZya9tzxdN7djL7L3-pQhQPU0NkP1itcKQeDPQdAZZLXgkoTz7rePRg6ReN08seV"/>
+<img class="h-10 w-10 rounded-full border-2 border-stone-900" data-alt="user portrait thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqOvqe3jqGlt_Oc8Eiu9Ltow3ShMHvTO4p6AZ6MUFUb_b7vp5PbNihf1wuVQLLUMwJRk1m2F8oGJOQDh2t3uQ1AH-MbQ0rz_1wKUUWy4_7AfrukDzPOo5R17Xot-VER9EfkJSl073uudw4Pm06wm11koVuQdXxMKDSvbyYL2YBXVRuSCIGO8NiOwJ2z1UpRP7mH78fhrg96uSMErgsBPMGl8zbDVgAOzsJhHdriQdsY1UOhb8nThSUZ-BfJpI4P5-PAfSoJKv6slCk"/>
+<img class="h-10 w-10 rounded-full border-2 border-stone-900" data-alt="user portrait thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB01Kjcj0DiO2Qfp5Xx4py3pTZWCLSyfFLl00tpWNWXOWcBM4bU3RPjnl2BnVOF9u7lykOf2EwsLhbk6urrOWwCy1I9YGP5FGzz2gW1EoiENXV8FlHIJHVHcEZo4H5cXb0trbklf9z2FnMuN2jF6g_f1uBDAzNRpHeV2pLj8rLyCOa2yVUYTFtU-T_-yavrRDU5GZmwiFKNaTOVa1p6pkR40RRanHCotHrjPbBeR0F-an-IHmsnzvCyp7iOs8_yEME7V2LA2NGnxhTm"/>
+</div>
+<span class="text-stone-400 text-xs uppercase tracking-widest font-medium">3 Active Members • 1 Pending Invite</span>
+</div>
+<!-- Aesthetic Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none"></div>
+</div>
+<div class="col-span-4 bg-secondary-container rounded-xl p-10 flex flex-col items-center justify-center text-center space-y-6">
+<span class="material-symbols-outlined text-6xl text-secondary opacity-30">restaurant</span>
+<div>
+<h4 class="text-2xl font-serif text-on-secondary-container">Meal Harmony Score</h4>
+<p class="text-xs uppercase tracking-[0.2em] text-secondary font-bold mt-2">94% Compatible</p>
+</div>
+<p class="text-sm text-secondary leading-relaxed">
+                        Your house shares a high preference for Mediterranean flavors and medium spice levels.
+                    </p>
+<button class="text-primary text-[10px] uppercase tracking-widest font-extrabold hover:translate-x-2 transition-transform inline-flex items-center gap-2">
+                        View Insight Report <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Empty State Contextual Reference -->
+<section class="mt-32 pb-24 border-t border-outline-variant/10 pt-24 text-center">
+<h2 class="text-4xl font-serif text-on-surface opacity-20 italic">"No one stays hungry in this house."</h2>
+<p class="text-stone-400 mt-4 text-xs uppercase tracking-[0.4em]">Kitchen Collective • 2024</p>
+</section>
+</div>
+</main>
+<!-- Floating Action Element (Contextual) -->
+<div class="fixed bottom-12 right-12 z-50">
+<button class="h-20 w-20 rounded-full bg-stone-900 text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all group overflow-hidden">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-90 transition-transform duration-500">add</span>
+<!-- Hidden context label -->
+<span class="sr-only">Add Flatmate</span>
+</button>
+</div>
+</body></html>

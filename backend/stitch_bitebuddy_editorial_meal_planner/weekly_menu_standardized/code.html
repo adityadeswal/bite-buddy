@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#8c716a",
+                    "on-secondary-fixed": "#191d0e",
+                    "inverse-primary": "#ffb4a2",
+                    "error": "#ba1a1a",
+                    "tertiary": "#2a674c",
+                    "on-secondary-container": "#626753",
+                    "on-primary-container": "#fffbff",
+                    "surface-variant": "#e6e2dd",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#31302d",
+                    "surface-bright": "#fdf9f4",
+                    "secondary-fixed-dim": "#c4c9b1",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#b1f0ce",
+                    "surface-container-low": "#f7f3ee",
+                    "surface": "#fdf9f4",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#f5fff7",
+                    "secondary-fixed": "#e0e5cc",
+                    "surface-dim": "#ddd9d5",
+                    "tertiary-fixed-dim": "#95d4b3",
+                    "surface-container-high": "#ebe8e3",
+                    "primary-fixed-dim": "#ffb4a2",
+                    "surface-container": "#f1ede8",
+                    "on-surface-variant": "#59413c",
+                    "on-secondary-fixed-variant": "#444937",
+                    "outline-variant": "#e0bfb7",
+                    "on-primary-fixed": "#3c0700",
+                    "primary": "#D95433",
+                    "surface-container-highest": "#e6e2dd",
+                    "surface-tint": "#ac3415",
+                    "on-background": "#1c1c19",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-container": "#448064",
+                    "primary-fixed": "#ffdad2",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#8a1d00",
+                    "inverse-on-surface": "#f4f0eb",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "on-tertiary-fixed": "#002114",
+                    "on-tertiary-fixed-variant": "#0e5138",
+                    "secondary-container": "#e0e5cc",
+                    "secondary": "#5c614d",
+                    "primary-container": "#ca4a29",
+                    "background": "#fdf9f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .meal-grid-scroll::-webkit-scrollbar { display: none; }
+        .meal-grid-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        .mask-image-top { mask-image: linear-gradient(to top, black 80%, transparent); }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-background antialiased overflow-hidden">
+<!-- Shell Container -->
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component Standardized) -->
+<aside class="fixed left-0 top-0 h-screen w-72 flex flex-col p-6 space-y-8 bg-stone-50 dark:bg-stone-950 border-r-0 bg-stone-100/50 dark:bg-stone-900/50 backdrop-blur-xl z-50">
+<div class="flex flex-col px-2">
+<span class="font-serif italic text-2xl text-[#D95433] dark:text-[#E06D52]">BiteBuddy</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-medium italic mt-1">The Modern Kitchen</span>
+</div>
+<nav class="flex flex-col gap-1">
+<!-- Active: Planner (Library) -->
+<a class="flex items-center gap-4 px-4 py-3 bg-stone-200/60 dark:bg-stone-800/60 text-[#D95433] dark:text-[#E06D52] rounded-xl font-bold active:scale-[0.98] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label text-[12px] uppercase tracking-widest font-medium">Library</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition-all duration-200 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="all_inbox">all_inbox</span>
+<span class="font-label text-[12px] uppercase tracking-widest font-medium">Suggestions</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition-all duration-200 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-label text-[12px] uppercase tracking-widest font-medium">Cook Mode</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-xl transition-all duration-200 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label text-[12px] uppercase tracking-widest font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-5 rounded-2xl bg-stone-100 dark:bg-stone-900 border border-stone-200/50 dark:border-stone-800/50 relative overflow-hidden group cursor-pointer">
+<div class="relative z-10">
+<p class="font-label text-[10px] uppercase tracking-widest text-stone-400 mb-2">Current Sprint</p>
+<p class="font-headline text-lg font-bold text-stone-800 dark:text-stone-200">Week of June 12</p>
+<button class="mt-4 w-full bg-[#D95433] text-white py-2 rounded-lg text-xs font-bold hover:opacity-90 transition-opacity">New Recipe</button>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 ml-72 min-h-screen relative overflow-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 flex items-center justify-between px-12 py-6 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl h-24">
+<div class="flex flex-col">
+<h1 class="font-headline text-2xl font-bold text-stone-900 dark:text-stone-50">Weekly Menu</h1>
+<p class="text-xs text-secondary italic opacity-70">Kitchen Manuscript Vol. 14</p>
+</div>
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 px-6 py-2.5 bg-primary text-on-primary rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-lg" data-icon="lightbulb">lightbulb</span>
+                    Suggest a dish
+                </button>
+<div class="flex items-center gap-3">
+<button class="p-2 text-stone-500 hover:bg-stone-100 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<img alt="Chef User Profile" class="w-10 h-10 rounded-full object-cover border-2 border-stone-200 dark:border-stone-800 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvwdewqMCc55AF3t07fzWMcziXsMdNg_iKX3lWmYW0FmWJjvWusH7rxCgAzU7wS6-fImBTm60F_KQZR8ZDJyOqw9eFuLWlnLDo1TG4za61JMKIy6T7hquDSaF6r7kc8oV_9kqw-VU6wfq8NGGNCM0xMp5MQIjsSWtPRJKQA3W1UbGBhtlGMA7vQJUkzcmCm_1AFCNHmVCte4KCTzkdTwyFZWevjnqL15Uh9mGl1tjA6ctAjWmQ1vQvOLaGKEp8qikmkLKirQqfxHRy"/>
+</div>
+</div>
+</header>
+<!-- Layout Grid Content -->
+<div class="px-12 pb-12">
+<div class="grid grid-cols-[80px_repeat(6,1fr)] gap-4 meal-grid-scroll overflow-x-auto pb-8">
+<!-- Labels Column -->
+<div class="flex flex-col gap-4 pt-14">
+<div class="h-16 flex items-center justify-end pr-4"><span class="text-[10px] uppercase tracking-tighter text-secondary font-bold">Breakfast</span></div>
+<div class="h-48 flex items-center justify-end pr-4"><span class="text-[10px] uppercase tracking-tighter text-secondary font-bold">Lunch</span></div>
+<div class="h-48 flex items-center justify-end pr-4"><span class="text-[10px] uppercase tracking-tighter text-secondary font-bold">Dinner</span></div>
+</div>
+<!-- Monday -->
+<div class="flex flex-col gap-4">
+<div class="text-center mb-2">
+<p class="text-xs font-bold text-secondary">MON</p>
+<p class="font-headline text-xl">12</p>
+</div>
+<div class="h-16 p-3 bg-surface-container-low rounded-xl flex items-center gap-2 group cursor-pointer hover:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-lg bg-stone-200 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="vibrant acai bowl with fresh berries, granola, and honey drizzle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa_biNZFQ2qPHDC1hHIvjUdJJ5b9-TnT8h3r-J5xhYUlhxeV408dGR1aPvi3s4ps93tpfRHDseVZEr1hP6syBxyRyJpvTL7z1JI_6zc9U0YmzSpZfhr0AhOMEGb0g96UA5iHMw1SRdg7HQPf7ZR22clCxmx_WlwMIIgMJKAfi-u4OwRp9rsKOGv0Noh1i4GafF7jVivCPGKUN4y9Fjjjz0Rwatq_LkwTjy1TVhLc3uZjvsDs9kJc-1KL_XxFor9TRfI61Moz6JmhNw"/>
+</div>
+<span class="text-[11px] font-semibold leading-tight line-clamp-2">Poha with peanuts</span>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative group cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+<img class="w-full h-32 object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="fresh green salad bowl with quinoa, avocado, and grilled tofu cubes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB11KdFQcltJmqsm2NDxSQl3Av6eK1bOyoLwlfMveYAcJQXWV1oJ0uhGp24fEVZ3s6VFR3i8xbu1kQCOQrAyDTCQzxxWg-c7GAwErDV8BVS4h-g_JwaCeOi74ioodCuUrZkqI4G7LLgXvV9B75kaNGZ2fOiASg30Watl52DC9zJohE1Ln2G-_YQyvqmzHLgoCDw9Dn4nx17j60e5N4TJFmkOmq3Ya-6Fc8hkj50OXv88xtoP1QakS2WOYQNj8Q8ZpZbTZK7MqH8LNRI"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-tertiary font-bold mb-1 block">Healthy</span>
+<h3 class="font-headline text-sm leading-tight">Quinoa Harvest Bowl</h3>
+</div>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative group cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+<img class="w-full h-32 object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="creamy dal makhani in a copper bowl garnished with butter and cream" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnHLymjuJLUtFqvDYEIFXXFB7Cwi-7aj4aFyX4vxEHtBVvdTBuUSLHpOGmFBi_hyuzGxR2CeE9IsnbXnyo4sxfwJPTmV4xppuMuAPhQUS7WDM9HfRfkM0dv9pcB2u6Ag85YUvjdE1XZNSd_Wjw105XCwZCqQZlWqpT3wUOG9aEOWACez_w64xwCF0p-Z4DW-rA5E243VKelD6sE-bLKUZLjML2DnJJ4dgHmtqC1m4FZQCrurqBwNKds3dPJcEzsIP0UIYmColbwWW-"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1 block">Indian</span>
+<h3 class="font-headline text-sm leading-tight">Dal Makhani &amp; Jeera Rice</h3>
+</div>
+</div>
+</div>
+<!-- Tuesday (Today - Highlighted) -->
+<div class="flex flex-col gap-4 relative">
+<div class="absolute inset-0 -mx-3 bg-primary/5 rounded-3xl -z-10 border border-primary/20"></div>
+<div class="text-center mb-2">
+<p class="text-xs font-black text-primary">TODAY</p>
+<p class="font-headline text-xl text-primary font-bold">13</p>
+</div>
+<div class="h-16 p-3 bg-surface-container-lowest rounded-xl flex items-center gap-2 shadow-sm border border-primary/10">
+<div class="w-10 h-10 rounded-lg bg-stone-200 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="toasted sourdough bread with mashed avocado and poached egg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGQYFnFu_rUATNnt0GLtBEwkg5X3L93cL_h9TVOcnJpWApd742tevhxXVXK4VnYlnfulfu3Re-SThpanl5sYM7QJO13tSL5w3aRbsCUjVxdrNw9EiRUMe9o6Kp0uXz5faqHnJw4OHRUBY_JLPVthLM73ZgKoE32NMl-ozmF9ZMaKJquSLc__mQ3MkVVsJVvEP5CMjoeqGIIe6uzChf_cJbWpkBcuw2SxHqqPhlADWuRvlq4YVCvM0zGb4LXZ89KvPSAwrC5nmylrf3"/>
+</div>
+<span class="text-[11px] font-bold leading-tight">Avocado Toast</span>
+</div>
+<div class="h-48 bg-surface-container-lowest rounded-xl overflow-hidden relative shadow-sm border border-primary/10">
+<img class="w-full h-32 object-cover" data-alt="mediterranean platter with hummus, pita, falafel, and olives" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU3mTcQ6hFRJ54ACa7k4HXqKwMy56QujkKN9er29EJFOwA4naHX9dH2BsAlT4WZ7C03f25Vff5hP9igEPJkStt7GCbfXjotg6uDA7sG5FWhMItTqvnOTCVWB5zB5DZmLyinS0Nb7tKRFAVgD2r8wCl8PfJAVfmFybE5hWg9LN8c_OzCWObhQXseoSenJXAS6TBqr65bKXPcI6hOQE7ZY3u-x-vADbxVnpa6uhwtpBz8pYiDmlTzoIHk7gB7acl_nRhESunIWdipKA_"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1 block">Classic</span>
+<h3 class="font-headline text-sm leading-tight font-bold">Greek Salad Box</h3>
+</div>
+</div>
+<div class="h-48 bg-surface-container-lowest rounded-xl overflow-hidden relative shadow-sm border border-primary/10">
+<img class="w-full h-32 object-cover" data-alt="bowl of spaghetti carbonara with crispy guanciale and parmesan" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQAkHyNaCXI4g54MnlNOkb73znV1rAJeOSTOQmclRyiVYF3Te-IB5M4G0V1XU2vGcS3WcPzdFpa3XIMO5cky0K5mObw0VX7o1xC1_G5zNI-grsc5kctbwYZwZCWhPwTk3gYOlx5V1NpqUvi0gMRoRIx1FB3SqHjpYfwTporFzsbl8GdYazxNuY49ov1r1L2fU8imHGgNLEFiB_IjxmCBetC6niQBEuYB7Z_VBescbHZf_G2jnCp5ByqjgwRZiN8HSdmmfg9UfZHw8H"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1 block">Italian</span>
+<h3 class="font-headline text-sm leading-tight font-bold">Spaghetti Carbonara</h3>
+</div>
+</div>
+</div>
+<!-- Wednesday (Dimmed) -->
+<div class="flex flex-col gap-4 opacity-60 grayscale-[0.3]">
+<div class="text-center mb-2">
+<p class="text-xs font-bold text-secondary">WED</p>
+<p class="font-headline text-xl">14</p>
+</div>
+<div class="h-16 p-3 bg-surface-container-low rounded-xl flex items-center gap-2">
+<div class="w-10 h-10 rounded-lg bg-stone-200 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="pancakes stacked with maple syrup and blueberries" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvRO03p-aLXKFh4eNrQXcsmyAWtKOO8DhO78et-tDePl4-cpGoSyMlnG_e2uVY8Iw-CQczAHFd_-NPUxjEHMX-JVUX3QzUtTk9OfbN7ev0vnDLSnjeHQN2TM4_SPcimhPqMxGxrGxJr3LkZjf0ab7AeST9wtpZsPo_x6672LB7nkMMszJLkF-EbfX_2qG5CbVFuxzBx1a_ZqGV8iV-8XovtgWyIFtkPWOJtD8ZneIqRpP7nJinyn4wbTcZEAWrhWjxY_LgXmQGw2nz"/>
+</div>
+<span class="text-[11px] font-semibold leading-tight">Blueberry Pancakes</span>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative">
+<img class="w-full h-32 object-cover" data-alt="bowl of hot ramen with noodles, soft boiled egg, and seaweed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACAksxgQmVfWQK4o_6AqxjDWfJEL2SgHl6VZS25kDNDEfLwLnZqHPa0eZIF0wpT1Pkk-ZaRWB3Qiub1DWp8vf5s6e1WchE3JErzpzjkMbM-IXFw6sjQAm-7soRin5NGg0U1SAQ2Xcyo7Z4q_o2Yk0JQR1Lb19k3AOBMlKv9RxU-3mIyNINkY3rytBpPjhtXJJ4o8aMaWFE-Wg4x1uEdqzG7lG7sBOSEnr8NJn1FArnxy0eFrlenaRs1QEbwXFdLpxdae5n6dMWp6Ju"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-tertiary font-bold mb-1 block">Asian</span>
+<h3 class="font-headline text-sm leading-tight">Shoyu Ramen</h3>
+</div>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative">
+<img class="w-full h-32 object-cover" data-alt="thin crust margherita pizza with fresh basil leaves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAfsnNyfzUnJpCpF3NdzQ_yXM9qloKnhqC2GvUBSozKAvT2MDILp2UfGs8WHYNpqnV9rZi3iKCU_Oo8VwLMxDUfSG5RdWROiGg3oiyazA56yyDtu08AJ_zBRgI8kngQDeJgJRautapj0rvN3J1EqoP0WGrq1R-cg7iZRkzTHGkXjoO2mvDTyyNPjVpESizvH5PbHPAdvQfezmq8yiAwG0_FAvZnIj99rd646oj24GP6rVaXMBIQ7s5HMWSToM7Abo7XGvPyk8pOatR"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1 block">Fusion</span>
+<h3 class="font-headline text-sm leading-tight">Basil Pesto Pizza</h3>
+</div>
+</div>
+</div>
+<!-- Thursday (Dimmed) -->
+<div class="flex flex-col gap-4 opacity-60 grayscale-[0.3]">
+<div class="text-center mb-2">
+<p class="text-xs font-bold text-secondary">THU</p>
+<p class="font-headline text-xl">15</p>
+</div>
+<div class="h-16 p-3 bg-surface-container-low rounded-xl flex items-center gap-2">
+<div class="w-10 h-10 rounded-lg bg-stone-200 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="greek yogurt bowl with honey and granola" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6fWxvszJuF8m3PJRQiIgtUVUudXtIvIXYBL8a1L_OtiCqKZ28LiEDYtmKwe3PR8Qm7p96svJ8bv-Zr33Wr2xFufEaxAK2gr_jOLaOX9qL1goAY_Ahll1A8hyBsZBLCwFIbcr8dIZzt0saB2yehaMKBnL1uU7LS8Yv01W_A-J8MF-RJfwNxiy0UBK5G_w-c2pDDCbsERr5sZHoE5PUTYenMCu8cubAoC1JI5LoCLQC6feDudEprmQKuJH7RgGiZ00jz3nhXvOLBz21"/>
+</div>
+<span class="text-[11px] font-semibold leading-tight">Parfait Bowl</span>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 bg-stone-200/50 flex flex-col items-center justify-center p-4 text-center">
+<span class="material-symbols-outlined text-secondary opacity-40 mb-2" data-icon="restaurant">restaurant</span>
+<span class="text-[10px] uppercase tracking-tighter text-secondary font-bold">Decision Pending</span>
+<p class="text-[10px] text-secondary mt-1">Vikas &amp; Aryan to choose</p>
+</div>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative">
+<img class="w-full h-32 object-cover" data-alt="bowl of yellow Thai curry with vegetables and jasmine rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3GDsLtylx15V6nAfBiy0iBZ4KU0lEu6C1IHtYOsRpf0sO3zcaUcIjdjXQN2SofnCvGMN3uhrId5-dvi5NftAIxIyaA7jeozv6b5SuKY9DeAg1EsXYoOeg0-i7dQn26Altck2ZSzRIYwqC0haTOgWvkUGDyMNHw40Eb7v9q4a2B_Uv1nyd7D8ef4S3_rEvQE8Gv91u70UPhGZmRfwlVda2vVoxs_zsL7-t7YAf7jj68C1en6kp8DoQoTL0QKMz6GcKOXCFHcJmz9uA"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1 block">Thai</span>
+<h3 class="font-headline text-sm leading-tight">Yellow Curry Night</h3>
+</div>
+</div>
+</div>
+<!-- Friday (Dimmed) -->
+<div class="flex flex-col gap-4 opacity-60 grayscale-[0.3]">
+<div class="text-center mb-2">
+<p class="text-xs font-bold text-secondary">FRI</p>
+<p class="font-headline text-xl">16</p>
+</div>
+<div class="h-16 p-3 bg-surface-container-low rounded-xl flex items-center gap-2">
+<div class="w-10 h-10 rounded-lg bg-stone-200 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="bowl of oatmeal with sliced bananas and cinnamon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Dgaw-xbnLJYYx6-Li0erxmkAFnsL_gLaHEFFKEKAdVZdAG-xoz6GVBePeDsva756HUziNnk40UAHvCAfxbnp4ucpLAHUqQPmmkJWcff7kmpSwgpsw34zgUaX6h7ZG9nEpmfitbrlIJuJ752hPXIU7QrW51bcwwosyKXFqgWLHmvdx4ROhwt-lpbQnTq4ytEwrar9VW9aHqO1jJShdVdTwDpPm710lSW3WZO9SVFos1UW5y7vCq33LVhpYZ6dmd_Pg2a-b4C2r2RK"/>
+</div>
+<span class="text-[11px] font-semibold leading-tight">Masala Oats</span>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative">
+<img class="w-full h-32 object-cover" data-alt="chicken biryani with fragrant rice and fried onions" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoFeCEWtPaKHIbWhQpB2Y7fUDnoC0Pn-z0yT_KrqnOS-TJ-5K16UzV4a9T4j5zQPmPh4KmVRSx-yGzXKEI0vIkD8o3gpJz5d4ih52EDM9SDF8y8_zS5JXl2dYNHxpbAZE5rlTXCjW3w4eLXKuuoE1lfK_iPofbSKyvWSbPin1wDJAxWhtruEdY0pibNupUmwtdhvDpsrbBwavUiqtYiHq0mE5d-kwbuNaOFHzAR3Q-Mn1V5K14bG1WuD4IZRXeNvvKE4fOzZtkHW2F"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-tertiary font-bold mb-1 block">Special</span>
+<h3 class="font-headline text-sm leading-tight">Hyd. Veg Biryani</h3>
+</div>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative">
+<div class="absolute inset-0 bg-surface-container-high/40 backdrop-blur-[2px] flex items-center justify-center p-4">
+<div class="bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
+<span class="text-[10px] font-bold text-primary">Taco Friday 🌮</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Saturday (Dimmed) -->
+<div class="flex flex-col gap-4 opacity-60 grayscale-[0.3]">
+<div class="text-center mb-2">
+<p class="text-xs font-bold text-secondary">SAT</p>
+<p class="font-headline text-xl">17</p>
+</div>
+<div class="h-16 p-3 bg-surface-container-low rounded-xl flex items-center gap-2">
+<div class="w-10 h-10 rounded-lg bg-stone-200 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="golden brown french toast with powdered sugar and syrup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU2vSgIGCXIx9EPRHlRfflqv4XIt0LsLNsm8fKTJU_1L4hYcNTlB-yghU9zhZdBtbSuVonJHTo2VbiCZciiNXb9BIkZtCP6UisWkF3Yb1qpKcSV0nWzLL_Hh2bacVA-BxYALaruggVLiBVlC6zlzK5GEt3Fzg_13yaElHFCG1NGwwNIz3Lo-6VLpKpkQd-G9zp8UuFBd8vyqnd_Zl-oE8stADNrXrcTG1-m2CuqdLgnTG1wNk0cohRh7O4G5A5pyAtdFV1Khg6hhQh"/>
+</div>
+<span class="text-[11px] font-semibold leading-tight">Brioche French Toast</span>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative">
+<img class="w-full h-32 object-cover" data-alt="hummus and falafel bowl with fresh cucumber salad" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUh_rsIiaDhl7SyVjS4MlTo6JGVWuw-n3uMzM6H6MGXCOFWCjCR3WiCZXyzWW7fmw4tHa1Bg-qLx_9lofYR_JXR0o_n3IVAsvDLi3gqdW0PB6aztVF8uHFufNCO4jG7hj0LDYEBbaZx469EqfE134PKYi8HliexADNZWuhgmZu0bHsHBrOGqXJwqnX5Js9GADUm5ls-GCbzL0HNQJglZ-AeCrCQMlvwm6TtF7cLt1LjczqSR7ylQFf1Z8mCsn_-ZlU9GrIejpfiFne"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-primary-container font-bold mb-1 block">Middle East</span>
+<h3 class="font-headline text-sm leading-tight">Falafel Mezze</h3>
+</div>
+</div>
+<div class="h-48 bg-surface-container-low rounded-xl overflow-hidden relative">
+<img class="w-full h-32 object-cover" data-alt="crispy dosa with sambar and coconut chutney" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnuRCn01_BW2ZZo8mqKM1TzhfSXQQtEs87U_Ni4gjQYxzvV_u0nh0kA3qIXb6pzhi_w0N2RvNxomim378TxjU2NSb8KXAAkufF3ORX52O5zGrx5qxSRxLWwJi-LN9DJUVOCn7374T2z4krExABO1-UXnCIBDlJnMAJytU97jwv-knBWbRJM55mrejW2hq7ImBzwIxADyWlZkLKciIXM9bqvjNCM1O_KAGVOaKdgudI4dg0LR06pEBDhTDd4yqdYMG9v3fHqCsqpfy0"/>
+<div class="p-3">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1 block">Southern</span>
+<h3 class="font-headline text-sm leading-tight">Butter Garlic Dosa</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Detail Panel -->
+<div class="absolute right-0 top-0 bottom-0 w-[420px] bg-white shadow-2xl z-50 border-l border-outline-variant/10 flex flex-col transform translate-x-0 transition-transform duration-500 shadow-[-20px_0_60px_-15px_rgba(0,0,0,0.1)]">
+<button class="absolute left-4 top-6 w-10 h-10 rounded-full bg-white/90 backdrop-blur shadow-md flex items-center justify-center hover:bg-white transition-colors z-10">
+<span class="material-symbols-outlined text-stone-900" data-icon="close">close</span>
+</button>
+<div class="h-[300px] relative shrink-0">
+<img class="w-full h-full object-cover" data-alt="dramatic close-up of a bowl of spaghetti carbonara with golden egg yolk and fresh pepper in soft moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGwJfeiqNYf--5jTKqY8p5DxHjKxJEAD0yMqJRBaLoGKCy2ID5Ksp7ZheTT-kDe8Vx7IYqDxvo5Cx2a-nLe0FodC4M0PT7KB2Kqf04zNkLkhxGI4OpleG9J8gb8zg7pZZr3ZRanJBRXAmBAeRtZvTkx5RpPigQ81f25-dcH7O9GfwPwJQpzKNXGv-T-X2VlpI3lfm25SZyALCcmcUgQVIFe7ZddOOWy1yRt62M7dKbg0AnQ7AcfzJpj2yWBDHT6Uz3BeFGYDCP4Qf8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-8 right-8">
+<span class="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-sm mb-2 inline-block">Tonight's Dinner</span>
+<h2 class="font-headline text-3xl font-bold text-white leading-tight">Spaghetti Carbonara</h2>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<div class="flex justify-between items-center bg-surface-container-low p-4 rounded-xl">
+<div class="text-center">
+<p class="text-[10px] uppercase text-secondary font-bold">Prep</p>
+<p class="font-headline font-bold">15m</p>
+</div>
+<div class="w-px h-8 bg-stone-300"></div>
+<div class="text-center">
+<p class="text-[10px] uppercase text-secondary font-bold">Cook</p>
+<p class="font-headline font-bold">20m</p>
+</div>
+<div class="w-px h-8 bg-stone-300"></div>
+<div class="text-center">
+<p class="text-[10px] uppercase text-secondary font-bold">Calories</p>
+<p class="font-headline font-bold">480kcal</p>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_basket">shopping_basket</span>
+                        Ingredients Needed
+                    </h3>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-sm border-b border-stone-100 pb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="flex-1 font-medium">Guanciale or Pancetta</span>
+<span class="text-secondary font-bold italic">150g</span>
+</li>
+<li class="flex items-center gap-3 text-sm border-b border-stone-100 pb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="flex-1 font-medium">Fresh Egg Yolks</span>
+<span class="text-secondary font-bold italic">4 large</span>
+</li>
+<li class="flex items-center gap-3 text-sm border-b border-stone-100 pb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="flex-1 font-medium">Pecorino Romano</span>
+<span class="text-secondary font-bold italic">50g</span>
+</li>
+<li class="flex items-center gap-3 text-sm border-b border-stone-100 pb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+<span class="flex-1 font-medium">Spaghetti No. 5</span>
+<span class="text-secondary font-bold italic">400g</span>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="assignment">assignment</span>
+                        Chef's Note
+                    </h3>
+<p class="text-sm italic leading-relaxed text-secondary bg-primary-container/10 p-4 rounded-xl border-l-4 border-primary">
+                        "Remember to save a cup of pasta water before draining! It's the secret to getting that emulsion perfect without curdling the eggs. Keep the heat *off* when adding the egg mixture."
+                    </p>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary text-white font-bold py-4 rounded-full shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        I'm Cooking This
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

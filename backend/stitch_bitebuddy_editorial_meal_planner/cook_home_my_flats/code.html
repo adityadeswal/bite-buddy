@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BiteBuddy - Cook Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#8c716a",
+                        "background": "#fdf9f4",
+                        "secondary-container": "#e0e5cc",
+                        "on-tertiary-container": "#f5fff7",
+                        "on-surface-variant": "#59413c",
+                        "on-tertiary-fixed-variant": "#0e5138",
+                        "surface-dim": "#ddd9d5",
+                        "on-tertiary-fixed": "#002114",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f4f0eb",
+                        "tertiary": "#2a674c",
+                        "primary-container": "#ca4a29",
+                        "on-primary-container": "#fffbff",
+                        "primary-fixed": "#ffdad2",
+                        "on-surface": "#1c1c19",
+                        "surface-container-highest": "#e6e2dd",
+                        "tertiary-container": "#448064",
+                        "surface-container-low": "#f7f3ee",
+                        "secondary-fixed-dim": "#c4c9b1",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#b1f0ce",
+                        "surface-container": "#f1ede8",
+                        "surface-tint": "#ac3415",
+                        "secondary-fixed": "#e0e5cc",
+                        "on-secondary-fixed-variant": "#444937",
+                        "surface": "#fdf9f4",
+                        "surface-bright": "#fdf9f4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#8a1d00",
+                        "secondary": "#5c614d",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e6e2dd",
+                        "on-secondary-fixed": "#191d0e",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "on-background": "#1c1c19",
+                        "primary": "#a83213",
+                        "inverse-primary": "#ffb4a2",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#31302d",
+                        "on-secondary-container": "#626753",
+                        "on-primary-fixed": "#3c0700",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#95d4b3",
+                        "outline-variant": "#e0bfb7",
+                        "surface-container-high": "#ebe8e3",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdf9f4;
+        }
+        .serif-text {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl sticky top-0 z-50 shadow-[0_12px_40px_rgba(28,28,25,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-serif text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-50">BiteBuddy</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#D95433] font-bold border-b-2 border-[#D95433]" href="#">My Flats</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-[#D95433] transition-colors duration-200" href="#">Recipe Manuscript</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:text-[#D95433] transition-colors duration-200" href="#">Suggestions Inbox</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-stone-500 hover:text-primary transition-all scale-95 active:opacity-80">notifications</button>
+<button class="material-symbols-outlined p-2 text-stone-500 hover:text-primary transition-all scale-95 active:opacity-80">settings</button>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="Chef's Profile Avatar" class="w-full h-full object-cover" data-alt="professional chef in white uniform smiling warmly in a bright commercial kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXT5AYqNvoaNn2CnXRKZgHjc94XLs5ulgxP-aPVj-FImHpRZMGjXyCOijRWCcks3HD7uLfXztLc_7Z5u_EbHdujyem9JQQpQ_0QMu2qs8l0kKKSP0ykzrtlUltGmcQ5M3kmk0Z3zy7Q5dWOrYPU0FVPPBspZxLMSt8zkLIjeNCj3DdcaDcKjmYDUPXj6GvXJCH6UJkMJ5eazhmyAxkMlRZeN6cqCgz8EiNcHSTAlqonLizeiNoGmI_vl7iGZ4HB-_D3eM2EMvb2u3b"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-stone-50 dark:bg-stone-900 border-r border-stone-200/10 z-40 hidden lg:flex">
+<div class="p-8">
+<h2 class="font-serif italic text-xl text-stone-900 dark:text-stone-50">BiteBuddy</h2>
+<p class="text-xs uppercase tracking-widest text-stone-500 mt-1">The Kitchen Office</p>
+</div>
+<nav class="flex-1 flex flex-col pt-4">
+<a class="bg-stone-200 dark:bg-stone-800 text-stone-900 dark:text-stone-50 rounded-r-full font-bold px-6 py-3 ml-0 mr-4 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-xs uppercase tracking-widest">My Flats</span>
+</a>
+<a class="text-stone-500 dark:text-stone-400 px-6 py-3 hover:translate-x-1 transition-transform flex items-center gap-3 hover:bg-stone-100 dark:hover:bg-stone-800/50 rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-xs uppercase tracking-widest">Recipe Manuscript</span>
+</a>
+<a class="text-stone-500 dark:text-stone-400 px-6 py-3 hover:translate-x-1 transition-transform flex items-center gap-3 hover:bg-stone-100 dark:hover:bg-stone-800/50 rounded-r-full mr-4" href="#">
+<span class="material-symbols-outlined" data-icon="inbox">inbox</span>
+<span class="text-xs uppercase tracking-widest">Suggestions Inbox</span>
+</a>
+<a class="text-[#2a674c] dark:text-[#4ade80] px-6 py-3 hover:translate-x-1 transition-transform flex items-center gap-3 hover:bg-stone-100 dark:hover:bg-stone-800/50 rounded-r-full mr-4 mt-4" href="#">
+<span class="material-symbols-outlined" data-icon="skillet" style="font-variation-settings: 'FILL' 1;">skillet</span>
+<span class="text-xs uppercase tracking-widest">Cook Mode</span>
+</a>
+</nav>
+<div class="mt-auto p-6 flex flex-col gap-2">
+<button class="bg-primary text-on-primary rounded-full px-6 py-3 font-bold text-sm tracking-tight flex items-center justify-center gap-2 mb-4 hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined">add</span>
+                    Add New Tadka
+                </button>
+<a class="text-stone-500 text-xs uppercase tracking-widest px-6 py-2 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">account_circle</span> Account
+                </a>
+<a class="text-stone-500 text-xs uppercase tracking-widest px-6 py-2 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">help_outline</span> Help
+                </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 p-8 md:p-12">
+<!-- Header Section -->
+<div class="mb-12">
+<h1 class="serif-text text-5xl font-bold text-on-surface mb-2">My Active Flats</h1>
+<p class="text-secondary font-medium italic">Managing service for 4 residences today. *Sab kuch set hai.*</p>
+</div>
+<!-- Bento-style Card Gallery -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Flat Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-0 overflow-hidden shadow-[0_12px_40px_rgba(28,28,25,0.06)] group transition-all hover:scale-[1.01] flex flex-col">
+<div class="relative h-48 w-full">
+<img alt="Minimalist living room" class="w-full h-full object-cover" data-alt="modern minimalist apartment interior with sunlight streaming onto light oak floors and beige linen sofa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZwNgUt1Ye3slT3nZ9IXMLOEYq4IXtFhHH8Ur771bMtMw-rprWF1knoSyfJ4cEs5ijQGbvhRPm8Ly-ymhAIMDv7ayb8dp6wSOdkJF51OKVi3fQ48lC8rNdHvS1jvdezbb7toVMBC5u0CcrIKBOIyeErFDD1EF4K4FTx0kqP2F9XxYFB9gjwz3ZwIylXFWAX2Twa3utQmqjQH-IdcP-eRwOucQyK75exXSKVtvlgrTA2angLkEXzAZfQHnkDs7M2EEQbeIbEI0PbDqF"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-sm text-secondary">group</span>
+<span class="text-xs font-bold text-secondary">4 Flatmates</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="serif-text text-2xl font-bold mb-4">The Gulmohar Residency</h3>
+<div class="space-y-4 mb-8">
+<p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Today's Menu</p>
+<div class="grid grid-cols-3 gap-3">
+<div class="relative group/thumb">
+<img alt="Breakfast bowl" class="w-full aspect-square object-cover rounded-lg" data-alt="vibrant breakfast smoothie bowl with fresh berries and toasted granola on a light stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ4gWqc_-NV6M7JVEqAIimPMGlZABqiOW2cZSDqMu2C2Q6sQCQYqZPiEYepbUTtoufaj3Y0SXzXMmS1ZY4d52ZE39bhLa9ha2TLsdtFAtqRRlcz2fbBfKnIOKYSrikbLL_JF1BcDmpD7bCnt3rCwehVGZkt_A-_GjI8b46IMd5msVS6qXety-cxXbiXdIrF6HiVLZESXj4DE2Js3hLvjXeJKTnb1YMs5bV3MAbdrNm76MBCYadXoVW_t2UquhShbbnqKyy8REK82Bl"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+<span class="text-[8px] text-white font-bold uppercase">Breakfast</span>
+</div>
+</div>
+<div class="relative group/thumb">
+<img alt="Lunch salad" class="w-full aspect-square object-cover rounded-lg" data-alt="fresh mediterranean salad with chickpeas, cherry tomatoes and cucumber in a ceramic bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJDuINUZpllu4TghEl6RcyPtk8Vgjc0GvGPlJLjAbdZwVU1F5HKU_MaMjHVIXrxWsX_x7lzStyWbmnHQI3mN1ELIvNgy1HArjcKbrQO1W70zgZDKoZpLtIqQl0coVUtHPI_hjW0vKAuqckEJRfUT841Yl8zCbMTOlDkkRyeGcFLCO_eaL8-6sKvNpza2OCVK2LJWAnzjFa297OaWdOL-9k-6p6FcZA708_BkunNrq03bkqJhgkkKA0q5HijY5TTTOaRtB9q6DE1QBZ"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+<span class="text-[8px] text-white font-bold uppercase">Lunch</span>
+</div>
+</div>
+<div class="relative group/thumb">
+<img alt="Dinner dish" class="w-full aspect-square object-cover rounded-lg" data-alt="plated grilled salmon with asparagus and roasted potatoes with artistic sauce drizzle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXuSnDqlJfrIbbTTGbdVFIs4zhUwT5GLkrLXjIYAgiLpqxceL1f65SHMnBl13qpNJTyOCBkGFbksSownFlVOIH8elzZY74Fz1KQ8KZn0y85OrakZkt3uu7AYH3f5g0Eoduyg4_AfgpOR575vJL1YFI9BcRyNmuUxMngTeO43WfyUKm3Np_jY0WuQY7bYjQIchjBhlyqhUn-2rQxsixcf4lyXwlHbGlvNB7X-ECbrRU7VSq5yvA5QQJoVBnnhVxyne223fSVODdgpSJ"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+<span class="text-[8px] text-white font-bold uppercase">Dinner</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-stone-100 flex items-center justify-between">
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-container/10 text-tertiary text-[10px] font-bold uppercase tracking-wider rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                                Published
+                            </span>
+<button class="material-symbols-outlined text-stone-400 hover:text-primary transition-colors">chevron_right</button>
+</div>
+</div>
+</div>
+<!-- Flat Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-0 overflow-hidden shadow-[0_12px_40px_rgba(28,28,25,0.06)] group transition-all hover:scale-[1.01] flex flex-col">
+<div class="relative h-48 w-full">
+<img alt="Urban loft" class="w-full h-full object-cover" data-alt="industrial style urban loft apartment with exposed brick walls and large floor to ceiling windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtFg7rbTap2KetcFUk-U4gcsHoI57xNWZhusW8AuRtqSZP0FsCiY06za3M_rI3SzZAJlhaTi7mRvGzuopCahmk1eXAuZ-ju9J58oxCavGvOJVMyCmGnlmGucbNV_Rew0SrWi9B6rZ7gGvovZC2h96rHTGfxsoyG69Ky_m_fJ3dxMmInwDi7XNJq6ZVxem3wa8RQZcUVREXgFdlZ2ay1pLfe0rrIJPf1AJv2rSVIAX0EeFpATDBlS-_bqTqndJqP1LLJiOhZ8QIPXVe"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-sm text-secondary">group</span>
+<span class="text-xs font-bold text-secondary">2 Flatmates</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="serif-text text-2xl font-bold mb-4">Skyline Suites 402</h3>
+<div class="space-y-4 mb-8">
+<p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Today's Menu</p>
+<div class="grid grid-cols-3 gap-3">
+<div class="bg-surface-container rounded-lg aspect-square flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-300">restaurant</span>
+</div>
+<div class="bg-surface-container rounded-lg aspect-square flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-300">restaurant</span>
+</div>
+<div class="bg-surface-container rounded-lg aspect-square flex items-center justify-center">
+<span class="material-symbols-outlined text-stone-300">restaurant</span>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-stone-100 flex items-center justify-between">
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-stone-100 text-stone-500 text-[10px] font-bold uppercase tracking-wider rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-stone-400"></span>
+                                Tomorrow: not yet generated
+                            </span>
+<button class="material-symbols-outlined text-stone-400 hover:text-primary transition-colors">chevron_right</button>
+</div>
+</div>
+</div>
+<!-- Flat Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-0 overflow-hidden shadow-[0_12px_40px_rgba(28,28,25,0.06)] group transition-all hover:scale-[1.01] flex flex-col">
+<div class="relative h-48 w-full">
+<img alt="Boho kitchen" class="w-full h-full object-cover" data-alt="warm bohemian kitchen with hanging copper pots, herb plants on the window sill and warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXEZ2KIoWmv2iVYFtpZMMQdeSPEFuS0JrZ-m1Ct_RWKDaqPk4g8yvO-C7DhHmfd-zeJja_wWBRHMP1UdTLQVB5OsLhMkVuk0Ohf--9lR6ilND1Fwy9ubBGuYLgdCHvZDOPAGIg3QGIfVMe7mIkxnrfn5wL7BfI-D0KW49qsVDgvKNJeXPbC9xhOG2eIXUo6NiL5ujDoBU_hcyCsipKobxpo-tTIMtH73VxBn6DTmiwi5Wn-Qyk1Xhsw8lCuCmRNcXpv1Ihvx-kpE1D"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-sm text-secondary">group</span>
+<span class="text-xs font-bold text-secondary">5 Flatmates</span>
+</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="serif-text text-2xl font-bold mb-4">The Baker's Dozen</h3>
+<div class="space-y-4 mb-8">
+<p class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Today's Menu</p>
+<div class="grid grid-cols-3 gap-3">
+<img alt="Meat dish" class="w-full aspect-square object-cover rounded-lg" data-alt="gourmet meat dish with vibrant green pea puree and balsamic reduction on a dark plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD49oBH5U49xuGwV3qObfn73JEsmz_X8hmdxsixOUVQ9o0UystT0Ng_-OcEQvLtBzHnWWba0MjHaF4l9apOEy0V4qKxk5MfS2aIgryOKR-TLY2t8yldwdlvnqjX4FEnMHRtLjo5ojUUy-LvU43fReGNZDlypqUSNUg5uDuOPfOrds_5A3RUBkRNwDEtMgSmo_Aa4L9Gl9Gs2woP1DXYHS9qrR9ztOPkIm7eJfDtIpa_nZdSsi9wNoUntzo3PG7Vh5AgZW_xJVhgJ3c"/>
+<img alt="Fresh salad" class="w-full aspect-square object-cover rounded-lg" data-alt="bright salad with orange slices, feta cheese and walnuts on a rustic wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNwURbR1qK8AsvyhuWoysxGXDZPIWCm439thjf84h977b0Vup5xJHcb_m25tg4_xX9mydNrs2mXA12oYCyCMnWRvYBccoeg1fC3u-b-H5lzeOIczAKq2_dCN6ZhxSiSJ_RSkD3FtnJueAHvT1Hc7NnlrScTyyQa8TvqN_aNl0EX61DdmeGp5N2Q-G2WqgFyg7Y5AKxLWvazvP5l8yQrduFYsMjRjip05ilO500xlVDuFiI3GRw4XfM0bym-Zsk8m_6UbQBfDP4zaos"/>
+<img alt="French toast" class="w-full aspect-square object-cover rounded-lg" data-alt="artistic french toast with blueberries, maple syrup and a dusting of powdered sugar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnHU9BmcBasaLgOJ52XRpjpWYMkqNf44CJb6LJat-ZOFciqRZhkSE0LoxKSDgEisQPEMEm6ucQdVy3RKfHi56e6IvROFCPf6qzY1F5l50w5oBFEYnuGuIFMgmYKHe9pNEGxP6gculWh5YzzTJNVec6DZn0xwRRjiIuU9Jnm2dNYcor6xh6YsLRHoAeH7l9ye3pT8qCFUSeTymvM_TKJ2Rq8tRSWp_9Up8KQAZZQLCEUmGqaRG7ly6AJPC9a8203afevGh4-tI_nGa0"/>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-stone-100 flex items-center justify-between">
+<span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 text-primary text-[10px] font-bold uppercase tracking-wider rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                Ready to publish
+                            </span>
+<button class="material-symbols-outlined text-stone-400 hover:text-primary transition-colors">chevron_right</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Illustration Placeholder / Subtle CTA -->
+<div class="mt-16 bg-surface-container-low rounded-3xl p-12 flex flex-col items-center text-center border-2 border-dashed border-outline-variant/30">
+<div class="w-24 h-24 bg-surface-container rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-secondary">lunch_dining</span>
+</div>
+<h2 class="serif-text text-3xl font-bold text-on-surface mb-2">Expanding your circle?</h2>
+<p class="text-secondary mb-8 max-w-md">Onboard a new household to the BiteBuddy experience. *Zaroorat pade toh naya flat add karo.*</p>
+<button class="bg-tertiary text-on-tertiary px-8 py-3 rounded-full font-bold transition-all hover:bg-tertiary-container shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined">add_home</span>
+                    Setup New Household
+                </button>
+</div>
+</main>
+</div>
+<!-- Floating Action Button for Mobile -->
+<button class="md:hidden fixed bottom-8 right-8 bg-primary text-on-primary w-14 h-14 rounded-full shadow-lg flex items-center justify-center z-50">
+<span class="material-symbols-outlined">add</span>
+</button>
+</body></html>

@@ -4,129 +4,189 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Saffron Stone — Material 3 palette for Bite-Buddy.
+ * Source: backend/stitch_bitebuddy_editorial_meal_planner/saffron_stone/DESIGN.md
+ * All ported mockup JSX uses these token classes (bg-primary, text-on-primary,
+ * bg-surface-container-lowest, etc.).
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --color-primary-cook: var(--primary-cook);
-  --color-primary-cook-foreground: var(--primary-cook-foreground);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-noto-serif), "Noto Serif", ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Radii — per Saffron Stone */
+  --radius: 0.25rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  /* Saffron Stone tokens */
+  --color-background: #fdf9f4;
+  --color-on-background: #1c1c19;
+  --color-surface: #fdf9f4;
+  --color-on-surface: #1c1c19;
+  --color-surface-dim: #ddd9d5;
+  --color-surface-bright: #fdf9f4;
+  --color-surface-variant: #e6e2dd;
+  --color-on-surface-variant: #59413c;
+  --color-surface-tint: #ac3415;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f3ee;
+  --color-surface-container: #f1ede8;
+  --color-surface-container-high: #ebe8e3;
+  --color-surface-container-highest: #e6e2dd;
+  --color-inverse-surface: #31302d;
+  --color-inverse-on-surface: #f4f0eb;
+  --color-inverse-primary: #ffb4a2;
+
+  --color-primary: #a83213;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ca4a29;
+  --color-on-primary-container: #fffbff;
+  --color-primary-fixed: #ffdad2;
+  --color-primary-fixed-dim: #ffb4a2;
+  --color-on-primary-fixed: #3c0700;
+  --color-on-primary-fixed-variant: #8a1d00;
+
+  --color-secondary: #5c614d;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #626753;
+  --color-secondary-fixed: #e0e5cc;
+  --color-secondary-fixed-dim: #c4c9b1;
+  --color-on-secondary-fixed: #191d0e;
+  --color-on-secondary-fixed-variant: #444937;
+
+  --color-tertiary: #2a674c;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #448064;
+  --color-on-tertiary-container: #f5fff7;
+  --color-tertiary-fixed: #b1f0ce;
+  --color-tertiary-fixed-dim: #95d4b3;
+  --color-on-tertiary-fixed: #002114;
+  --color-on-tertiary-fixed-variant: #0e5138;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-outline: #8c716a;
+  --color-outline-variant: #e0bfb7;
+
+  /* Shadcn compatibility aliases — so installed shadcn primitives
+     (Button, Card, Input, Dialog, Sheet) pick up Saffron Stone colors
+     without patching each component. */
+  --color-foreground: var(--color-on-background);
+  --color-card: var(--color-surface-container-lowest);
+  --color-card-foreground: var(--color-on-surface);
+  --color-popover: var(--color-surface-container-low);
+  --color-popover-foreground: var(--color-on-surface);
+  --color-primary-foreground: var(--color-on-primary);
+  --color-secondary-foreground: var(--color-on-secondary);
+  --color-muted: var(--color-surface-container);
+  --color-muted-foreground: var(--color-on-surface-variant);
+  --color-accent: var(--color-tertiary);
+  --color-accent-foreground: var(--color-on-tertiary);
+  --color-destructive: var(--color-error);
+  --color-border: var(--color-outline-variant);
+  --color-input: var(--color-outline-variant);
+  --color-ring: var(--color-primary);
+  --color-chart-1: var(--color-primary);
+  --color-chart-2: var(--color-tertiary);
+  --color-chart-3: var(--color-secondary);
+  --color-chart-4: var(--color-primary-container);
+  --color-chart-5: var(--color-tertiary-container);
+  --color-sidebar: var(--color-surface-container-low);
+  --color-sidebar-foreground: var(--color-on-surface);
+  --color-sidebar-primary: var(--color-primary);
+  --color-sidebar-primary-foreground: var(--color-on-primary);
+  --color-sidebar-accent: var(--color-surface-container-high);
+  --color-sidebar-accent-foreground: var(--color-on-surface);
+  --color-sidebar-border: var(--color-outline-variant);
+  --color-sidebar-ring: var(--color-primary);
 }
 
 /*
- * Bite-Buddy warm palette.
- * Primary: saffron/turmeric — flatmate brand surface.
- * Accent: tomato — used for high-emphasis CTAs and highlights.
- * Primary-cook: muted teal — future cook-persona surfaces.
+ * Cook Mode — swap primary accents to tertiary (forest green) on any
+ * subtree marked with data-persona="cook". Per Saffron Stone §2.4.
+ * We override --color-primary on the element so every bg-primary /
+ * text-primary / ring-primary inside cook screens shifts automatically.
  */
-:root {
-  --background: oklch(0.985 0.012 85);
-  --foreground: oklch(0.22 0.015 55);
-  --card: oklch(0.995 0.006 85);
-  --card-foreground: oklch(0.22 0.015 55);
-  --popover: oklch(0.995 0.006 85);
-  --popover-foreground: oklch(0.22 0.015 55);
-  --primary: oklch(0.74 0.17 70);
-  --primary-foreground: oklch(0.2 0.02 60);
-  --secondary: oklch(0.955 0.015 80);
-  --secondary-foreground: oklch(0.28 0.02 60);
-  --muted: oklch(0.955 0.012 80);
-  --muted-foreground: oklch(0.52 0.02 60);
-  --accent: oklch(0.66 0.19 30);
-  --accent-foreground: oklch(0.99 0.005 80);
-  --destructive: oklch(0.58 0.22 25);
-  --border: oklch(0.905 0.015 75);
-  --input: oklch(0.905 0.015 75);
-  --ring: oklch(0.74 0.17 70);
-  --chart-1: oklch(0.74 0.17 70);
-  --chart-2: oklch(0.66 0.19 30);
-  --chart-3: oklch(0.62 0.12 180);
-  --chart-4: oklch(0.55 0.12 140);
-  --chart-5: oklch(0.45 0.08 280);
-  --radius: 0.75rem;
-  --primary-cook: oklch(0.6 0.11 195);
-  --primary-cook-foreground: oklch(0.99 0.005 195);
-  --sidebar: oklch(0.975 0.012 85);
-  --sidebar-foreground: oklch(0.22 0.015 55);
-  --sidebar-primary: oklch(0.74 0.17 70);
-  --sidebar-primary-foreground: oklch(0.2 0.02 60);
-  --sidebar-accent: oklch(0.94 0.02 80);
-  --sidebar-accent-foreground: oklch(0.28 0.02 60);
-  --sidebar-border: oklch(0.905 0.015 75);
-  --sidebar-ring: oklch(0.74 0.17 70);
+[data-persona="cook"] {
+  --color-primary: #2a674c;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #448064;
+  --color-on-primary-container: #f5fff7;
+  --color-primary-fixed: #b1f0ce;
+  --color-primary-fixed-dim: #95d4b3;
+  --color-ring: #2a674c;
 }
 
+/* Dark mode — minimal; most mockups are light-only. Mirror the warm palette. */
 .dark {
-  --background: oklch(0.2 0.015 55);
-  --foreground: oklch(0.96 0.012 85);
-  --card: oklch(0.24 0.018 55);
-  --card-foreground: oklch(0.96 0.012 85);
-  --popover: oklch(0.24 0.018 55);
-  --popover-foreground: oklch(0.96 0.012 85);
-  --primary: oklch(0.78 0.15 70);
-  --primary-foreground: oklch(0.22 0.02 60);
-  --secondary: oklch(0.28 0.02 55);
-  --secondary-foreground: oklch(0.96 0.012 85);
-  --muted: oklch(0.28 0.018 55);
-  --muted-foreground: oklch(0.72 0.015 75);
-  --accent: oklch(0.7 0.17 32);
-  --accent-foreground: oklch(0.15 0.02 55);
-  --destructive: oklch(0.68 0.2 25);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.78 0.15 70);
-  --chart-1: oklch(0.78 0.15 70);
-  --chart-2: oklch(0.7 0.17 32);
-  --chart-3: oklch(0.68 0.1 180);
-  --chart-4: oklch(0.62 0.1 140);
-  --chart-5: oklch(0.55 0.08 280);
-  --primary-cook: oklch(0.68 0.1 195);
-  --primary-cook-foreground: oklch(0.18 0.02 195);
-  --sidebar: oklch(0.22 0.015 55);
-  --sidebar-foreground: oklch(0.96 0.012 85);
-  --sidebar-primary: oklch(0.78 0.15 70);
-  --sidebar-primary-foreground: oklch(0.22 0.02 60);
-  --sidebar-accent: oklch(0.28 0.02 55);
-  --sidebar-accent-foreground: oklch(0.96 0.012 85);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.78 0.15 70);
+  --color-background: #1c1c19;
+  --color-on-background: #e6e2dd;
+  --color-surface: #1c1c19;
+  --color-on-surface: #e6e2dd;
+  --color-surface-container-lowest: #0f0f0e;
+  --color-surface-container-low: #242421;
+  --color-surface-container: #2c2c28;
+  --color-surface-container-high: #35342f;
+  --color-surface-container-highest: #3f3e39;
+  --color-outline-variant: #59413c;
+}
+
+/*
+ * Material Symbols Outlined — variable font config.
+ * Stylesheet is loaded via <link> in app/layout.tsx.
+ */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  display: inline-block;
+  direction: ltr;
+  white-space: nowrap;
+  word-wrap: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass-header {
+  background: rgba(253, 249, 244, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.dark .glass-header {
+  background: rgba(28, 28, 25, 0.8);
+}
+
+.shadow-soft {
+  box-shadow: 0 12px 40px rgba(45, 45, 45, 0.06);
+}
+
+.shadow-soft-hover {
+  box-shadow: 0 12px 40px rgba(45, 45, 45, 0.08);
+}
+
+.editorial-overlay {
+  background:
+    linear-gradient(to right, rgba(253, 249, 244, 0.1), rgba(253, 249, 244, 0.4)),
+    url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
+.glass-panel {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 @layer base {
@@ -134,15 +194,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground antialiased;
-    font-feature-settings: "ss01", "cv11";
+    @apply bg-background text-on-background antialiased;
+    font-family: var(--font-sans);
   }
-  html {
-    @apply font-sans;
-    line-height: 1.6;
-  }
-  h1, h2, h3, h4 {
-    @apply font-semibold tracking-tight;
-    line-height: 1.25;
+  h1, h2, h3, h4, .serif {
+    font-family: var(--font-serif);
   }
 }

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BiteBuddy Onboarding - Rituals &amp; Boundaries</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#191d0e",
+                        "primary-fixed": "#ffdad2",
+                        "on-surface": "#1c1c19",
+                        "surface-dim": "#ddd9d5",
+                        "surface-container-highest": "#e6e2dd",
+                        "background": "#fdf9f4",
+                        "inverse-surface": "#31302d",
+                        "secondary-container": "#e0e5cc",
+                        "on-background": "#1c1c19",
+                        "on-tertiary-fixed-variant": "#0e5138",
+                        "surface-container-high": "#ebe8e3",
+                        "primary": "#a83213",
+                        "on-surface-variant": "#59413c",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#b1f0ce",
+                        "on-primary-fixed": "#3c0700",
+                        "tertiary-fixed-dim": "#95d4b3",
+                        "secondary-fixed-dim": "#c4c9b1",
+                        "tertiary": "#2a674c",
+                        "inverse-primary": "#ffb4a2",
+                        "surface-container": "#f1ede8",
+                        "primary-fixed-dim": "#ffb4a2",
+                        "on-primary": "#ffffff",
+                        "surface": "#fdf9f4",
+                        "secondary-fixed": "#e0e5cc",
+                        "primary-container": "#ca4a29",
+                        "surface-variant": "#e6e2dd",
+                        "on-tertiary-fixed": "#002114",
+                        "on-tertiary-container": "#f5fff7",
+                        "on-secondary-container": "#626753",
+                        "on-secondary": "#ffffff",
+                        "outline": "#8c716a",
+                        "on-primary-container": "#fffbff",
+                        "outline-variant": "#e0bfb7",
+                        "on-primary-fixed-variant": "#8a1d00",
+                        "on-secondary-fixed-variant": "#444937",
+                        "inverse-on-surface": "#f4f0eb",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#448064",
+                        "surface-bright": "#fdf9f4",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "secondary": "#5c614d",
+                        "surface-tint": "#ac3415",
+                        "surface-container-low": "#f7f3ee"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_12px_40px_rgba(45,45,45,0.06)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-full">
+<div class="flex items-center gap-2">
+<span class="font-serif text-2xl font-bold italic text-[#D95433]">BiteBuddy</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="text-stone-500 font-medium text-sm hidden md:block">Onboarding Progress</span>
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-stone-50 transition-colors duration-300 rounded-full">
+<span class="material-symbols-outlined text-stone-500">help_outline</span>
+</button>
+<button class="p-2 hover:bg-stone-50 transition-colors duration-300 rounded-full">
+<span class="material-symbols-outlined text-stone-500">logout</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow flex pt-20">
+<!-- Vertical Progress Rail (Left) -->
+<aside class="w-20 md:w-24 border-r border-outline-variant/15 flex flex-col items-center py-12 gap-12 sticky top-20 h-[calc(100vh-80px)]">
+<div class="flex flex-col items-center gap-1 group">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-[10px] uppercase tracking-tighter font-bold text-secondary">Profile</span>
+</div>
+<div class="w-[1px] h-12 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-[10px] uppercase tracking-tighter font-bold text-secondary">Kitchen</span>
+</div>
+<div class="w-[1px] h-12 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-[10px] uppercase tracking-tighter font-bold text-secondary">Budget</span>
+</div>
+<div class="w-[1px] h-12 bg-outline-variant/30"></div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-lg shadow-primary/20 scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<span class="text-[10px] uppercase tracking-widest font-extrabold text-primary">Launch</span>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-grow px-8 md:px-24 py-16 max-w-5xl mx-auto">
+<div class="mb-16 space-y-4">
+<h2 class="text-stone-400 font-sans text-sm font-medium uppercase tracking-[0.2em]">Step 4: Final Boundaries</h2>
+<h1 class="text-5xl md:text-6xl font-headline italic tracking-tight text-on-surface">Rituals &amp; Boundaries</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                    A shared kitchen survives on respect. Tell us your absolute "no-goes" and those little things that just don't sit right with your palate. 
+                    <span class="italic text-primary font-medium">Bilkul saaf saaf batao.</span>
+</p>
+</div>
+<div class="space-y-16">
+<!-- Section 1: Strict Allergies -->
+<div class="group">
+<div class="flex items-center gap-4 mb-8">
+<div class="p-3 bg-primary/10 rounded-2xl">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline italic">Strict Allergies &amp; No-Goes</h3>
+<p class="text-sm text-on-surface-variant">Things that should never cross the kitchen counter.</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-6 transition-all duration-300 group-focus-within:bg-surface-container-high group-focus-within:ring-1 ring-primary/20">
+<div class="flex flex-wrap gap-3 mb-6">
+<span class="bg-white px-4 py-2 rounded-full text-sm font-medium border border-outline-variant/20 flex items-center gap-2 text-primary">
+                                Peanuts <span class="material-symbols-outlined text-xs">close</span>
+</span>
+<span class="bg-white px-4 py-2 rounded-full text-sm font-medium border border-outline-variant/20 flex items-center gap-2 text-primary">
+                                Shellfish <span class="material-symbols-outlined text-xs">close</span>
+</span>
+<span class="bg-white px-4 py-2 rounded-full text-sm font-medium border border-outline-variant/20 flex items-center gap-2 text-primary">
+                                Mushrooms <span class="material-symbols-outlined text-xs">close</span>
+</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm py-2 px-4 placeholder:text-stone-400 font-medium" placeholder="Add another allergy..." type="text"/>
+</div>
+<div class="flex items-center gap-2 text-xs text-stone-400 italic">
+<span class="material-symbols-outlined text-sm">info</span>
+                            Type and press enter to add a "No-Go"
+                        </div>
+</div>
+</div>
+<!-- Section 2: Mild Dislikes -->
+<div class="group">
+<div class="flex items-center gap-4 mb-8">
+<div class="p-3 bg-secondary/10 rounded-2xl">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">sentiment_dissatisfied</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline italic">Mild Dislikes</h3>
+<p class="text-sm text-on-surface-variant">Preferences that make a meal better by being absent.</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-6 transition-all duration-300 group-focus-within:bg-surface-container-high group-focus-within:ring-1 ring-secondary/20">
+<div class="flex flex-wrap gap-3 mb-6">
+<span class="bg-white px-4 py-2 rounded-full text-sm font-medium border border-outline-variant/20 flex items-center gap-2 text-secondary">
+                                Karela <span class="material-symbols-outlined text-xs">close</span>
+</span>
+<span class="bg-white px-4 py-2 rounded-full text-sm font-medium border border-outline-variant/20 flex items-center gap-2 text-secondary">
+                                Tinda <span class="material-symbols-outlined text-xs">close</span>
+</span>
+<span class="bg-white px-4 py-2 rounded-full text-sm font-medium border border-outline-variant/20 flex items-center gap-2 text-secondary">
+                                Over-oily <span class="material-symbols-outlined text-xs">close</span>
+</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm py-2 px-4 placeholder:text-stone-400 font-medium" placeholder="Something you dislike?" type="text"/>
+</div>
+<div class="flex items-center gap-2 text-xs text-stone-400 italic">
+<span class="material-symbols-outlined text-sm">tips_and_updates</span>
+                            These help us suggest better group meals
+                        </div>
+</div>
+</div>
+<!-- Editorial Visual Element (Asymmetric) -->
+<div class="relative pt-12 pb-24">
+<div class="absolute -left-12 top-0 w-64 h-80 rounded-2xl overflow-hidden shadow-2xl rotate-[-3deg] z-10 hidden lg:block border-[12px] border-white">
+<img alt="Artisanal spice jars on a wooden kitchen counter" class="w-full h-full object-cover" data-alt="Close-up of glass spice jars containing colorful turmeric, paprika and cumin on a rustic wooden counter with soft kitchen morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmt7RFqXMCv1F89aIjA6i2LAjPraKB6H8fBADal002NlSWAvku8lxF2YMJhqNKkSAdeITgT2wNr_Q6_QbnG10ZIQRrmv3QNfOEgqyTNcS6wWeoymR7Z7rPavF6hdBQvZWbS6Sos6-X_EXegBI0E1Gk7TBaNDIwh9OKOZUvujodHtI1V39e2vCs_KsMIDPx0DUom9ufuan4VZ-QE2bw8KJnxqB5R81y6Os4VQ3ZGEdjZVaf3wVYTw4Iyp6PfHXEUrPWXw4KhUZbFIbF"/>
+</div>
+<div class="lg:ml-64 bg-surface-container p-12 rounded-2xl border-l-4 border-primary">
+<p class="font-headline italic text-2xl text-on-surface-variant leading-snug">
+                            "Food is the only thing that unites us, but spice levels are what divide us."
+                        </p>
+<p class="mt-4 font-body text-xs uppercase tracking-widest font-bold text-stone-500">— The Unofficial Flatmate Manifesto</p>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center justify-between pt-8 border-t border-outline-variant/30">
+<button class="flex items-center gap-2 text-on-surface-variant font-medium hover:text-on-surface transition-colors px-6 py-3">
+<span class="material-symbols-outlined">arrow_back</span>
+                        Back to Budget
+                    </button>
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-bold shadow-lg shadow-primary/25 hover:bg-primary-container hover:scale-[1.02] transition-all flex items-center gap-3">
+                        Enter the Kitchen
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Space -->
+<footer class="py-12 px-6 flex justify-center opacity-40">
+<span class="font-serif italic text-sm text-stone-600">BiteBuddy © 2024. Handcrafted for modern manuscripts.</span>
+</footer>
+</body></html>

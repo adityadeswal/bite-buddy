@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BiteBuddy - Edit Recipe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#191d0e",
+                    "primary-fixed": "#ffdad2",
+                    "on-surface": "#1c1c19",
+                    "surface-dim": "#ddd9d5",
+                    "surface-container-highest": "#e6e2dd",
+                    "background": "#fdf9f4",
+                    "inverse-surface": "#31302d",
+                    "secondary-container": "#e0e5cc",
+                    "on-background": "#1c1c19",
+                    "on-tertiary-fixed-variant": "#0e5138",
+                    "surface-container-high": "#ebe8e3",
+                    "primary": "#a83213",
+                    "on-surface-variant": "#59413c",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#b1f0ce",
+                    "on-primary-fixed": "#3c0700",
+                    "tertiary-fixed-dim": "#95d4b3",
+                    "secondary-fixed-dim": "#c4c9b1",
+                    "tertiary": "#2a674c",
+                    "inverse-primary": "#ffb4a2",
+                    "surface-container": "#f1ede8",
+                    "primary-fixed-dim": "#ffb4a2",
+                    "on-primary": "#ffffff",
+                    "surface": "#fdf9f4",
+                    "secondary-fixed": "#e0e5cc",
+                    "primary-container": "#ca4a29",
+                    "surface-variant": "#e6e2dd",
+                    "on-tertiary-fixed": "#002114",
+                    "on-tertiary-container": "#f5fff7",
+                    "on-secondary-container": "#626753",
+                    "on-secondary": "#ffffff",
+                    "outline": "#8c716a",
+                    "on-primary-container": "#fffbff",
+                    "outline-variant": "#e0bfb7",
+                    "on-primary-fixed-variant": "#8a1d00",
+                    "on-secondary-fixed-variant": "#444937",
+                    "inverse-on-surface": "#f4f0eb",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#448064",
+                    "surface-bright": "#fdf9f4",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "secondary": "#5c614d",
+                    "surface-tint": "#ac3415",
+                    "surface-container-low": "#f7f3ee"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Noto Serif', serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_12px_40px_rgba(45,45,45,0.06)]">
+<nav class="flex justify-between items-center w-full px-6 py-4 max-w-full">
+<div class="flex items-center gap-2">
+<span class="font-serif text-2xl font-bold italic text-[#D95433] dark:text-[#f17150]">BiteBuddy</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:bg-stone-50 transition-colors duration-300" href="#">Kitchen</a>
+<a class="text-[#D95433] dark:text-[#f17150] font-semibold" href="#">Library</a>
+<a class="text-stone-500 dark:text-stone-400 font-medium hover:bg-stone-50 transition-colors duration-300" href="#">Cook Mode</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-stone-50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<img alt="Chef profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary/10" data-alt="Close up portrait of a professional chef in white uniform with a warm smile in a modern kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp4hYebMJctVC5xAljESRdRmKg9gxu8dkEhFdA_0JlO9FhUUBFd4hwDkrqpfStQ3GfE_0YJ15YvdrmoSoFzH8wlnnq4HT8fiLdjyw0uKVMSS5KREAUSTMZ0WIK8xNsz_EWOYlFGy_xa2B5vofvVuPw-2fTjLuRwzMfz-EWk10rpYRAdyUSLTk1QA0SA7OJzvdFYDvtD_x1LvwzEH3y2v24uwJ6aCuCOCRvliauh8HQSGdyjYjCY2eaIkxG_ugK42daMUgZj9VFl9OK"/>
+</div>
+</nav>
+</header>
+<!-- Side Navigation Anchor (Desktop Only) -->
+<aside class="hidden md:flex h-screen w-72 flex-col fixed left-0 top-0 bg-stone-50 dark:bg-stone-950 border-r border-stone-200/15 py-8 gap-6 z-40">
+<div class="px-8 mb-4">
+<h2 class="font-serif text-xl italic text-stone-900">The Kitchen</h2>
+<p class="font-sans text-[10px] font-medium uppercase tracking-widest text-stone-500">Modern Manuscript</p>
+</div>
+<div class="flex flex-col gap-1 px-4">
+<a class="flex items-center gap-4 text-stone-500 px-4 py-3 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">flatware</span>
+<span class="font-sans text-sm font-medium uppercase tracking-widest">Kitchen</span>
+</a>
+<a class="flex items-center gap-4 bg-white text-[#D95433] rounded-xl shadow-sm px-4 py-3" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-sans text-sm font-medium uppercase tracking-widest">Library</span>
+</a>
+<a class="flex items-center gap-4 text-stone-500 px-4 py-3 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">outdoor_grill</span>
+<span class="font-sans text-sm font-medium uppercase tracking-widest">Cook Mode</span>
+</a>
+<a class="flex items-center gap-4 text-stone-500 px-4 py-3 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-sans text-sm font-medium uppercase tracking-widest">Flatmates</span>
+</a>
+<a class="flex items-center gap-4 text-stone-500 px-4 py-3 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="font-sans text-sm font-medium uppercase tracking-widest">Groceries</span>
+</a>
+</div>
+<div class="mt-auto px-4 flex flex-col gap-1">
+<a class="flex items-center gap-4 text-stone-500 px-4 py-3" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-sans text-sm font-medium uppercase tracking-widest">Help</span>
+</a>
+<a class="flex items-center gap-4 text-stone-500 px-4 py-3" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-sans text-sm font-medium uppercase tracking-widest">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area: Add/Edit Recipe Sheet Overlay -->
+<main class="min-h-screen pt-24 pb-12 px-6 md:pl-80 bg-surface">
+<!-- Focused Overlay / Editorial Sheet -->
+<div class="max-w-5xl mx-auto">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_12px_40px_rgba(45,45,45,0.06)] overflow-hidden">
+<!-- Layout Grid: Image on Left, Form on Right -->
+<div class="flex flex-col lg:flex-row">
+<!-- Left: Media Section (4:5 Aspect Ratio) -->
+<div class="lg:w-5/12 bg-surface-container p-8 flex flex-col items-center justify-center border-r border-outline-variant/15">
+<div class="relative w-full aspect-[4/5] group overflow-hidden rounded-xl bg-surface-container-low border-2 border-dashed border-outline-variant flex flex-col items-center justify-center transition-all hover:bg-surface-container-high">
+<!-- Background Image Preview (Placeholder) -->
+<img alt="Upload placeholder" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" data-alt="Gourmet salad with vibrant vegetables and citrus slices on a rustic ceramic plate with natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXuIqAg2YJABSa_0l824siqMXjYXaT6JvK6Cfp5M8kyh0EHtvqUploPhunT3bNl30pf5BDu3lr1Jv1GtLzzxxdteOePVu8oQRvre0oq0-8CYnELvZIBnjPJvhuZ2-AiJdDgEPbDYDVxWm2ldKxhY30Ukxk8PSLXFfHKP3uQ8JKfizAuB5BtN73PK5zLjTVdZdSuKoi6glGxfWwyysv59gympg1RMFL0mrVxYLscUGGCK-BDsbm-gk4I7f1ZsW0GbCgWFrExuQSZdm2"/>
+<!-- Upload Trigger -->
+<div class="relative z-10 flex flex-col items-center text-center p-6 cursor-pointer">
+<span class="material-symbols-outlined text-5xl text-primary mb-4" style="font-variation-settings: 'wght' 200;">add_a_photo</span>
+<h3 class="font-serif text-xl italic mb-2">Drop your photo here</h3>
+<p class="text-xs text-on-surface-variant font-medium uppercase tracking-widest">Preferred 4:5 Aspect Ratio</p>
+</div>
+</div>
+<p class="mt-6 text-sm italic text-secondary/70 text-center">Visuals are the heartbeat of the manuscript. Choose something appetizing.</p>
+</div>
+<!-- Right: Editor Section -->
+<div class="lg:w-7/12 p-8 lg:p-12">
+<div class="flex justify-between items-start mb-12">
+<div>
+<span class="text-xs font-medium uppercase tracking-[0.2em] text-secondary mb-2 block">Library Entry</span>
+<h1 class="font-serif text-4xl italic text-on-surface">Edit Recipe</h1>
+</div>
+<button class="p-2 hover:bg-surface-container rounded-full transition-all">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-10">
+<!-- Dish Name -->
+<div class="group">
+<label class="block text-xs font-medium uppercase tracking-widest text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Dish Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 font-serif text-2xl italic focus:ring-0 focus:bg-surface-container-highest transition-all placeholder:text-surface-dim" placeholder="e.g. Slow-Cooked Dal Makhani" type="text"/>
+</div>
+<!-- Kitchen Tags -->
+<div>
+<label class="block text-xs font-medium uppercase tracking-widest text-on-surface-variant mb-3">Kitchen Tags</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-5 py-2 rounded-full border border-outline-variant/30 text-sm font-medium hover:bg-surface-container transition-all" type="button">Vegetarian</button>
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary text-sm font-medium" type="button">Summer</button>
+<button class="px-5 py-2 rounded-full border border-outline-variant/30 text-sm font-medium hover:bg-surface-container transition-all" type="button">Baking</button>
+<button class="px-5 py-2 rounded-full border border-outline-variant/30 text-sm font-medium hover:bg-surface-container transition-all" type="button">Quick Tadka</button>
+<button class="px-5 py-2 rounded-full border border-outline-variant/30 text-primary text-sm font-medium flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-base">add</span>
+                                        Add Tag
+                                    </button>
+</div>
+</div>
+<!-- Primary Ingredients -->
+<div class="group">
+<label class="block text-xs font-medium uppercase tracking-widest text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors">Primary Ingredients</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg p-4 font-body text-base focus:ring-0 focus:bg-surface-container-highest transition-all resize-none" placeholder="List the soul of your dish here..." rows="4"></textarea>
+<p class="text-[10px] text-on-surface-variant/60 mt-2 uppercase tracking-tighter italic">Separate items with a new line.</p>
+</div>
+<!-- Kitchen Notes -->
+<div class="group p-6 bg-surface-container-low rounded-xl border-l-4 border-primary/20">
+<label class="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-primary mb-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                                    Kitchen Notes
+                                </label>
+<textarea class="w-full bg-transparent border-none p-0 font-serif italic text-lg focus:ring-0 transition-all placeholder:text-surface-dim" placeholder="A little bit of tadka makes it perfect..." rows="2"></textarea>
+</div>
+<!-- Action Footer -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-outline-variant/15">
+<div class="flex items-center gap-2 text-secondary/60">
+<span class="material-symbols-outlined text-sm">history</span>
+<span class="text-[10px] uppercase tracking-widest font-medium">Last synced: Just now</span>
+</div>
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-8 py-3 text-sm font-semibold uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" type="button">Discard</button>
+<button class="flex-1 sm:flex-none px-10 py-4 bg-primary text-on-primary rounded-full font-semibold uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all" type="submit">
+                                        Save to Library
+                                    </button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Contextual Decorative Hint -->
+<div class="mt-12 text-center">
+<p class="font-serif italic text-secondary/50 text-xl">"Food is not just sustenance; it is a manuscript of memories."</p>
+<div class="w-12 h-px bg-outline-variant/30 mx-auto mt-6"></div>
+</div>
+</div>
+</main>
+<!-- FAB for quick actions (Contextual) -->
+<div class="fixed bottom-8 right-8 z-50 md:hidden">
+<button class="w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">save</span>
+</button>
+</div>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-xl border-t border-stone-100 flex justify-around py-3 px-4 z-40">
+<div class="flex flex-col items-center gap-1 text-stone-400">
+<span class="material-symbols-outlined">flatware</span>
+<span class="text-[10px] font-medium uppercase tracking-tighter">Kitchen</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#D95433]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="text-[10px] font-medium uppercase tracking-tighter">Library</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-stone-400">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium uppercase tracking-tighter">Flatmates</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-stone-400">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="text-[10px] font-medium uppercase tracking-tighter">Cart</span>
+</div>
+</nav>
+</body></html>
