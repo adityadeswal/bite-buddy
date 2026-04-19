@@ -1,7 +1,13 @@
 from datetime import date
 from enum import StrEnum
 
-from pydantic import BaseModel
+from pydantic import BaseModel, List, Optional
+
+
+class DatabaseRecord(BaseModel):
+    is_deleted: bool
+    last_updated: date
+    created_on: date
 
 
 class MealTime(StrEnum):
@@ -16,7 +22,7 @@ class DietType(StrEnum):
     NON_VEG = "non_veg"
 
 
-class Flatmate(BaseModel):
+class Flatmate(DatabaseRecord):
     id: str
     name: str
     email: str
@@ -25,12 +31,12 @@ class Flatmate(BaseModel):
     like_recipes: List[str]
     dislike_recipes: List[str]
 
-class FlatmateAvailability(BaseModel):
+class FlatmateAvailability(DatabaseRecord):
     flatmate_id: str
     date: date
     available: bool
 
-class Recipe(BaseModel):
+class Recipe(DatabaseRecord):
     id: str
     meal_time: MealTime
 
@@ -38,17 +44,17 @@ class Recipe(BaseModel):
     photo: str
     url: str
 
-class Cook(BaseModel):
+class Cook(DatabaseRecord):
     id: str
     name: str
 
-class Flat(BaseModel):
+class Flat(DatabaseRecord):
     id: str
     address: str
     cook_id: str
     recipes: List[str]
 
-class FlatActions(BaseModel):
+class FlatActions(DatabaseRecord):
     flat_id: str
     date: date
     meal_time: MealTime
