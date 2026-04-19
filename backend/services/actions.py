@@ -44,16 +44,21 @@ def create_action(dto: CreateFlatActionDto) -> FlatAction:
     return _row_to_action(row)
 
 
-def list_actions(flat_id: str | None = None) -> List[FlatAction]:
+def list_actions(flat_id: str | None = None, start_date: date | None = None, end_date: date | None = None) -> List[FlatAction]:
     with db.get_conn() as conn:
+        conditions = ["is_deleted = FALSE"]
+        params: list = []
         if flat_id:
-            rows = db.fetchall(
-                conn,
-                "SELECT * FROM flat_actions WHERE is_deleted = FALSE AND flat_id = %s",
-                (flat_id,),
-            )
-        else:
-            rows = db.fetchall(conn, "SELECT * FROM flat_actions WHERE is_deleted = FALSE")
+            conditions.append("flat_id = %s")
+            params.append(flat_id)
+        if start_date:
+            conditions.append("date >= %s")
+            params.append(start_date)
+        if end_date:
+            conditions.append("date <= %s")
+            params.append(end_date)
+        where = " AND ".join(conditions)
+        rows = db.fetchall(conn, f"SELECT * FROM flat_actions WHERE {where}", params)
     return [_row_to_action(r) for r in rows]
 
 
