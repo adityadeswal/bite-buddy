@@ -54,7 +54,7 @@ class Flat(DatabaseRecord):
     cook_id: str
     recipes: List[str]
 
-class FlatActions(DatabaseRecord):
+class FlatAction(DatabaseRecord):
     flat_id: str
     date: date
     meal_time: MealTime
