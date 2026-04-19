@@ -23,7 +23,29 @@ def init_db() -> None:
         user=os.environ.get("DB_USER", "postgres"),
         password=os.environ["DB_PASSWORD"],
     )
+    _register_enum_array_casters()
     _run_migrations()
+
+
+def _register_enum_array_casters() -> None:
+    # psycopg2 returns custom-enum arrays (e.g. diet_type[]) as raw postgres
+    # literals like '{veg,non_veg}'. Register casters so they decode to
+    # Python lists of strings, which Pydantic can then coerce to enums.
+    conn = _pool.getconn()
+    try:
+        with conn.cursor() as cur:
+            cur.execute(
+                "SELECT typarray FROM pg_type WHERE typname = ANY(%s) AND typarray <> 0",
+                (["diet_type", "meal_time"],),
+            )
+            oids = tuple(r[0] for r in cur.fetchall())
+        if oids:
+            array_type = psycopg2.extensions.new_array_type(
+                oids, "ENUM_ARRAY", psycopg2.STRING
+            )
+            psycopg2.extensions.register_type(array_type)
+    finally:
+        _pool.putconn(conn)
 
 
 def _run_migrations() -> None:

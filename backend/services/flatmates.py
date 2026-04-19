@@ -19,13 +19,13 @@ def _row_to_flatmate(row: dict) -> Flatmate:
 def create_flatmate(dto: CreateFlatmateDto) -> Flatmate:
     today = _now()
     with db.get_conn() as conn:
-        existing = db.fetchone(conn, "SELECT id FROM flatmates WHERE id = %s", (dto.id,))
+        existing = db.fetchone(conn, "SELECT id FROM flatmate WHERE id = %s", (dto.id,))
         if existing:
             raise HTTPException(400, "Flatmate already exists")
         db.execute(
             conn,
             """
-            INSERT INTO flatmates
+            INSERT INTO flatmate
                 (id, name, email, flat_id, diet_types, like_recipes, dislike_recipes,
                  is_deleted, created_on, last_updated)
             VALUES (%s, %s, %s, %s, %s, %s, %s, FALSE, %s, %s)
@@ -37,7 +37,7 @@ def create_flatmate(dto: CreateFlatmateDto) -> Flatmate:
             ),
         )
         conn.commit()
-        row = db.fetchone(conn, "SELECT * FROM flatmates WHERE id = %s", (dto.id,))
+        row = db.fetchone(conn, "SELECT * FROM flatmate WHERE id = %s", (dto.id,))
     return _row_to_flatmate(row)
 
 
@@ -46,18 +46,18 @@ def list_flatmates(flat_id: str | None = None) -> List[Flatmate]:
         if flat_id:
             rows = db.fetchall(
                 conn,
-                "SELECT * FROM flatmates WHERE is_deleted = FALSE AND flat_id = %s",
+                "SELECT * FROM flatmate WHERE is_deleted = FALSE AND flat_id = %s",
                 (flat_id,),
             )
         else:
-            rows = db.fetchall(conn, "SELECT * FROM flatmates WHERE is_deleted = FALSE")
+            rows = db.fetchall(conn, "SELECT * FROM flatmate WHERE is_deleted = FALSE")
     return [_row_to_flatmate(r) for r in rows]
 
 
 def get_flatmate(flatmate_id: str) -> Flatmate:
     with db.get_conn() as conn:
         row = db.fetchone(
-            conn, "SELECT * FROM flatmates WHERE id = %s AND is_deleted = FALSE", (flatmate_id,)
+            conn, "SELECT * FROM flatmate WHERE id = %s AND is_deleted = FALSE", (flatmate_id,)
         )
     if not row:
         raise HTTPException(404, "Flatmate not found")
@@ -73,26 +73,26 @@ def update_flatmate(flatmate_id: str, dto: UpdateFlatmateDto) -> Flatmate:
     values = list(updates.values()) + [flatmate_id]
     with db.get_conn() as conn:
         row = db.fetchone(
-            conn, "SELECT id FROM flatmates WHERE id = %s AND is_deleted = FALSE", (flatmate_id,)
+            conn, "SELECT id FROM flatmate WHERE id = %s AND is_deleted = FALSE", (flatmate_id,)
         )
         if not row:
             raise HTTPException(404, "Flatmate not found")
-        db.execute(conn, f"UPDATE flatmates SET {set_clause} WHERE id = %s", values)
+        db.execute(conn, f"UPDATE flatmate SET {set_clause} WHERE id = %s", values)
         conn.commit()
-        updated = db.fetchone(conn, "SELECT * FROM flatmates WHERE id = %s", (flatmate_id,))
+        updated = db.fetchone(conn, "SELECT * FROM flatmate WHERE id = %s", (flatmate_id,))
     return _row_to_flatmate(updated)
 
 
 def delete_flatmate(flatmate_id: str) -> None:
     with db.get_conn() as conn:
         row = db.fetchone(
-            conn, "SELECT id FROM flatmates WHERE id = %s AND is_deleted = FALSE", (flatmate_id,)
+            conn, "SELECT id FROM flatmate WHERE id = %s AND is_deleted = FALSE", (flatmate_id,)
         )
         if not row:
             raise HTTPException(404, "Flatmate not found")
         db.execute(
             conn,
-            "UPDATE flatmates SET is_deleted = TRUE, last_updated = %s WHERE id = %s",
+            "UPDATE flatmate SET is_deleted = TRUE, last_updated = %s WHERE id = %s",
             (_now(), flatmate_id),
         )
         conn.commit()
