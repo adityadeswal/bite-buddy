@@ -1,3 +1,4 @@
+import os
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -23,9 +24,15 @@ app.include_router(cooks.router)
 app.include_router(actions.router)
 
 
+_default_origins = "http://localhost:3000"
+_origins_env = os.environ.get("CORS_ORIGINS", _default_origins)
+allow_origins = [o.strip() for o in _origins_env.split(",") if o.strip()]
+allow_origin_regex = os.environ.get("CORS_ORIGIN_REGEX") or None
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=allow_origins,
+    allow_origin_regex=allow_origin_regex,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -38,4 +45,5 @@ def health():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.environ.get("PORT", "8000"))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
