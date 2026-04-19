@@ -1,0 +1,44 @@
+  Prompt:
+
+  Design a clean, friendly mobile-first web app called Bite-Buddy — a meal coordination app for Indian flatmates who cook together and want to plan weekly
+   meals without the daily "kya khana hai?" confusion.
+
+  Product context
+  - Users: 2–6 flatmates sharing a kitchen, meal.
+  - Cook: Hired cook
+  - Goal for v1: capture who lives together, what everyone eats, and what's on the menu this week.
+  - Explicitly NOT in scope: inventory tracking, grocery lists, automatic ordering, payment splitting.
+
+  Screens to design
+
+  1. Welcome / Sign-in — warm hero, one-line value prop ("Never argue about dinner again"), phone OTP.
+  2. Onboarding (3–4 steps, progress dots at top)
+    - Step 1: Your name + profile photo.
+    - Step 2: Create or join a flat (invite code / shareable link).
+    - Step 3: Basic food profile — veg/non-veg/egg-itarian, spice tolerance (mild/medium/spicy), cuisines you love (chip selector: North Indian, South
+  Indian, Chinese, Continental, etc.).
+    - Step 4: Allergies & dislikes (free-text chips, e.g. "no mushrooms", "lactose intolerant").
+  3. Home / This Week — weekly meal grid (Mon–Sat × Breakfast/Lunch/Dinner). Empty slots show a subtle "+ Add meal". Today's row is highlighted. Each meal
+  card shows dish name, a small emoji/icon( photo if available), Tapping a meal opens the Meal Detail view.
+  4. Add Recipe (bottom sheet or full screen), existing recipe would have photo for aesthetic purpose but not required
+    - Dish name (autocomplete from past meals).
+    - Meal type (breakfast/lunch/dinner) + date picker.
+    - Tags: veg/non-veg, cuisine.
+    - Optional note ("extra spicy today").
+  5. Flatmates — list of everyone in the flat with avatar, food profile summary, and a "preferences" detail view. They can invite other and leave the flat voluntarily.
+  6. My Preferences — edit the onboarding answers anytime; toggle notifications.
+
+It would be for hired cooks to manage meal planning for the flatmates. The
+  Cook will know what to cook and can regenerate another meal too, if they want to change the plan. Flatmates can see the meal plan, but only the cook can edit it.
+
+  Design direction
+  - Aesthetic: modern, warm, slightly playful. Think Notion × Swiggy × Linear. Avoid stock "AI SaaS" gradients.
+  - Palette: a warm primary (turmeric/saffron or tomato), soft off-white background, deep charcoal text. One accent for CTAs.
+  - Typography: clean sans-serif, generous line-height, big readable headers.
+  - Components: rounded-xl cards, soft shadows, subtle dividers, emoji accents for meal types (🍳🍛🍲).
+  - Micro-delights: empty states with friendly copy in Hinglish ("Abhi tak kuch plan nahi hai — let's fix that"), subtle confetti when a week is fully
+  planned.
+  - Fully responsive; primary target is mobile, but desktop should feel intentional (grid expands, not just stretched).
+
+  Deliverables
+  High-fidelity mockups for each screen above, including empty states, filled states, and one dark-mode variant of the Home screen.
