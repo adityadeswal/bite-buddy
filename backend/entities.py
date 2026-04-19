@@ -20,6 +20,7 @@ class Flatmate(BaseModel):
     id: str
     name: str
     email: str
+    phone: str
     flat_id: str
     diet_types: List[DietType]
     like_recipes: List[str]
