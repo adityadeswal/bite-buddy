@@ -1,10 +1,12 @@
 import random
 from datetime import date, timedelta
+from typing import List
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
-from entities import Recipe
+from dtos import CreateFlatActionDto
+from entities import MealTime, Recipe
 from services import flatmates as flatmates_svc
 from services import flats as flats_svc
 from services import recipes as recipes_svc
@@ -18,7 +20,7 @@ class GeneratePlanRequest(BaseModel):
     date: date
 
 
-@router.post("/generate-plan", response_model=Recipe)
+@router.post("/generate-plan", response_model=List[Recipe])
 def generate_plan(body: GeneratePlanRequest):
     flat_id = body.flat_id
     target_date = body.date
@@ -57,16 +59,30 @@ def generate_plan(body: GeneratePlanRequest):
         except HTTPException:
             pass
 
-    # 7. Filter by common diet types, dislikes, and recent meals
-    filtered = [
-        r for r in candidate_recipes
-        if set(r.diet_types) & common_diet_types
-        and r.id not in all_dislikes
-        and r.id not in recent_meal_ids
-    ]
+    # 7. For each meal type, select a recipe and persist a FlatAction
+    results = []
+    for meal_type in [MealTime.BREAKFAST, MealTime.LUNCH, MealTime.DINNER]:
+        filtered = [
+            r for r in candidate_recipes
+            if set(r.diet_types) & common_diet_types
+            and r.id not in all_dislikes
+            and r.id not in recent_meal_ids
+            and r.meal_time == meal_type
+        ]
 
-    if not filtered:
-        raise HTTPException(400, "No suitable recipes found after applying filters")
+        if not filtered:
+            raise HTTPException(400, f"No suitable recipes found for {meal_type} after applying filters")
 
-    # 8. Randomly select one
-    return random.choice(filtered)
+        selected = random.choice(filtered)
+
+        actions_svc.create_action(CreateFlatActionDto(
+            flat_id=flat_id,
+            date=target_date,
+            meal_time=meal_type,
+            is_meal_made=False,
+            meal_id=selected.id,
+        ))
+
+        results.append(selected)
+
+    return results
