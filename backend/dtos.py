@@ -50,6 +50,7 @@ class UpdateFlatmateAvailabilityDto(BaseModel):
 
 class CreateRecipeDto(BaseModel):
     id: str
+    name: str
     meal_time: MealTime
     diet_types: List[DietType]
     photo: str
@@ -57,6 +58,7 @@ class CreateRecipeDto(BaseModel):
 
 
 class UpdateRecipeDto(BaseModel):
+    name: Optional[str] = None
     meal_time: Optional[MealTime] = None
     diet_types: Optional[List[DietType]] = None
     photo: Optional[str] = None

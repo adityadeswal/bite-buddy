@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS flat (
     id           TEXT PRIMARY KEY,
     address      TEXT NOT NULL,
     cook_id      TEXT NOT NULL REFERENCES cook(id),
+    recipes      TEXT[] NOT NULL DEFAULT '{}',
     is_deleted   BOOLEAN NOT NULL DEFAULT FALSE,
     last_updated DATE NOT NULL,
     created_on   DATE NOT NULL
@@ -29,7 +30,9 @@ CREATE TABLE IF NOT EXISTS flat (
 -- Recipe
 CREATE TABLE IF NOT EXISTS recipe (
     id           TEXT PRIMARY KEY,
+    name        TEXT NOT NULL,
     meal_time    meal_time NOT NULL,
+    diet_types   diet_type[] NOT NULL DEFAULT '{}',
     photo        TEXT NOT NULL,
     url          TEXT NOT NULL,
     is_deleted   BOOLEAN NOT NULL DEFAULT FALSE,
@@ -39,42 +42,16 @@ CREATE TABLE IF NOT EXISTS recipe (
 
 -- Flatmate
 CREATE TABLE IF NOT EXISTS flatmate (
-    id           TEXT PRIMARY KEY,
-    name         TEXT NOT NULL,
-    email        TEXT NOT NULL,
-    flat_id      TEXT NOT NULL REFERENCES flat(id),
-    is_deleted   BOOLEAN NOT NULL DEFAULT FALSE,
-    last_updated DATE NOT NULL,
-    created_on   DATE NOT NULL
-);
-
--- Junction: flatmate <-> diet_type
-CREATE TABLE IF NOT EXISTS flatmate_diet_type (
-    flatmate_id TEXT NOT NULL REFERENCES flatmate(id),
-    diet_type   diet_type NOT NULL,
-    PRIMARY KEY (flatmate_id, diet_type)
-);
-
--- Junction: flatmate liked/disliked recipes
-CREATE TABLE IF NOT EXISTS flatmate_recipe_preference (
-    flatmate_id TEXT NOT NULL REFERENCES flatmate(id),
-    recipe_id   TEXT NOT NULL REFERENCES recipe(id),
-    preference  TEXT NOT NULL CHECK (preference IN ('like', 'dislike')),
-    PRIMARY KEY (flatmate_id, recipe_id)
-);
-
--- Junction: flat <-> recipe
-CREATE TABLE IF NOT EXISTS flat_recipe (
-    flat_id   TEXT NOT NULL REFERENCES flat(id),
-    recipe_id TEXT NOT NULL REFERENCES recipe(id),
-    PRIMARY KEY (flat_id, recipe_id)
-);
-
--- Junction: recipe <-> diet_type
-CREATE TABLE IF NOT EXISTS recipe_diet_type (
-    recipe_id TEXT NOT NULL REFERENCES recipe(id),
-    diet_type diet_type NOT NULL,
-    PRIMARY KEY (recipe_id, diet_type)
+    id              TEXT PRIMARY KEY,
+    name            TEXT NOT NULL,
+    email           TEXT NOT NULL,
+    flat_id         TEXT NOT NULL REFERENCES flat(id),
+    diet_types      diet_type[] NOT NULL DEFAULT '{}',
+    like_recipes    TEXT[] NOT NULL DEFAULT '{}',
+    dislike_recipes TEXT[] NOT NULL DEFAULT '{}',
+    is_deleted      BOOLEAN NOT NULL DEFAULT FALSE,
+    last_updated    DATE NOT NULL,
+    created_on      DATE NOT NULL
 );
 
 -- FlatmateAvailability

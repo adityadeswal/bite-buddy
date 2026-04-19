@@ -40,6 +40,7 @@ class FlatmateAvailability(DatabaseRecord):
 
 class Recipe(DatabaseRecord):
     id: str
+    name: str
     meal_time: MealTime
     diet_types: List[DietType]
     photo: str
