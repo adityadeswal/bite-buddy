@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 import db
-from routers import flats, flatmates, availability, recipes, cooks, actions
+from routers import flats, flatmates, availability, recipes, cooks, actions, engine
 
 
 @asynccontextmanager
@@ -22,6 +22,7 @@ app.include_router(availability.router)
 app.include_router(recipes.router)
 app.include_router(cooks.router)
 app.include_router(actions.router)
+app.include_router(engine.router)
 
 
 _default_origins = "http://localhost:3000"
