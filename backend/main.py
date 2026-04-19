@@ -1,7 +1,27 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="Bite Buddy API")
+import db
+from routers import flats, flatmates, availability, recipes, cooks, actions
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    db.init_db()
+    yield
+
+
+app = FastAPI(title="Bite Buddy API", lifespan=lifespan)
+
+app.include_router(flats.router)
+app.include_router(flatmates.router)
+app.include_router(availability.router)
+app.include_router(recipes.router)
+app.include_router(cooks.router)
+app.include_router(actions.router)
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -14,6 +34,7 @@ app.add_middleware(
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
 
 if __name__ == "__main__":
     import uvicorn
