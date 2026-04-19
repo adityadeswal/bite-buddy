@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
 import { Icon } from "@/components/icon";
+import { BackendChip } from "@/components/backend-chip";
 import { useAppStore, useCurrentFlatmate } from "@/mock/store";
 
 const NAV: { href: string; label: string; icon: string }[] = [
@@ -39,6 +40,9 @@ export function FlatShell({ children }: { children: ReactNode }) {
             <p className="uppercase tracking-widest text-[10px] font-bold text-on-surface-variant">
               The Modern Kitchen
             </p>
+          </div>
+          <div className="flex justify-start">
+            <BackendChip />
           </div>
           <nav className="flex-1 space-y-2">
             {NAV.map((item) => {

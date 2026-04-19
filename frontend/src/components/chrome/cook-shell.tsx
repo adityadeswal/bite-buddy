@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
 import { Icon } from "@/components/icon";
+import { BackendChip } from "@/components/backend-chip";
 import { useAppStore, useCurrentCook } from "@/mock/store";
 
 const NAV_ITEMS: {
@@ -85,6 +86,7 @@ export function CookShell({ children }: { children: ReactNode }) {
             </nav>
           </div>
           <div className="flex items-center gap-4">
+            <BackendChip />
             <button className="p-2 text-on-surface-variant hover:text-primary transition-all">
               <Icon name="notifications" />
             </button>

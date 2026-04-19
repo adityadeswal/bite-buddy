@@ -28,7 +28,7 @@ def create_flatmate(dto: CreateFlatmateDto) -> Flatmate:
             INSERT INTO flatmate
                 (id, name, email, flat_id, diet_types, like_recipes, dislike_recipes,
                  is_deleted, created_on, last_updated)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, FALSE, %s, %s)
+            VALUES (%s, %s, %s, %s, %s::diet_type[], %s, %s, FALSE, %s, %s)
             """,
             (
                 dto.id, dto.name, dto.email, dto.flat_id,
@@ -64,12 +64,20 @@ def get_flatmate(flatmate_id: str) -> Flatmate:
     return _row_to_flatmate(row)
 
 
+_FLATMATE_COLUMN_CASTS = {"diet_types": "diet_type[]"}
+
+
+def _placeholder(column: str) -> str:
+    cast = _FLATMATE_COLUMN_CASTS.get(column)
+    return f"%s::{cast}" if cast else "%s"
+
+
 def update_flatmate(flatmate_id: str, dto: UpdateFlatmateDto) -> Flatmate:
     updates = dto.model_dump(exclude_none=True)
     if not updates:
         return get_flatmate(flatmate_id)
     updates["last_updated"] = _now()
-    set_clause = ", ".join(f"{k} = %s" for k in updates)
+    set_clause = ", ".join(f"{k} = {_placeholder(k)}" for k in updates)
     values = list(updates.values()) + [flatmate_id]
     with db.get_conn() as conn:
         row = db.fetchone(

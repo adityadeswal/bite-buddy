@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/icon";
+import { BackendChip } from "@/components/backend-chip";
 import { useAppStore } from "@/mock/store";
 
 type Role = "flatmate" | "cook" | null;
@@ -37,7 +38,10 @@ export default function WelcomePage() {
   };
 
   return (
-    <main className="flex min-h-screen w-full bg-surface text-on-surface">
+    <main className="flex min-h-screen w-full bg-surface text-on-surface relative">
+      <div className="absolute top-4 right-4 z-20">
+        <BackendChip />
+      </div>
       {/* Left: editorial hero (desktop only) */}
       <section className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
         <img
