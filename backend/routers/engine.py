@@ -8,7 +8,6 @@ from pydantic import BaseModel
 from dtos import CreateFlatActionDto
 from entities import MealTime, Recipe
 from services import flatmates as flatmates_svc
-from services import flats as flats_svc
 from services import recipes as recipes_svc
 from services import actions as actions_svc
 
@@ -48,16 +47,8 @@ def generate_plan(body: GeneratePlanRequest):
     recent_actions = actions_svc.list_actions(flat_id=flat_id, start_date=start, end_date=end)
     recent_meal_ids = {a.meal_id for a in recent_actions if a.meal_id is not None}
 
-    # 5. Get flat's recipe IDs
-    flat = flats_svc.get_flat(flat_id)
-
-    # 6. Fetch recipe details, skipping any that no longer exist
-    candidate_recipes = []
-    for recipe_id in flat.recipes:
-        try:
-            candidate_recipes.append(recipes_svc.get_recipe(recipe_id))
-        except HTTPException:
-            pass
+    # 5. Get all available recipes
+    candidate_recipes = recipes_svc.list_recipes()
 
     # 7. For each meal type, select a recipe and persist a FlatAction
     results = []
