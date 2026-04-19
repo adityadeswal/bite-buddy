@@ -1,105 +1,34 @@
-from datetime import date
 from typing import List
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 
-import db
 from dtos import CreateFlatmateDto, UpdateFlatmateDto
 from entities import Flatmate
+import services.flatmates as flatmates_service
 
 router = APIRouter(prefix="/flatmates", tags=["flatmates"])
 
 
-def _now() -> date:
-    return date.today()
-
-
-def _row_to_flatmate(row: dict) -> Flatmate:
-    return Flatmate(**row)
-
-
 @router.post("", response_model=Flatmate, status_code=201)
 def create_flatmate(dto: CreateFlatmateDto):
-    today = _now()
-    with db.get_conn() as conn:
-        existing = db.fetchone(conn, "SELECT id FROM flatmates WHERE id = %s", (dto.id,))
-        if existing:
-            raise HTTPException(400, "Flatmate already exists")
-        db.execute(
-            conn,
-            """
-            INSERT INTO flatmates
-                (id, name, email, flat_id, diet_types, like_recipes, dislike_recipes,
-                 is_deleted, created_on, last_updated)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, FALSE, %s, %s)
-            """,
-            (
-                dto.id, dto.name, dto.email, dto.flat_id,
-                dto.diet_types, dto.like_recipes, dto.dislike_recipes,
-                today, today,
-            ),
-        )
-        conn.commit()
-        row = db.fetchone(conn, "SELECT * FROM flatmates WHERE id = %s", (dto.id,))
-    return _row_to_flatmate(row)
+    return flatmates_service.create_flatmate(dto)
 
 
 @router.get("", response_model=List[Flatmate])
 def list_flatmates(flat_id: str | None = None):
-    with db.get_conn() as conn:
-        if flat_id:
-            rows = db.fetchall(
-                conn,
-                "SELECT * FROM flatmates WHERE is_deleted = FALSE AND flat_id = %s",
-                (flat_id,),
-            )
-        else:
-            rows = db.fetchall(conn, "SELECT * FROM flatmates WHERE is_deleted = FALSE")
-    return [_row_to_flatmate(r) for r in rows]
+    return flatmates_service.list_flatmates(flat_id)
 
 
 @router.get("/{flatmate_id}", response_model=Flatmate)
 def get_flatmate(flatmate_id: str):
-    with db.get_conn() as conn:
-        row = db.fetchone(
-            conn, "SELECT * FROM flatmates WHERE id = %s AND is_deleted = FALSE", (flatmate_id,)
-        )
-    if not row:
-        raise HTTPException(404, "Flatmate not found")
-    return _row_to_flatmate(row)
+    return flatmates_service.get_flatmate(flatmate_id)
 
 
 @router.patch("/{flatmate_id}", response_model=Flatmate)
 def update_flatmate(flatmate_id: str, dto: UpdateFlatmateDto):
-    updates = dto.model_dump(exclude_none=True)
-    if not updates:
-        return get_flatmate(flatmate_id)
-    updates["last_updated"] = _now()
-    set_clause = ", ".join(f"{k} = %s" for k in updates)
-    values = list(updates.values()) + [flatmate_id]
-    with db.get_conn() as conn:
-        row = db.fetchone(
-            conn, "SELECT id FROM flatmates WHERE id = %s AND is_deleted = FALSE", (flatmate_id,)
-        )
-        if not row:
-            raise HTTPException(404, "Flatmate not found")
-        db.execute(conn, f"UPDATE flatmates SET {set_clause} WHERE id = %s", values)
-        conn.commit()
-        updated = db.fetchone(conn, "SELECT * FROM flatmates WHERE id = %s", (flatmate_id,))
-    return _row_to_flatmate(updated)
+    return flatmates_service.update_flatmate(flatmate_id, dto)
 
 
 @router.delete("/{flatmate_id}", status_code=204)
 def delete_flatmate(flatmate_id: str):
-    with db.get_conn() as conn:
-        row = db.fetchone(
-            conn, "SELECT id FROM flatmates WHERE id = %s AND is_deleted = FALSE", (flatmate_id,)
-        )
-        if not row:
-            raise HTTPException(404, "Flatmate not found")
-        db.execute(
-            conn,
-            "UPDATE flatmates SET is_deleted = TRUE, last_updated = %s WHERE id = %s",
-            (_now(), flatmate_id),
-        )
-        conn.commit()
+    flatmates_service.delete_flatmate(flatmate_id)
